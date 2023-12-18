@@ -1,29 +1,104 @@
-@font-face {
-    font-family: 'Roboto-bold';
-    src: url(../fonts/Roboto/Roboto-Bold.ttf);
+header {
+    background-color: var(--main-bg-color);
 }
-@font-face {
-    font-family: 'Roboto';
-    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+
+.navbar-container {
+    height: 82px;
 }
-body h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
+.header-top {
+    border-bottom: 0.6666px solid rgba(255, 255, 255, 0.3);
 }
 .top-letter {
-    background-color: #181818;
     color: white;
-    font-family: 'Roboto-bold';
-    font-size: 14px;
+    font-size: 11px;
+    position: relative;
+    height: 35px;
+    letter-spacing: 1px;
 }
 
 .top-letter .top-letter-content {
-    margin-left: 370px;
-    margin-right: auto;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.top-letter .top-letter-content p {
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 .top-letter-options {
-    font-family: 'Roboto';
+    position: absolute;
+    right: 0;
+    width: 130px;
+    margin-right: 28px;
+    
 }
 .top-letter-options .locator a {
     text-decoration: none;
     color: white;
+}
+.country select {
+    background-color: var(--main-bg-color);
+    color: white;
+    border: none;
+}
+
+.logo-wrapper {
+    width: 10%;
+}
+.logo-wrapper img {
+    height: 70px;
+    width: 70px;
+}
+
+.navbuttons .each-button {
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.navbuttons .each-button a::after {
+    width: 0;
+    height: 1px;
+    margin: auto;
+    content: '';
+    display: block;
+    background: #ffffff;
+    margin-top: 0;
+    transition: width .3s ease-out;
+}
+.navbuttons .each-button a:hover::after {
+    width: 100%;
+}
+.navbuttons .each-button a {
+    padding: 10px;
+    text-decoration: none;
+    color: white; 
+    height: fit-content;
+    display: inline-block;
+}
+
+.navbar-wrapper {
+    padding: 0 20px;
+    width: 100%;
+}
+.logo-nav {
+    width: 85%;
+}
+.nav-right {
+    width: 15%;
+}
+
+.nav-right-list i {
+    color: white;
+}
+.nav-right-elements {
+    width: 100%;
+}
+
+.each-button .dropdown {
+    display: none;
+}
+.each-button .dropdown:hover {
+    display: block;
 }
