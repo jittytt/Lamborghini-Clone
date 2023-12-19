@@ -38,11 +38,24 @@ body {
     letter-spacing: 1px;
  }
 
-  .caption-secondline {
-    font-size : 74px;
-    margin-bottom: 30px;
-    font-weight : 700;
+ .caption-secondline {
+  opacity: 0;
+  animation: rollIn 1s forwards;
+  animation-delay: 0.5s;
+  transform: translateX(100%);
+  font-size : 80px; 
+}
+
+@keyframes rollIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
   }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
   .caption-thirdline {
     text-decoration: none;
@@ -86,3 +99,5 @@ body {
   .discover-caption {
     text-decoration-style: none;
   }
+
+  
