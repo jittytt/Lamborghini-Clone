@@ -53,7 +53,7 @@ img {
 .arrow1 {
     position: absolute;
     top: 88.5%;
-    left: 46%;
+    left: 45%;
     transform: translateY(-50%);
     font-size: 1em;
     color: #fff;
@@ -63,7 +63,7 @@ img {
 .arrow2 {
     position: absolute;
     top: 88.5%;
-    left: 52%;
+    left: 53%;
     transform: translateY(-50%);
     font-size: 1em;
     color: #fff;
