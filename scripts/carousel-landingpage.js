@@ -1,5 +1,3 @@
-// scripts.js
-
 document.addEventListener('DOMContentLoaded', function () {
   const slides = document.querySelectorAll('.carousel-slide');
   const totalSlides = slides.length;
@@ -11,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     slides.forEach((slide, i) => {
       slide.style.display = i === index ? 'block' : 'none';
     });
+
+    // Apply animation and blur to the current slide's caption
+    applyAnimationAndBlur(slides[index]);
   }
 
   function nextSlide() {
@@ -56,10 +57,24 @@ document.addEventListener('DOMContentLoaded', function () {
     slide.addEventListener('mouseup', () => {
       isDragging = false;
     });
-  });
 
-  // Change cursor to pointer when over the image
-  slides.forEach((slide) => {
+    // Change cursor to pointer when over the image
     slide.style.cursor = 'pointer';
   });
+
+  // Function to apply rolling-in animation and blur effect to caption lines
+  function applyAnimationAndBlur(slide) {
+    const captionFirstLine = slide.querySelector('.caption-firstline');
+    const captionSecondLine = slide.querySelector('.caption-secondline');
+    const captionThirdLine = slide.querySelector('.caption-thirdline');
+
+    // Add class for rolling-in animation to caption-secondline
+    captionSecondLine.classList.add('rolling-in');
+
+    // After a delay, add class for blur effect to caption-firstline and caption-thirdline
+    setTimeout(function () {
+      captionFirstLine.classList.add('blurred');
+      captionThirdLine.classList.add('blurred');
+    }, 1000); // Adjust the delay as needed
+  }
 });
