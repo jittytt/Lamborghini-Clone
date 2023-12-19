@@ -1,0 +1,133 @@
+.container {
+    margin-left: 0;
+    padding-left: 0;
+    margin-right : 0;
+    min-width : 1300px;
+    /* max-width : 472px; */
+    overflow-x: auto; 
+    white-space: nowrap;
+    padding-right : 0;
+    font-family: Roboto;
+}
+
+.bestsellers-caption {
+    letter-spacing: 1px;
+    padding-left : 150px;
+    padding-bottom : 15px;
+    padding-top : 20px;
+    color : black;
+    font-family : Roboto;
+    font-size : 25px;
+}
+
+.bestsellers-caption-part {
+    font-weight : 700;
+    font-family : Roboto;
+}
+
+a {
+    text-decoration: none;
+}
+.nav-tabs {
+    display: flex;
+}
+
+.nav-link {
+    cursor: pointer;
+    border: none;
+}
+
+.nav-link.active {
+    border: 0;
+    border-bottom-color: black; /* Corrected property for setting the border color */
+    color : black;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+.nav-item {
+    border-bottom: 2px solid #ccc;
+}
+
+.card {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+    border-color : white;
+}
+
+.card-body {
+    padding : 0;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+
+}
+
+.card:hover .card-body {
+    opacity: 1;
+}
+
+.card-img-top {
+    transition: all 0.3s ease-in-out;
+}
+
+.product-title, .product-price {
+    color : gray;
+    margin-top: 20px;
+    font-size : 15px;
+    font-family: Roboto;
+    line-height: 20px;
+    margin-bottom: 13px;
+}
+
+
+.cards-section {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    overflow : hidden;
+    scroll-behavior: smooth;
+    
+}
+
+.bestsellers-controls {
+    position: absolute;
+    padding-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .control-icon {
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 20px;
+    color: #000;
+  }
+  
+  .control-icon-lr{
+    cursor: pointer;
+    margin: 0 10px;
+    padding-top : 10px;
+    font-size: 20px;
+    height : 18px;
+    color: #000;
+  }
+
+  .upscaled {
+    background-color : #DBAF5B;
+    padding-left : 10px;
+    padding-right : 10px;
+    padding-top : 3px;
+    padding-bottom : 3px;
+    width : 110px;
+    height : 24px;
+    letter-spacing: 1.5px;
+    color : white;
+  }
+
+  .vertical-gap {
+    margin-top: 100px;
+}
