@@ -27,7 +27,7 @@
     position: relative;
     margin-left: -25%;
 }
-img { 
+.slider img { 
     width: 80%;
     height: 94%;
     
@@ -77,7 +77,7 @@ img {
     left: 21%;
     text-align: left;
     opacity: 0;
-    animation: rollIn 1s forwards;
+    animation: slideIn 1s ease-out forwards;
     animation-delay: 0.5s;
     transform: translateX(100%);
     
@@ -110,8 +110,13 @@ img {
     top: 35%;
     left: 22%;
     text-align: left;
-    transform: translateY(20px);
-    animation: slideIn 1s ease-out forwards;
+    
+}
+.centSlide{
+    animation: slideIn 1s ease-in forwards;
+    animation-delay: 0.6s;
+    transform: translateX(100%);
+    
 }
 .txt3{
     letter-spacing: 1.5px;
