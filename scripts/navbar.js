@@ -30,6 +30,6 @@ navbarSpecialEdition?.addEventListener("mouseleave", () => {
 })
 
 document.getElementById("special-editions-submenu").addEventListener("mouseenter", () => {
-    document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+    document.getElementById("special-editions-submenu").setAttribute("style","bottom: 0; height: 100vh;");
     document.getElementById("main-navbar").style.backgroundColor = "#181818"
 })
