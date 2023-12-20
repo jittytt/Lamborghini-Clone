@@ -1,0 +1,27 @@
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    object-fit: cover;
+  }
+
+  .image-container-collections img{
+    width: 100vw; 
+    height: auto; 
+    margin-left: 1vw; 
+    padding-top: 15vh;
+  }
+
+  .image-container-collections overlay{
+    background-color: black;
+    opacity: 0.5;
+    z-index: 2;
+  }
