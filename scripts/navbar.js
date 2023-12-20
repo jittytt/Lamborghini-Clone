@@ -9,10 +9,27 @@ window.addEventListener("scroll",() => {
     navbar.style.backgroundColor = "#181818";
 })
 const navbarListItem = document.getElementById("shop-the-look");
-console.log(navbarListItem);
 navbarListItem?.addEventListener("mouseover", () => {
     document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 0; height: 100vh;");
 })
-navbarListItem?.addEventListener("mouseout", () => {
+navbarListItem?.addEventListener("mouseleave", () => {
     document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 100vh; height: 0;");
+})
+
+document.getElementById("shop-the-look-submenu").addEventListener("mouseenter", () => {
+    document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+    document.getElementById("main-navbar").style.backgroundColor = "#181818"
+})
+
+const navbarSpecialEdition = document.getElementById("special-editions");
+navbarSpecialEdition?.addEventListener("mouseover", () => {
+    document.getElementById("special-editions-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+})
+navbarSpecialEdition?.addEventListener("mouseleave", () => {
+    document.getElementById("special-editions-submenu").setAttribute("style","bottom: 100vh; height: 0;");
+})
+
+document.getElementById("special-editions-submenu").addEventListener("mouseenter", () => {
+    document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+    document.getElementById("main-navbar").style.backgroundColor = "#181818"
 })
