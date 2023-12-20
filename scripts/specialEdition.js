@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() { //upon loading the ht
         if (counter==1){
             const currentSlide = document.getElementById(`animet${counter}`);
             currentSlide.style.opacity='1';
-            currentSlide.style.animation= "slideIn 1s ease-out forwards";
+            currentSlide.style.animation= "slideIn 2s ease-out forwards";
             const nexslid = document.getElementById(`animet${counter+1}`);
             nexslid.style.opacity='0';
             nexslid.style.animation='none';
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() { //upon loading the ht
             const preSlide = document.getElementById(`animet${counter-1}`);
             const nexSlide = document.getElementById(`animet${counter+1}`);
             currentSlide.style.opacity='1';
-            currentSlide.style.animation= "slideIn 1s ease-out forwards";
+            currentSlide.style.animation= "slideIn 2s ease-out forwards";
             preSlide.style.opacity='0';
             nexSlide.style.opacity='0';
             preSlide.style.animation='none';
