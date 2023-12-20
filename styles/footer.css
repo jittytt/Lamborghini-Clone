@@ -36,6 +36,10 @@
     color:  #d8d0d0 ;
     font-size: 0.8em;
 }
+.footer-section-newsletter label{
+    padding-top: 10%;
+    background-color: transparent;
+}
 
 .footer ul {
     list-style: none;
@@ -83,10 +87,12 @@
     color:  #c7bfbf;
     width: 100%;
     padding: 5px;
+    padding-top: 0%;
     margin-top: 5px;
     transition: border-bottom 0.3s;
     outline: none;
-    height: 2px;
+    height: 0%;
+    font-size: 0.8em;
 }
 
 .end-left{
@@ -95,4 +101,12 @@
 .end-right{
     flex: 1;
 
+}
+.leftnwsltr{
+position: relative;
+}
+.rightnwsltr{
+    position: absolute;
+    right: 0%;
+    top: 79%;
 }

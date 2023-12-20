@@ -48,3 +48,11 @@ document.addEventListener("DOMContentLoaded", function() { //upon loading the ht
         
     }
 });
+
+//footer news letter clicking
+function newsletterClick(){
+    let label=document.getElementById('newsletlabel');
+    label.style.paddingTop="5%";
+    label.style.paddingBottom="5%";
+
+}
