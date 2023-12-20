@@ -39,7 +39,7 @@
                 </div>
             </div>
             
-            <div class="navbar-container container-fluid d-flex align-items-center">
+            <div class="navbar-container container-fluid d-flex align-items-center" id="main-navbar">
                 <div class="navbar-wrapper d-flex">
                     <div class="logo-nav d-flex">
                         <div class="logo-wrapper d-flex align-items-center">
@@ -51,17 +51,10 @@
                                     <div class="each-button">
                                         <a href="">NEW IN</a>
                                     </div>
-                                    <div class="each-button">
+                                    <div class="each-button" id="shop-the-look">
                                         <a href="">SHOP THE LOOK</a>
-                                        <div class="dropdown">
-                                            <ul>
-                                                <li>MAN COLLECTION</li>
-                                                <li>TRAVEL</li>
-                                                <li>SQUADRA CORSE</li>
-                                            </ul>
-                                        </div>
                                     </div>
-                                    <div class="each-button">
+                                    <div class="each-button" id="special-editions">
                                         <a href="">SPECIAL EDITIONS</a>
                                     </div>
                                     <div class="each-button">
@@ -102,8 +95,66 @@
 
                 </div>
             </div>
+
+            <div class="dropdown-nav d-flex" id="shop-the-look-submenu">
+                <div class="dropdown-column1">
+                    <ul>
+                        <li><a href="">MAN COLLECTION</a></li>
+                        <li><a href="">TRAVEL</a></li>
+                        <li><a href="">SQUADRA CORSE</a></li>
+                        <li><a href="">SKIWEAR</a></li>
+                        <li><a href="">KIDS</a></li>
+                        <li><a href="">ACCESSORIES</a></li>
+                        <li><a href="">SHOP BY CAR</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown-column2">
+                    <ul>
+                        <li><a href="">OUTWEAR</a></li>
+                        <li><a href="">SWEATSHIRTS AND KNITWEAR</a></li>
+                        <li><a href="">T-SHIRTS AND POLO</a></li>
+                        <li><a href="">COMPLETE THE LOOK</a></li>
+                        <li><a href="">VIEW ALL</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown-column3">
+                    <div class="column3-container d-flex">
+                        <div class="dropdown-img1">
+                            <div class="column3-img">
+                                <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-345x264-A01.jpg" alt="">
+                            </div>
+                            <div class="hexicon d-flex align-items-center">
+                               <img src="./assets/hexicon.svg" alt="">
+                                <p>See now</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-img2">
+                            <div class="column3-img">
+                                <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-TENDINA-517x264-B01.jpg" alt="">
+                            </div>
+                            <div class="hexicon d-flex align-items-center">
+                                <img src="./assets/hexicon.svg" alt="">
+                                <p>Find out more</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-nav d-flex" id="special-editions-submenu">
+                <div class="dropdown-column1" style="width: 25%;">
+                    <ul>
+                        <li><a href="">DESCENTE X AUTOMOBILI LAMBORGHINI</a></li>
+                        <li><a href="">RHUDE X AUTOMOBILI LAMBORGHINI</a></li>
+                        <li><a href="">MASTER &amp; DYNAMIC  AUDIO DEVICES</a></li>
+                        <li><a href="">UPCYCLED LEATHER PROJECT</a></li>
+                        <li><a href="">LEGO</a></li>
+                        <li><a href="">OMP TRACKWEAR</a></li>
+                        <li><a href="">MR AND LOOKSMART MODEL CARS</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
-    </div>
+
     <div id="FirstCarousel" class="carousel-container">
         <div class="carousel-slide">
           <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1520-HP-1920x1200-A01_1__2.jpg" alt="Image 1">
@@ -671,8 +722,9 @@
         </div>
         </div>
     </footer>
+    </div>
 <!-- FOOTER END -->
-
+    <script src="./scripts/navbar.js"></script>
     <script src = "./scripts/bestsellers-landingpage.js"></script>
     <script src="./scripts/carousel-landingpage.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
