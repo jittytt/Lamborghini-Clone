@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+
+  <script src ="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+  <script src ="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+  <script src ="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/login.css">
+ 
+  
+  
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+      <button type="button" class="btn-close btn-close-white" aria-label="Close" onclick="window.location.href='../pages/login.html'"></button>
+    </nav>
+    <div class="content">
+      <h2>Log in</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email<span>*</span></label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password<span>*</span></label>
+          <input type="password" id="password" required>
+        </div>
+        <p class="first-para">Lamborghinistore.com has a new look! You can use your old password to access your account.
+          If you encounter problems you can click on <em> Forgot Password? </em> to set a new one.</p>
+        <div class="login-buttons">
+          <button type="submit" class="login-btn" onclick="login()">Login</button>
+          <button type="button" class="forgot-password-btn" >Forgot Password?</button>
+        </div>
+
+      </form>
+      <div class="login-social">
+        <h2>Log in with Social</h2>
+        <button class="login-fb-btn">
+          <i class="bi bi-facebook"></i>
+          <span class="btn-label">LOGIN WITH FACEBOOK</span>
+        </button>
+        <button class="login-google-btn">
+          <i class="bi bi-google"></i>
+          <span class="btn-label">LOGIN WITH GOOGLE</span>
+        </button>
+      </div>
+      <div class="guest-details">
+        <h2>Guest</h2>
+        <p class="first-para">If you do not have an account, please click here to check your order details:</p>
+        <button class="view-order-btn">View Order</button>
+      </div>
+   
+    </div>
+  </div>
+  <script src="./login.js"></script>
+</body>
+</html>
