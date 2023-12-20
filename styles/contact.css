@@ -1,0 +1,10 @@
+.contact-container{
+display: flex;
+margin-top: 10%;
+}
+.address-section{
+  flex: 2;  
+}
+.contact-form-section{
+flex: 8;
+}
