@@ -6,6 +6,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: -2;
+  }
+
+  .swiper-slide .image-container-collections .overlay{
+    position: absolute;
+    top: 10%; 
+    background-color: #000; 
+    opacity: 0.5; z-index: 0; 
+    width: 100vw; 
+    height: 127vh;
+  }
+
+  .swiper-slide .image-container-collections .overlay-text{
+    position: absolute;
+    top: 50%;
+    color: white;
+    z-index: 1;
+    margin-left: 10%;
+    font-size: 6vw;
+    font-weight: 400;
+  }
+
+  .swiper-slide .image-container-collections .discover-link-overlay{
+    position: absolute;
+    top: 65%;
+    color: white;
+    z-index: 1;
+    margin-left: 10%;
   }
 
   .swiper-slide img {
@@ -23,5 +51,5 @@
   .image-container-collections overlay{
     background-color: black;
     opacity: 0.5;
-    z-index: 2;
+    z-index: 0;
   }

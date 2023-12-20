@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/specialEdition.css">
     <link rel="stylesheet" href="./styles/kidsCollections.css">
     <link rel="stylesheet" href="./styles/collections-landingpage.css">
+    <link rel="stylesheet" href="./styles/collectibles-landingpage.css">
     <link rel="stylesheet" href="styles/footer.css">
     <script src="scripts/specialEdition.js"></script>
     <script src="scripts/bestsellers-landingpage.js"></script>
@@ -588,33 +589,63 @@
         <div class="container-fluid swiper mySwiper">
           <div class="image-content swiper-wrapper">
             <div
-              class="container-fluid swiper-slide swiper-slide-next position-relative"
+              class="container-fluid swiper-slide swiper-slide-next"
             >
-              <center class="image-container-collections">
+              <div class="image-container-collections" style="position: relative;">
                 <img
                   src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1168-HP-1920x1200-A01_2.jpg"
                   alt="collections-iconic"
                 />
-                <div class="overlay">
-                    
+                <div class="overlay"></div>
+                <div class="overlay-text">ICONIC</div>
+                <div class="discover-link-overlay">
+                    <a class="caption-thirdline" href="/pages/gift-guide.html" target="">
+                        <span><span class="MuiButton-startIcon MuiButton-iconSizeSmall">
+                            <svg width="10" height="11" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root jss92 jss109" focusable="false" viewBox="0 0 10 11" aria-hidden="true">
+                                <path d="M5 0l5 2.75v5.5L5 11 0 8.25v-5.5L5 0z" fill="#fff"></path>
+                            </svg>
+                        </span class = "discover-caption">&nbsp;DISCOVER THE COLLECTION</span>
+                    </a>
                 </div>
-              </center>
+            </div>
             </div>
             <div class="container-fluid swiper-slide swiper-slide-next">
-              <center class="image-container-collections">
+              <div class="image-container-collections">
                 <img
                   src="https://static.lamborghinistore.com/media/wysiwyg/2-SLIDER-D-1920x1200_9.jpg"
                   alt="collections-iconic"
                 />
-              </center>
+                <div class="overlay"></div>
+                <div class="overlay-text" style="top: 40%; text-align: left;">AUTOMOBILI-LAMBORGHINI<br>KIDSWEAR COLLECTION</div>
+                <div class="discover-link-overlay">
+                    <a class="caption-thirdline" href="/pages/gift-guide.html" target="">
+                        <span><span class="MuiButton-startIcon MuiButton-iconSizeSmall">
+                            <svg width="10" height="11" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root jss92 jss109" focusable="false" viewBox="0 0 10 11" aria-hidden="true">
+                                <path d="M5 0l5 2.75v5.5L5 11 0 8.25v-5.5L5 0z" fill="#fff"></path>
+                            </svg>
+                        </span class = "discover-caption">&nbsp;DISCOVER NOW</span>
+                    </a>
+                </div>
+            </div>
             </div>
             <div class="container-fluid swiper-slide swiper-slide-next">
-              <center class="image-container-collections">
+              <div class="image-container-collections">
                 <img
                   src="https://static.lamborghinistore.com/media/wysiwyg/1920x1200-A01_2.jpg"
                   alt="collections-iconic"
                 />
-              </center>
+                <div class="overlay"></div>
+                <div class="overlay-text"> TRAVEL COLLECTION</div>
+                <div class="discover-link-overlay">
+                    <a class="caption-thirdline" href="/pages/gift-guide.html" target="">
+                        <span><span class="MuiButton-startIcon MuiButton-iconSizeSmall">
+                            <svg width="10" height="11" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root jss92 jss109" focusable="false" viewBox="0 0 10 11" aria-hidden="true">
+                                <path d="M5 0l5 2.75v5.5L5 11 0 8.25v-5.5L5 0z" fill="#fff"></path>
+                            </svg>
+                        </span class = "discover-caption">&nbsp;DISCOVER MORE</span>
+                    </a>
+                </div>
+            </div>
             </div>
           </div>
         </div>
@@ -725,28 +756,27 @@
 </section>
 <!-- kid collection layer end -->
 <!-- collectibles layer start -->
-<section class="collectibles-layer" style=" position: relative;">
-    <div class="bg" style="width: 100vw;">
-        <img src="./assets/collectibles-bg.png" alt="collectibles-bg" style="z-index: -1; width: 100%; height: auto;">
+<section class="collectibles-layer">
+    <div class="bg-image">
+        <img src="./assets/collectibles-bg.png" alt="collectibles-bg">
     </div>
-    <div class="d-flex container-fluid" style="margin: 10%; width: 100%; position: absolute; top: -25%;">
+    <div class="d-flex container-fluid collectible-container">
         <div class="flex text-side">
             <p class="collection-subtitle">ICONIC ACCESSORIES</p>
-            <h5 class="collection-title" style="font-size: 12vh;">OUR</h5>
-            <h5 class="collection-title" style="font-size: 12vh;">COLLECTIBLES</h5>
-            <div class="title-nav container-fluid d-flex pt-5 pb-5" style="margin-left: -2.3vw;">
-            <div id="poster" class="flex-inline btn" onclick="changeCollectibleTab(this);" style="font-size: 2.5vh; letter-spacing: 1px; font-weight: 100;border-bottom-right-radius: 0;border-bottom-left-radius: 0 ;border-bottom-color: #000;">
+            <h5 class="collection-title">OUR</h5>
+            <h5 class="collection-title">COLLECTIBLES</h5>
+            <div class="title-nav container-fluid d-flex pt-5 pb-5">
+            <div id="poster" class="flex-inline btn" onclick="changeCollectibleTab(this);" style="border-bottom-color: #000;">
                 POSTERS
             </div>
-            <hr>
-            <div id="toygame" class="flex-inline btn" onclick="changeCollectibleTab(this);" style="font-size: 2.5vh; letter-spacing: 1px; font-weight: 100;border-bottom-right-radius: 0;border-bottom-left-radius: 0 ; border-bottom-color: #fff;">
+            <div id="toygame" class="flex-inline btn" onclick="changeCollectibleTab(this);" style="border-bottom-color: #fff;">
                 TOYS & GAMES
             </div>
-            <div id="collectorsModels" class="flex-inline btn" onclick="changeCollectibleTab(this);" style="font-size: 2.5vh; letter-spacing: 1px; font-weight: 100;border-bottom-right-radius: 0;border-bottom-left-radius: 0 ; border-bottom-color: #fff;">
+            <div id="collectorsModels" class="flex-inline btn" onclick="changeCollectibleTab(this);" style="border-bottom-color: #fff;">
                 COLLECTORS MODELS
             </div>
           </div>
-          <hr style="border-color: grey; margin-top: -8.1vh; margin-left: -15vw;">
+          <hr>
           <div class="discover_store pt-5">
             <a class="discover_store_link" href="/pages/posters.html" target="">
               <span><span class="MuiButton-startIcon MuiButton-iconSizeSmall">
