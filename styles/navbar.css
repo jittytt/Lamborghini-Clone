@@ -88,6 +88,10 @@ header {
     color: white; 
     height: fit-content;
     display: inline-block;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: 'Roboto-light';
 }
 
 .navbar-wrapper {
@@ -161,6 +165,7 @@ body p {
 }
 ul {
     list-style: none;
+    padding-left: 10px;
 }
 .hexicon p {
     color: white;
