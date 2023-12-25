@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.products');
+    let apiUrl = 'https://mocki.io/v1/9982c5f4-cc37-42d4-9721-4ff66ddde2a7'; // Default URL
 
     async function fetchProducts(url) {
         try {
@@ -10,8 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 let productElement = document.createElement('div');
                 productElement.classList.add('product');
                 productElement.innerHTML = `
-                    <img src="${response[index].default_image_url}" alt="" class="product-default_image_url">
-                    <center><h2 class="product-name">${response[index].name}</h2></center>
+                    <a href="product-detailing.html?productId=${response[index].product_id}&apiUrl=${url}" class="product-link">
+                        <img src="${response[index].default_image_url}" alt="" class="product-default_image_url">
+                        <center><h2 class="product-name">${response[index].name}</h2></center>
+                    </a>
                     <center><p class="product-price">$${formatPrice(response[index].price)}</p></center>
                 `;
 
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    fetchProducts('https://mocki.io/v1/9982c5f4-cc37-42d4-9721-4ff66ddde2a7');
+    fetchProducts(apiUrl);
 
     function formatPrice(price) {
         return parseFloat(price).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
