@@ -1,0 +1,124 @@
+body {
+    font-family: 'Roboto';
+}
+.details-container {
+    padding-top: 118px;
+}
+
+.details-display {
+    padding: 0px 143px;
+}
+
+.back-button {
+    display: inline-block;
+    margin: 28px 0;
+}
+
+.MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+}
+
+
+.back-button a{
+    text-decoration: none;
+    color: black;
+}
+
+.breadcrumb-bar {
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 50%;
+}
+.breadcrumb-bar a, li {
+    color:#6f6f6f;
+}
+
+.product-images .img-container img {
+    width: 100%;
+}
+.description-wrapper {
+    padding: 0 20px;
+}
+.description-wrapper .description {
+    margin: 0 auto;
+}
+
+.description .prod-id {
+    color: #6f6f6f;
+}
+
+.description .prod-title {
+    margin-top: 16px ;
+    margin-bottom: 32px;
+}
+
+.description .prod-title h1{
+    font-weight: 700px;
+    font-size: 30px;
+    letter-spacing: 4px;
+}
+
+
+.color-div {
+    margin-top: 40px;
+    align-items: center;
+}
+
+.color-div .color-desc {
+    margin-right: 60px;
+}
+
+.hexagon-shape {
+    height: 16px;
+    width: 14.5px;
+    background-color: rgb(5, 10, 97);
+    clip-path: polygon(50% 0%, 100% 28%, 99% 74%, 50% 100%, 0% 74%, 0% 28%);
+}
+
+.size-div {
+    margin-top: 30px;
+}
+
+.size-selector .size-writeup {
+    margin-right: 52px;
+}
+
+.size-options select {
+    border: none;
+}
+
+.size-guide {
+    text-decoration: underline;
+}
+
+.select-option-btn button {
+    margin-top: 20px;
+    width: 100%;
+    border: 0.667px solid var(--main-bg-color);
+    text-align: center;
+    color: white;
+    background-color: var(--main-bg-color);
+    padding: 10px;
+}
+
+.select-option-btn button:disabled {
+    opacity: 0.5;
+}
+
+.wishlist-btn button{
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 10px;
+}
+
+.accordion {
+    margin-top: 30px;
+    --bs-accordion-active-bg: transparent;
+    --bs-accordion-btn-focus-border-color: transparent;
+    --bs-accordion-btn-focus-box-shadow: transparent;
+    --bs-accordion-border-color: transparent;
+}

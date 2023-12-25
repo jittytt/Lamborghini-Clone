@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/productdetails.css">
+
+
+    <title>Product</title>
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <header class="">
+            <div class="header-top">
+                <div class="top-letter d-flex align-items-center">
+                    <div class="top-letter-content">
+                        <p>Sign up for the newsletter and get a 10% discount on your first order!</p>
+                    </div>
+                    <div class="top-letter-options d-flex justify-content-between align-items-center">
+                        <div class="locator">
+                            <a href="">Storelocator</a>
+                        </div>
+                        <div class="country">
+                            <select name="" id="">
+                                <option value="us">US</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-container container-fluid d-flex align-items-center bg-black" id="main-navbar">
+                <div class="navbar-wrapper d-flex">
+                    <div class="logo-nav d-flex">
+                        <div class="logo-wrapper d-flex align-items-center">
+                            <img src="../assets/lamborghini.png" alt="">
+                        </div>
+                        <div class="navbar container">
+                            <nav class="">
+                                <div class="navbuttons d-flex">
+                                    <div class="each-button">
+                                        <a href=""><strong>NEW IN</strong></a>
+                                    </div>
+                                    <div class="each-button" id="shop-the-look">
+                                        <a href="">CLOTHING</a>
+                                    </div>
+                                    <div class="each-button" id="special-editions">
+                                        <a href="">ACCESSORIES</a>
+                                    </div>
+                                    <div class="each-button" id="collaborations">
+                                        <a href="">COLLABORATIONS</a>
+                                    </div>
+                                    <div class="each-button" id="lambo-world">
+                                        <a href="">LAMBO WORLD</a>
+                                    </div>
+                                    <div class="each-button" id="promo">
+                                        <a href=""><strong>PROMO</strong></a>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="nav-right d-flex justify-content-center align-items-center">
+                        <div class="nav-right-elements d-flex justify-content-between">
+                            <div class="nav-right-list">
+                                <a href="">
+                                    <i class="each-list bi bi-search"></i>
+                                </a>
+                            </div>
+                            <div class="nav-right-list">
+                                <a href="./pages/login.html">
+                                    <i class="bi bi-person"></i>
+                                </a>
+                            </div>
+                            <span class="pipe-sym">&#124;</span>
+                            <div class="nav-right-list">
+                                <a href="">
+                                    <i class="bi bi-star"></i>
+                                </a>
+                            </div>
+                            <div class="nav-right-list">
+                                <a href="">
+                                    <i class="bi bi-bag"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="dropdown-nav d-flex" id="shop-the-look-submenu">
+                <div class="dropdown-column1">
+                    <ul>
+                        <li><a href="">MAN COLLECTION</a></li>
+                        <li><a href="">KIDS</a></li>
+                        <li><a href="./skiwear.html">SKIWEAR</a></li>
+                        <li><a href="">SQUADRA CORSE</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown-column2">
+                    <ul>
+                        <li><a href="./clothing.html">JACKETS</a></li>
+                        <li><a href="">SWEATSHIRTS</a></li>
+                        <li><a href="">POLOS & T-SHIRTS</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown-column3">
+                    <div class="column3-container d-flex">
+                        <div class="dropdown-img1">
+                            <div class="column3-img">
+                                <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-345x264-A01.jpg"
+                                    alt="">
+                            </div>
+                            <div class="hexicon d-flex align-items-center">
+                                <img src="./assets/hexicon.svg" alt="">
+                                <p>See now</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-img2">
+                            <div class="column3-img">
+                                <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-TENDINA-517x264-B01.jpg"
+                                    alt="">
+                            </div>
+                            <div class="hexicon d-flex align-items-center">
+                                <img src="./assets/hexicon.svg" alt="">
+                                <p>Find out more</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-nav d-flex" id="special-editions-submenu">
+                <div class="dropdown-column1" style="width: 25%;">
+                    <ul>
+                        <li><a href="./bagsandluggages.html">BAGS & LUGGAGES</a></li>
+                        <li><a href="">SMALL LEATHER GOODS</a></li>
+                        <li><a href="">CAPS & HATS</a></li>
+                        <li><a href="">KEYHOLDERS</a></li>
+                        <li><a href="">SQUADRA CORSE</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown-nav d-flex" id="collaborations-submenu">
+                <div class="dropdown-column1" style="width: 25%;">
+                    <ul>
+                        <li><a href="">DESCENTE X AUTOMOBILI LAMBORGHINI</a></li>
+                        <li><a href="">RHUDE X AUTOMOBILI LAMBORGHINI</a></li>
+                        <li><a href="">MASTER &amp; DYNAMIC AUDIO DEVICES</a></li>
+                        <li><a href="">UPCYCLED LEATHER PROJECT</a></li>
+                        <li><a href="">LEGO</a></li>
+                        <li><a href="">OMP TRACKWEAR</a></li>
+                        <li><a href="">MR AND LOOKSMART MODEL CARS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown-nav d-flex" id="lambo-world-submenu">
+                <div class="dropdown-column1" style="width: 40%;">
+                    <ul>
+                        <li><a href="./lamboworld.html">MODEL CARS</a></li>
+                        <li><a href="">BOOKS</a></li>
+                        <li><a href="">TOYS</a></li>
+                        <li><a href="">HEADPHONES</a></li>
+                        <li><a href="">CALENDARS AND POSTERS</a></li>
+                        <li><a href="">HOME & OFFICE</a></li>
+                        <li><a href="">COLLECTIBLES</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown-column3">
+                    <div class="column3-container d-flex">
+                        <div class="dropdown-img1">
+                            <div class="column3-img">
+                                <img src="https://static.lamborghinistore.com/media/wysiwyg/345x264-5.jpg" alt="">
+                            </div>
+                            <div class="hexicon d-flex align-items-center">
+                                <img src="./assets/hexicon.svg" alt="">
+                                <p>See now</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-img2">
+                            <div class="column3-img">
+                                <img src="https://static.lamborghinistore.com/media/wysiwyg/517x264-5.jpg" alt="">
+                            </div>
+                            <div class="hexicon d-flex align-items-center" style="width: 300px;">
+                                <img src="./assets/hexicon.svg" alt="">
+                                <p>Discover the Home & Office collection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-nav d-flex" id="promo-submenu">
+                <div class="dropdown-column1" style="width: 40%;">
+                    <ul>
+                        <li><a href="./pages/promo.html">30% OFF</a></li>
+                        <li><a href="">40% OFF</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown-column3">
+                    <div class="column3-container d-flex">
+                        <div class="dropdown-img1">
+
+                        </div>
+                        <div class="dropdown-img2">
+                            <div class="column3-img">
+                                <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1114-345x264-G01.jpg"
+                                    alt="" style="width: 345px; height: 270px;">
+                            </div>
+                            <div class="hexicon d-flex align-items-center" style="width: 300px;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="details-container">
+            <div class="details-wrapper">
+                <div class="details-display">
+                    <div class="back-button">
+                        <a class="d-flex align-items-center" href="">
+                            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path>
+                            </svg>
+                            <p>Back</p>
+                        </a>
+                    </div>
+                    <div class="breadcrumb-bar">
+                        <nav aria-label="breadcrumb">
+                            <ul class="d-flex flex-wrap">
+                                <li><a href="../index.html">Home &nbsp </a></li>
+                                <li>/ &nbsp</li>
+                                <li><a href="./clothing.html">Man Collection &nbsp </a></li>
+                                <li>/ &nbsp</li>
+                                <li><a href="./clothing.html">OUTERWEAR &nbsp </a></li>
+                                <li>/ &nbsp</li>
+                                <li>Automobili Lamborghini Iconic Padded Jacket</li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                    <!--div to show the images and  side by side-->
+                    <div class="image-description d-flex justify-content-between">
+                        <div class="product-images-wrapper col-sm-12 col-md-6">
+                            <div class="product-images d-flex flex-column">
+                                <div class="img-container">
+                                    <img src="https://static.lamborghinistore.com/rx/1250x,ofmt_webp/media/catalog/product/1/6/16196PAU095_01.jpg"
+                                        alt="jacket image 1">
+                                </div>
+                                <div class="img-container">
+                                    <img src="https://static.lamborghinistore.com/rx/1250x,ofmt_webp/media/catalog/product/1/6/16196PAU095_02.jpg"
+                                        alt="jacket image 2">
+                                </div>
+                                <div class="img-container">
+                                    <img src="https://static.lamborghinistore.com/rx/1250x,ofmt_webp/media/catalog/product/1/6/16196PAU095_03.jpg"
+                                        alt="jacket image 3">
+                                </div>
+                                <div class="img-container">
+                                    <img src="https://static.lamborghinistore.com/rx/1250x,ofmt_webp/media/catalog/product/1/6/16196PAU095_04.jpg"
+                                        alt="jacket image 4">
+                                </div>
+                                <div class="img-container">
+                                    <img src="https://static.lamborghinistore.com/rx/1250x,ofmt_webp/media/catalog/product/1/6/16196PAU095_05.jpg"
+                                        alt="jacket image 5">
+                                </div>
+                                <div class="img-container">
+                                    <img src="https://static.lamborghinistore.com/rx/1250x,ofmt_webp/media/catalog/product/1/6/16196PAU095_06.jpg"
+                                        alt="jacket image 6">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description-wrapper col-sm-12 col-md-5">
+                            <div class="description d-flex flex-column">
+                                <div class="prod-id">
+                                    <p>SKU: 16196PAU095</p>
+                                </div>
+                                <div class="prod-title">
+                                    <h1><strong>AUTOMOBILI LAMBORGHINI ICONIC PADDED JACKET</strong></h1>
+                                </div>
+                                <div class="price-div d-flex justify-content-between">
+                                    <div class="prod-price">
+                                        <p>$235.00</p>
+                                    </div>
+                                    <div class="duties">
+                                        <p>Duties and shipping cost excluded</p>
+                                    </div>
+                                </div>
+                                <div class="color-div d-flex">
+                                    <div class="color-desc">
+                                        <p>Color</p>
+                                    </div>
+                                    <div class="hexagon-color">
+                                        <a href="">
+                                            <div class="hexagon-shape"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="size-div d-flex justify-content-between">
+                                    <div class="size-selector d-flex">
+                                        <div class="size-writeup">
+                                            <p>Size *</p>
+                                        </div>
+                                        <div class="size-options">
+                                            <select name="" id="">
+                                                <option value="" selected>None</option>
+                                                <option value="">XS</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="size-guide">
+                                        <p>SIZE GUIDE</p>
+                                    </div>
+                                </div>
+                                <div class="select-option-btn">
+                                    <button>SELECT OPTION</button>
+                                </div>
+                                <div class="wishlist-btn">
+                                    <button>ADD TO WISHLIST</button>
+                                </div>
+                                <div class="accordion accordion-flush" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                Description
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    Automobili Lamborghini Iconic Padded Jacket with recycled wadding and heat-sealed seams. Two side pockets, customised with a rubberised shield logo on the sleeve. Regular fit. Main fabric composition: 100% nylon. Lining: 100% polyester. Padding: 100% recycled polyester.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                Shipping and returns
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    Shipping: The products will be handed over to the Courier within 2-3 days from order confirmation. Delivery times may vary for countries outside the European Union.
+        
+                                                    Please notice that the production time for pre-order products is approximately 60 days.
+        
+                                                    Returns: The withdrawal right can be exercised within 14 working days from the goods delivery.
+        
+                                                    Pre-order products are not eligible for return.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree">
+                                                Customer care
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    If you need assistance in order to improve your shopping experience, please don’t hesitate to contact us by phone at the following number (+39) 041/8380060 or by email at: customercare@lamborghinistore.com
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/navbar-store.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+
+</html>
