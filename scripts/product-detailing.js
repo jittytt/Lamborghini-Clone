@@ -30,6 +30,7 @@ function displayProductDetails(product) {
     productDetailsContainer.innerHTML = `
         <img src="${product.default_image_url}" alt="Product Image">
         <h2>${product.name}</h2>
+        <p>Product ID: ${product.product_id}</p>
         <p>Price: $${formatPrice(product.price)}</p>
         <p>Description: ${product.description}</p>
         <h3>Alternate Images</h3>
