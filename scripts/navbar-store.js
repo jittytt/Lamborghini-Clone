@@ -3,9 +3,6 @@ window.addEventListener("scroll",() => {
     if(navbar && navbar.style.backgroundColor === "#181818") {
         return;
     }
-    if(window.scrollY == 0) {
-        return navbar.style.backgroundColor = "transparent";
-    }
     navbar.style.backgroundColor = "#181818";
 })
 const navbarListItem = document.getElementById("shop-the-look");
@@ -18,7 +15,7 @@ navbarListItem?.addEventListener("mouseleave", () => {
 
 document.getElementById("shop-the-look-submenu").addEventListener("mouseenter", () => {
     document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-    document.getElementById("main-navbar").style.backgroundColor = "#181818";
+    document.getElementById("main-navbar").style.backgroundColor = "#181818"
 })
 
 const navbarSpecialEdition = document.getElementById("special-editions");
@@ -31,7 +28,7 @@ navbarSpecialEdition?.addEventListener("mouseleave", () => {
 
 document.getElementById("special-editions-submenu").addEventListener("mouseenter", () => {
     document.getElementById("special-editions-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-    document.getElementById("main-navbar").style.backgroundColor = "#181818";
+    document.getElementById("main-navbar").style.backgroundColor = "#181818"
 })
 
 const navbarCollaborations = document.getElementById("collaborations");
