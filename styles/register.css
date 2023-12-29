@@ -208,4 +208,6 @@ input[type="password"]:focus {
   width: 208%;
   background: transparent;
   color: white;
+  border-color: white;
+  border-width : 3px solid;
 }

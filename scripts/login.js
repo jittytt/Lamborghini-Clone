@@ -34,6 +34,7 @@ submitButton.addEventListener("click", function(event) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      sessionStorage.setItem('Email', email);
       console.log("Success!, Welcome Back");
     })
     .catch((error) => {
