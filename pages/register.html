@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Register Page</title>
-  
+ 
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script type="module" src="../scripts/signup.js"></script>
-  
+  <script type="module" src="../scripts/signup.js"></script>
+ 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
   integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
   <link rel="stylesheet" href="../styles/register.css">
  
-  </head>
-  <body>
+</head>
+<body>
   <div class="container">
     <nav class="navbar">
-        <ul>
-          <li><a href="../pages/login.html">Login</a></li>
-          <li><a href="../pages/register.html">Register</a></li>
-        </ul>
-        <a href ="../index.html"><button type="button" class="btn-close btn-close-white" aria-label="Close"></button></a> 
+      <ul>
+        <li><a href="../pages/login.html">Login</a></li>
+        <li><a href="../pages/register.html">Register</a></li>
+      </ul>
+      <a href ="../index.html"><button type="button" class="btn-close btn-close-white" aria-label="Close"></button></a>
     </nav>
     <div class="register-form">
       <h2>Register</h2>
@@ -36,44 +36,47 @@
             <label for="lastname">Last Name *</label>
             <input type="text" id="lastname" required>
           </div>
+          <div class="label-input-group">
+            <label for="address">Address *</label>
+            <textarea id="address" rows="6" required></textarea>
+          </div>
         </div>
         <div class="input-group">
-            <label for="email">Email<span>*</span></label>
-            <input id = "email-signup" type="email" id="email" required>
+          <label for="email">Email<span>*</span></label>
+          <input id="email-signup" type="email" required>
         </div>
         <div class="input-group row-input-group">
           <div class="label-input-group">
             <label for="password">Password *</label>
-            <input id = "password-signup" type="password" id="password" required>
+            <input id="password-signup" type="password" required>
           </div>
           <div class="label-input-group">
             <label for="confirm-password">Confirm Password *</label>
-            <input id = "confirm-password-signup" type="password" id="confirm-password" required>
+            <input id="confirm-password-signup" type="password" required>
           </div>
         </div>
         <br>
-    <div class="consent">
-      <label>
-        <input type="checkbox" class="consent-check">
-        As an interested party, having read the Privacy Policy,
-        I expressly consent to the processing of my personal data for
-        registration on the Site
-      </label>
-    </div>
-    <br>
-    
-    <div class="consent">
-      <label>
-        <input type="checkbox"class="consent-check">
-        As an interested party, having read the Privacy Policy statement,
-        drawn up pursuant to European regulation 2016/679, I expressly consent to the processing of
-        my personal data for commercial purposes by LAMBORGHINI, including sending marketing communications
-        (using telematic methods - such as for example newsletters and e-mail with invitations and commercial
-        communications - and traditional methods, such as paper mail)
-      </label>
-    </div>
-    <br>
-        <button id ="create-acct-btn" class="register-btn">REGISTER</button>
+        <div class="consent">
+          <label>
+            <input type="checkbox" class="consent-check">
+            As an interested party, having read the Privacy Policy,
+            I expressly consent to the processing of my personal data for
+            registration on the Site
+          </label>
+        </div>
+        <br>
+        <div class="consent">
+          <label>
+            <input type="checkbox" class="consent-check">
+            As an interested party, having read the Privacy Policy statement,
+            drawn up pursuant to European regulation 2016/679, I expressly consent to the processing of
+            my personal data for commercial purposes by LAMBORGHINI, including sending marketing communications
+            (using telematic methods - such as for example newsletters and e-mail with invitations and commercial
+            communications - and traditional methods, such as paper mail)
+          </label>
+        </div>
+        <br>
+        <button id="create-acct-btn" class="register-btn">REGISTER</button>
       </form>
     </div>
     <div>
@@ -81,16 +84,15 @@
     </div>
     <br>
     <div class="login-social">
-        <button class="login-fb-btn">
-          <i class="bi bi-facebook"></i>
-          <span class="btn-label">LOGIN WITH FACEBOOK</span>
-        </button>
-        <button class="login-google-btn">
-          <i class="bi bi-google"></i>
-          <span class="btn-label">LOGIN WITH GOOGLE</span>
-        </button>
-      </div>
+      <button class="login-fb-btn">
+        <i class="bi bi-facebook"></i>
+        <span class="btn-label">LOGIN WITH FACEBOOK</span>
+      </button>
+      <button class="login-google-btn">
+        <i class="bi bi-google"></i>
+        <span class="btn-label">LOGIN WITH GOOGLE</span>
+      </button>
+    </div>
   </div>
-
 </body>
 </html>
