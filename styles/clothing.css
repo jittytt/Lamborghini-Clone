@@ -1,5 +1,5 @@
 .data-part {
-    margin-top: 150px;
+    padding-top: 118px;
 }
 
 .outerwear-caption {
@@ -57,4 +57,16 @@
     justify-content: center;
     width : 1060px;
     height : 350px; 
+}
+
+.breadcrumb-bar {
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 50%;
+    padding-top : 25px;
+    padding-left : 130px;
+    letter-spacing: 1px;
+}
+.breadcrumb-bar a, li {
+    color:#6f6f6f;
 }

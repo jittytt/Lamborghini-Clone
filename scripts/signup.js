@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -10,43 +11,78 @@ const firebaseConfig = {
   appId: "1:123605469618:web:70da09f3d62d69b39abcab",
   measurementId: "G-MEBX1PZLTS"
 };
-
+ 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+const db = getFirestore(app);
+ 
 const signupEmailIn = document.getElementById("email-signup");
 const signupPasswordIn = document.getElementById("password-signup");
 const confirmSignupPasswordIn = document.getElementById("confirm-password-signup");
 const createacctbtn = document.getElementById("create-acct-btn");
 
+const firstName = document.getElementById("firstname");
+const lastName = document.getElementById("lastname");
+const address = document.getElementById("address");
 var signupEmail, signupPassword, confirmSignupPassword;
-
+ 
 createacctbtn.addEventListener("click", function(event) {
-
+ 
   event.preventDefault();
-
+ 
   var isVerified = true;
-
+ 
   signupEmail = signupEmailIn.value;
-  signupPassword = signupPasswordIn.value; 
+  signupPassword = signupPasswordIn.value;
   confirmSignupPassword = confirmSignupPasswordIn.value;
-
-  if(signupEmail == null || signupPassword == null || confirmSignupPassword == null) 
+ 
+  if(signupEmail == null || signupPassword == null || confirmSignupPassword == null)
   {
     window.alert("Please fill out all required fields.");
     isVerified = false;
   }
-
+ 
   if(isVerified)
   {
     createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
       .then((userCredential) => {
         const user = userCredential.user;
-
+ 
         window.alert("Success! Account created");
+        // Call the function to create user data in Firestore
+      createUserData(signupEmailIn.value, firstName.value, lastName.value, address.value);
+
       })
       .catch((error) => {
+        console.log(error);
         window.alert("Error occured! Try Again!");
       });
   }
 });
+
+
+function createUserData(email, firstName, lastName, address) {
+  // Collection reference
+  const usersDataCollection = collection(db, "UsersData");
+
+  // Document reference with email as the document name
+  const userDocRef = doc(usersDataCollection, email);
+
+  // Data to be added to the document
+  const userData = {
+    First_Name: firstName,
+    Last_Name: lastName,
+    Email_ID: email,
+    Address: address,
+    Wishlist: {} // Empty map as Wishlist
+  };
+
+  // Set the data in the document
+  setDoc(userDocRef, userData)
+    .then(() => {
+      console.log("User data created successfully");
+    })
+    .catch((error) => {
+      console.error("Error creating user data:", error);
+    });
+}

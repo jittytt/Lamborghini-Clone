@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto&family=Urbanist&display=swap');
+
+.foot{
+    background-color: #181616;
+    color: #d8d0d0;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+.foot hr{
+    border-color: #0e0d0d;
+    
+}
+.footer {
+    display: flex;
+    padding-left: 3.5%;
+    padding-right: 3.5% ;
+    
+}
+
+.footer-section {
+    width: 15%;
+}
+.footer-section-newsletter {
+    width: 30%;
+}
+
+.footer-section-follow {
+    width: 25%;
+}
+.footer h3 {
+    font-size: 1.05em;
+    margin-bottom: 10px;
+}
+.footer-section-newsletter h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.footer-section-newsletter p, label {
+    color:  #d8d0d0 ;
+    font-size: 0.8em;
+}
+.footer-section-newsletter label{
+    padding-top: 10%;
+    background-color: transparent;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color:  #d8d0d0 ;
+    font-size: 0.8em;
+}
+.footer-section-follow ul li a {
+    text-decoration: none;
+    color:  #d8d0d0 ;
+    font-size: 0.8em;
+    padding-right: 4px;
+   
+}
+
+.social-media {
+    display: flex;
+    padding: 0;
+}
+
+.social-media li {
+    margin-right: 10px;
+}
+.end-text{
+    display: flex;
+    padding-left : 100px;
+    color: #a39a9a;
+    font-size:0.8em;
+    margin-bottom: 10px;
+    font-family: Roboto, 'Sans';
+    line-height:1cm;
+}
+
+.end-left{
+    flex: 9;
+}
+.end-right{
+    flex: 1;
+
+}
