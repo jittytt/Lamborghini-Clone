@@ -1,4 +1,4 @@
-import { doc, getDoc, updateDoc, getFirestore} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { doc, getDoc, updateDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 
 // Your Firebase configuration
@@ -16,7 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-document.getElementById('saveAddress').addEventListener('click', function () {
+document.getElementById('saveAddress').addEventListener('click', async function () {
     // Get data from form fields
     var fname = document.getElementById('fname').value;
     var lname = document.getElementById('lname').value;
@@ -26,23 +26,48 @@ document.getElementById('saveAddress').addEventListener('click', function () {
     var country = document.getElementById('country').value;
     var state = document.getElementById('state').value;
     var phone = document.getElementById('phone').value;
-    var email = "mail@gmail.com";
 
-    // Modify the structure of mapData
-    const mapData = {
-        First_Name: fname,
-        Last_Name: lname,
-        Address: address,
-        City: city,
-        Zipcode: zipcode,
-        Country: country,
-        State: state,
-        Phone: phone,
-    };
+    // Retrieve email from ActiveUser collection
+    const email = await getEmailFromActiveUser();
 
-    // Add the user's address to Firestore
-    addMapToAddress(email, mapData);
+    if (email) {
+        // Modify the structure of mapData
+        const mapData = {
+            First_Name: fname,
+            Last_Name: lname,
+            Address: address,
+            City: city,
+            Zipcode: zipcode,
+            Country: country,
+            State: state,
+            Phone: phone,
+        };
+
+        // Add the user's address to Firestore
+        addMapToAddress(email, mapData);
+    } else {
+        console.error("Email not found in ActiveUser collection");
+    }
 });
+
+async function getEmailFromActiveUser() {
+    const activeUserDocRef = doc(db, "ActiveUser", "Email_ID");
+
+    try {
+        const docSnapshot = await getDoc(activeUserDocRef);
+
+        if (docSnapshot.exists()) {
+            const emailFromFirestore = docSnapshot.data().Email;
+            return emailFromFirestore;
+        } else {
+            console.error("Document not found in ActiveUser collection");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error retrieving email from ActiveUser collection:", error);
+        return null;
+    }
+}
 
 async function addMapToAddress(email, mapData) {
     const userDocRef = doc(db, "UsersData", email);
@@ -66,5 +91,3 @@ async function addMapToAddress(email, mapData) {
         console.error("Error updating document:", error);
     }
 }
-
-
