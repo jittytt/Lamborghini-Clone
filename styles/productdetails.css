@@ -30,6 +30,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     max-width: 50%;
+    letter-spacing: 1px;
 }
 .breadcrumb-bar a, li {
     color:#6f6f6f;
@@ -60,7 +61,18 @@ body {
     letter-spacing: 4px;
 }
 
+.price-div .prod-price {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+}
 
+.price-div .duties {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #6f6f6f;
+    font-family: 'Roboto-light';
+}
 .color-div {
     margin-top: 40px;
     align-items: center;
@@ -68,6 +80,11 @@ body {
 
 .color-div .color-desc {
     margin-right: 60px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #6f6f6f;
+    font-family: 'Roboto-family';
 }
 
 .hexagon-shape {
@@ -87,13 +104,14 @@ body {
 
 .size-options select {
     border: none;
+    outline: none;
 }
 
 .size-guide {
     text-decoration: underline;
 }
 
-.select-option-btn button {
+.select-btn button {
     margin-top: 20px;
     width: 100%;
     border: 0.667px solid var(--main-bg-color);
@@ -102,8 +120,8 @@ body {
     background-color: var(--main-bg-color);
     padding: 10px;
 }
-
-.select-option-btn button:disabled {
+   
+.select-btn button:disabled {
     opacity: 0.5;
 }
 
