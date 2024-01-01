@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script> -->
+  <link rel="stylesheet" href="../styles/checkoutPage.css">
+  <link rel="stylesheet" href="../styles/addressbook_footer.css">
+  <script src="../scripts/checkoutPage.js"></script>
+  <!-- <link rel="stylesheet" href="../styles/navbar.css"> -->
+    </head>
+    <body>
+        <header class="">
+            <div class="navbar-container container-fluid  align-items-center" id="main-navbar" >
+
+                    <div class="row ">  
+                        <div class="col-3 pt-4 backToCart">
+                            <nav class="">
+                                   <a href=""><i class="bi bi-chevron-left"></i> BACK TO CART</a>
+                            </nav>
+                        </div>
+                        <div class="logo-wrapper col-6 pt-1 align-items-center">
+                            <img src="../assets/lamborghini.png" alt="">
+                        </div>
+                        <div class="col-3 pt-4  pe-6 cartIcon">
+                            <nav class="pe-6">
+                            <a href="#"><i class="bi bi-bag" title="cart"></i></a>
+                            </nav>
+                        </div>
+                    </div>
+              
+            </div>
+
+        </header>
+<div class="checkoutHeader">
+    <h1>CHECKOUT</h1>
+</div>
+<div class="row checkoutBar">
+    <div class="col-1"><i class="bi bi-1-circle-fill"></i></div>
+    <div class="col-10"><hr></div>
+    <div class="col-1 ps-0 two"><i class="bi bi-2-circle-fill"></i></div>
+
+</div>
+        <div class="ms-12 me-12 address-form ">
+            <form action="post" id="form">
+            <div class="form-row">
+                <div class="col">
+                    <label  for="fname">Firstname *</label>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div class="col">
+                    <label for="lname">Lastname *</label>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="address">Address *</label>
+                    <input type="text" id="address" name="address" required>
+                    <p>We do not ship to P.O Boxes. Additionally, Army Post Office (APO) and Fleet Post Office (FPO) addresses are not accepted.</p>
+                </div>
+                
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="city">City *</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="col">
+                    <label for="zipcode">Zipcode/Postal code *</label>
+                    <input type="text" id="zipcode" name="zipcode" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label  for="fname">Country *</label>
+                    <input type="text" id="country" name="fname" required>
+                </div>
+                <div class="col">
+                    <label for="lname">State/Province/Region *</label>
+                    <input type="text" id="state" name="lname" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-1">
+                    <label for="phone" id="labelphone">Phone *</label>
+                    <select id="phonePrefix" name="phonePrefix">
+                        <option value="us">US +1</option>
+                        <option value="uk">UK +44</option>
+                        <option value="india">IN +91</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <!-- <input type="tel" id="phonePrefix" name="phone"> -->
+                </div>
+                <div class="col-5">
+                    <label for="phone">&nbsp;</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </div>
+            <div class="form-row addressButton">
+                <button id="shipAddress">SHIP TO THIS ADDRESS</button>
+            </div>
+        </form>
+        </div>
+        <footer class="foot">
+            <div class="end-text">
+                <div class="end-left">
+                    <p>*Values refer to the European area. Contact your dealer for information on fuel consumption and emissions valid in your country.</p>
+                    <p> COPYRIGHT © 2023 - LAMBORGHINI STORE - Via Modena 12, Sant’Agata Bolognese (BO) Italia - p.iva 00591801204 | REA BO 259882</p>
+               
+                </div>
+                <div class="end-right">
+                    <br>
+                    <p>Powered by FiloBlu</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
