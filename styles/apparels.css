@@ -1,0 +1,30 @@
+.firstBanner{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 9%;
+    /* background-image: url(https://static.lamborghinistore.com/media/wysiwyg/LMBM2-181-1920x1200-omp-01_1.JPG); */
+}
+.firstBanner img{
+    /* animation: fadeInImg cubic-bezier(.23,1,.32,1) 1;
+    position: relative;
+    opacity: 1;
+    animation-fill-mode: forwards;
+    animation-duration: .3s;
+    animation-delay: 0s; */
+    width: 100%;
+    display: block;
+}
+.firstBanner .text{
+    position: absolute;
+    top: 38%;
+    left: 10%;
+    color: aliceblue;
+
+}
+
+.firstBanner p{
+    font-size: medium;
+    font-weight:100%;
+
+}
