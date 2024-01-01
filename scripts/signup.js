@@ -23,7 +23,6 @@ const createacctbtn = document.getElementById("create-acct-btn");
 
 const firstName = document.getElementById("firstname");
 const lastName = document.getElementById("lastname");
-const address = document.getElementById("address");
 var signupEmail, signupPassword, confirmSignupPassword;
  
 createacctbtn.addEventListener("click", function(event) {
@@ -50,7 +49,7 @@ createacctbtn.addEventListener("click", function(event) {
  
         window.alert("Success! Account created");
         // Call the function to create user data in Firestore
-      createUserData(signupEmailIn.value, firstName.value, lastName.value, address.value);
+      createUserData(signupEmailIn.value, firstName.value, lastName.value);
 
       })
       .catch((error) => {
@@ -61,7 +60,7 @@ createacctbtn.addEventListener("click", function(event) {
 });
 
 
-function createUserData(email, firstName, lastName, address) {
+function createUserData(email, firstName, lastName) {
   // Collection reference
   const usersDataCollection = collection(db, "UsersData");
 
@@ -72,9 +71,9 @@ function createUserData(email, firstName, lastName, address) {
   const userData = {
     First_Name: firstName,
     Last_Name: lastName,
-    Email_ID: email,
-    Address: address,
-    Wishlist: {} // Empty map as Wishlist
+    Email_ID: email,      
+    Address: [],
+    Wishlist : {}, 
   };
 
   // Set the data in the document
