@@ -5,14 +5,15 @@ const selectOptionButton = document.getElementById("select-option-btn");
 sizeSelectorElement.addEventListener("change", () => {
 
     // Check the selected value and enable/disable the button accordingly
-    if(sizeSelectorElement.value === 'none') 
+    if(sizeSelectorElement.value === 'none')
         selectOptionButton.setAttribute('disabled','disabled');
-    
+
     else {
         selectOptionButton.removeAttribute('disabled');
         selectOptionButton.innerText = "ADD TO CART";
+        sessionStorage.setItem('size', sizeSelectorElement.value);
     }
-        
+
 })
 document.addEventListener('DOMContentLoaded', () => {
     // Get product ID and API URL from the query parameters
@@ -32,7 +33,7 @@ async function fetchProductDetail(productId, apiUrl) {
 
         // Find the product with the matching ID
         const product = response.find(item => item.product_id === productId);
-
+        sessionStorage.setItem('product', JSON.stringify(product));
         // Display product details on the page
         updateProductDetail(product);
     } catch (error) {

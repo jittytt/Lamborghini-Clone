@@ -74,7 +74,8 @@ function createUserData(email, firstName, lastName, address) {
     Last_Name: lastName,
     Email_ID: email,
     Address: address,
-    Wishlist: {} // Empty map as Wishlist
+    Wishlist: [], // Array of {product_id: string, API_URL: string, count: number}
+    Cart: [] // Array of {product_id: string, API_URL: string, count: number}
   };
 
   // Set the data in the document
