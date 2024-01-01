@@ -71,9 +71,10 @@ function createUserData(email, firstName, lastName) {
   const userData = {
     First_Name: firstName,
     Last_Name: lastName,
-    Email_ID: email,      
+    Email_ID: email,
     Address: [],
-    Wishlist : {}, 
+    Wishlist: {}, // Array of {product_id: string, API_URL: string, count: number}
+    Cart: [] // Array of {product_id: string, API_URL: string, count: number}
   };
 
   // Set the data in the document

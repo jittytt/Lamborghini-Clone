@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Address</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../styles/addNewAddress.css"> <!-- You can create a separate CSS file for styling -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script type="module" src="../scripts/addNewAddress.js"></script>
+</head>
+<body>
+    <div class="container ms-12 me-12 address-form ">
+        <form action="post">
+        <div class="form-row">
+            <h4 class="col-11 pt-0"> Add New Address </h4>
+            <a href="./addressbook.html"><i class="bi bi-x-lg col-1 pe-0 m-0 " ></i></a>
+        </div>
+        
+        <div class="form-row">
+            <div class="col">
+                <label  for="fname">Firstname *</label>
+                <input type="text" id="fname" name="fname" required>
+            </div>
+            <div class="col">
+                <label for="lname">Lastname *</label>
+                <input type="text" id="lname" name="lname">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="address">Address *</label>
+                <input type="text" id="address" name="address">
+                <p>We do not ship to P.O Boxes. Additionally, Army Post Office (APO) and Fleet Post Office (FPO) addresses are not accepted.</p>
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="city">City *</label>
+                <input type="text" id="city" name="city">
+            </div>
+            <div class="col">
+                <label for="zipcode">Zipcode/Postal code *</label>
+                <input type="text" id="zipcode" name="zipcode">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label  for="fname">Country *</label>
+                <input type="text" id="country" name="fname">
+            </div>
+            <div class="col">
+                <label for="lname">State/Province/Region *</label>
+                <input type="text" id="state" name="lname">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-1">
+                <label for="phone" id="labelphone">Phone *</label>
+                <select id="phonePrefix" name="phonePrefix">
+                    <option value="us">US +1</option>
+                    <option value="uk">UK +44</option>
+                    <option value="india">IN +91</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <!-- <input type="tel" id="phonePrefix" name="phone"> -->
+            </div>
+            <div class="col-5">
+                <label for="phone">&nbsp;</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+        </div>
+        <div class="form-row">
+            <input class="col-1 ms-0 ps-0" type="checkbox" id="defaultBilling" name="defaultBilling">
+            <label class="col-11" for="defaultBilling">Default Billing Address</label>
+        </div>
+        <div class="form-row">
+            <input class="col-1" type="checkbox" id="defaultDelivery" name="defaultBilling">
+            <label class="col-11" for="defaultBilling">Default Delivery Address</label>
+        </div>
+        <div class="form-row">
+            <button id="saveAddress">SAVE ADDRESS</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
