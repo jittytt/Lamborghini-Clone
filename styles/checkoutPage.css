@@ -1,0 +1,192 @@
+
+body{
+    width: 100%;
+
+}
+/* Checkout headding */
+.checkoutHeader{
+    margin-top: 8%;
+    text-align: center;
+    letter-spacing: 0.2cap;
+
+}
+.checkoutBar{
+    margin-top: 2%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.checkoutBar .two{
+    text-align: left;
+    color: #aca0a0;
+}
+.checkoutBar hr{
+    border: 1%;
+    border-color: black;
+}
+
+/* Checkout headding end */
+
+/* checkout shipping */
+
+.address-form {
+    background-color: #fff;
+    padding: 10px;
+    margin-right:15%;
+    margin-left: 18%;
+    margin-top: 5%;
+    
+
+}
+.address-form h4 {
+    font-size: 100%;
+    padding-bottom: 3%;
+}
+
+.form-row {
+    margin-bottom: 9%;
+}
+
+.form-row i{
+    margin-right: -5%;
+    padding-right: 0%;
+}
+.form-row a{
+    text-decoration: none;
+    color: rgba(10, 8, 8, 0.575);
+}
+
+.half {
+    width: 50%;
+    display: inline-block;
+}
+.form-row p{
+    font-weight: bold;
+    font-size: 78%;
+    color: rgba(22, 21, 21, 0.76);
+}
+.form-row label {
+    display: block;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 80%;
+    color: rgba(10, 1, 1, 0.301);
+}
+#labelphone{
+    font-size: 60%;
+}
+#phonePrefix{
+    margin-top: 16%;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #1f1d1d;
+    font-size: 80%;
+}
+
+.form-row input {
+    width:100%;
+    font-size: 80%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #1f1d1d;
+    height: 50%;
+    outline: none;
+}
+.addressButton{
+    margin-left: 74%;
+    margin-top: -2%;
+}
+.address-form button {
+    background-color: #0c020262;
+    color: #f7f1f1d7;
+    padding: 8px 16px;
+    border: 1px solid#0c020213;
+    border-radius: 1px;
+    cursor: default;
+    font-weight: 620;
+    font-family: Roboto;
+    pointer-events: none; /* Initially disable the button */
+    transition: background-color 0.3s ease; /* Add a smooth transition for better user experience */
+   
+}
+
+
+.address-form button.active {
+    pointer-events: auto; /* Enable the button when the form is valid */
+    background: linear-gradient(to left, #eee9e9e3 50%, #0e0d0dfa 50%);
+    background-size: 200% 100%; /* Larger size to cover the entire button */
+    color: #f7f1f1ea;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 1px;
+    cursor:pointer;
+    font-weight: 620;
+    font-family: Roboto;
+    border-width: 1%;
+    transition: background-position 0.3s ease; 
+    animation: scaleUp 0.3s ease-in-out;
+
+}
+.address-form button:hover {
+    
+    background-position: 100% 100%; 
+    background-color: #fcf9f9fa;
+    color: #0f0f0fee;
+    border: 1px solid black; /* Set border properties here */
+    transition: background-position 0.3s ease ; 
+
+    
+}
+@keyframes scaleUp {
+    0% {
+     transform: scale(1);
+    }
+   
+    50% {
+     transform: scale(0.95);
+    }
+   
+    100% {
+     transform: scale(1);
+    }
+   }
+
+
+/* checkout shipping end */
+
+/* checkout nav */
+header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.navbar-container {
+    height: 82px;
+    background-color: black;
+}
+.navbar-container a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo-nav {
+    width: 100%;
+}
+
+.logo-wrapper {
+    width: 10%;
+    text-align: center;
+}
+.logo-wrapper img {
+    height: 70px;
+    width: 70px;
+}
+.cartIcon{
+    text-align: right;
+    padding-right: 5%;
+}
+.backToCart{
+    padding-left: 2%;
+    
+}

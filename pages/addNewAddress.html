@@ -16,69 +16,78 @@
 </head>
 <body>
     <div class="container ms-12 me-12 address-form ">
+        <form action="post">
         <div class="form-row">
-            <h4 class="col-11"> Add New Address </h4>
-            <i class="bi bi-x-lg col-1"></i>
+            <h4 class="col-11 pt-0"> Add New Address </h4>
+            <a href="./addressbook.html"><i class="bi bi-x-lg col-1 pe-0 m-0 " ></i></a>
         </div>
         
         <div class="form-row">
             <div class="col">
-                <label  for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname">
+                <label  for="fname">Firstname *</label>
+                <input type="text" id="fname" name="fname" required>
             </div>
             <div class="col">
-                <label for="lname">Last Name:</label>
+                <label for="lname">Lastname *</label>
                 <input type="text" id="lname" name="lname">
             </div>
         </div>
         <div class="form-row">
             <div class="col">
-                <label for="address">Address:</label>
+                <label for="address">Address *</label>
                 <input type="text" id="address" name="address">
+                <p>We do not ship to P.O Boxes. Additionally, Army Post Office (APO) and Fleet Post Office (FPO) addresses are not accepted.</p>
             </div>
             
         </div>
         <div class="form-row">
             <div class="col">
-                <label for="city">City:</label>
+                <label for="city">City *</label>
                 <input type="text" id="city" name="city">
             </div>
             <div class="col">
-                <label for="zipcode">Zip Code:</label>
+                <label for="zipcode">Zipcode/Postal code *</label>
                 <input type="text" id="zipcode" name="zipcode">
             </div>
         </div>
         <div class="form-row">
             <div class="col">
-                <label  for="fname">Country:</label>
+                <label  for="fname">Country *</label>
                 <input type="text" id="country" name="fname">
             </div>
             <div class="col">
-                <label for="lname">State:</label>
+                <label for="lname">State/Province/Region *</label>
                 <input type="text" id="state" name="lname">
             </div>
         </div>
         <div class="form-row">
             <div class="col-1">
-                <label for="phone">P:</label>
-                <input type="tel" id="phonePrefix" name="phone">
+                <label for="phone" id="labelphone">Phone *</label>
+                <select id="phonePrefix" name="phonePrefix">
+                    <option value="us">US +1</option>
+                    <option value="uk">UK +44</option>
+                    <option value="india">IN +91</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <!-- <input type="tel" id="phonePrefix" name="phone"> -->
             </div>
             <div class="col-5">
-                <label for="phone">Phone Number:</label>
+                <label for="phone">&nbsp;</label>
                 <input type="tel" id="phone" name="phone">
             </div>
         </div>
         <div class="form-row">
-            <input type="checkbox" id="defaultBilling" name="defaultBilling">
-            <label for="defaultBilling">Default Billing Address</label>
+            <input class="col-1 ms-0 ps-0" type="checkbox" id="defaultBilling" name="defaultBilling">
+            <label class="col-11" for="defaultBilling">Default Billing Address</label>
         </div>
         <div class="form-row">
-            <input type="checkbox" id="defaultDelivery" name="defaultDelivery">
-            <label for="defaultDelivery">Default Delivery Address</label>
+            <input class="col-1" type="checkbox" id="defaultDelivery" name="defaultBilling">
+            <label class="col-11" for="defaultBilling">Default Delivery Address</label>
         </div>
         <div class="form-row">
-            <button id="saveAddress">Save Address</button>
+            <button id="saveAddress">SAVE ADDRESS</button>
         </div>
+    </form>
     </div>
 </body>
 </html>

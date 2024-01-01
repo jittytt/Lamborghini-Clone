@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 25%;
     margin-right: 25%;
 }
@@ -20,38 +20,66 @@ body {
 }
 
 .form-row {
-    margin-bottom: 15px;
+    margin-bottom: 9%;
+}
+
+.form-row i{
+    margin-right: -5%;
+    padding-right: 0%;
+}
+.form-row a{
+    text-decoration: none;
+    color: rgba(10, 8, 8, 0.575);
 }
 
 .half {
     width: 50%;
     display: inline-block;
 }
-
-label {
+.form-row p{
+    font-weight: bold;
+    font-size: 78%;
+    color: rgba(22, 21, 21, 0.76);
+}
+.form-row label {
     display: block;
     margin-bottom: 0px;
     font-weight: bold;
+    font-size: 80%;
+    color: rgba(10, 1, 1, 0.301);
+}
+#labelphone{
+    font-size: 60%;
+}
+#phonePrefix{
+    margin-top: 22%;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #1f1d1d;
+    font-size: 80%;
 }
 
-input {
+.form-row input {
     width:100%;
+    font-size: 80%;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid #c7bfbf;
-    margin-top: 4px;
+    border-bottom: 1px solid #1f1d1d;
+    height: 50%;
     outline: none;
 }
 
-button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 20px;
+.address-form button {
+    background-color: #0c020262;
+    color: #f7f1f1d7;
+    padding: 8px 16px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 1px;
+    cursor: default;
+    font-weight: 620;
+    font-family: Roboto;
 }
 
-button:hover {
-    background-color: #45a049;
-}
+/* .address-form button:hover {
+    background-color: #5a615a;
+} */
