@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/addressbook_footer.css">
-    <link rel="stylesheet" href = "../styles/addressbook.css"> 
+    <link rel="stylesheet" href = "../styles/leftsidenav.css">  
     </head>
     <body>
         <div class = "clothing-page">
@@ -149,7 +150,7 @@
                     </div>
                 </div>
             </header>
-            <div class="data-part">
+            
                 <div class="leftrightmaincontainer">
                   <div class="sidebar">
                     <div class="arrow-icon" id="toggleSidebar">
@@ -200,29 +201,75 @@
                         <ul class="d-flex flex-wrap">
                           <li><a href="../index.html">Home &nbsp;</a></li>
                           <li>/ &nbsp;</li>
-                          <li><a href="./clothing.html">Dashboard &nbsp;</a></li>
+                          <li><a href="../pages/dashboard.html">Dashboard &nbsp;</a></li>
                           <li>/ &nbsp;</li>
-                          <li><a href="./clothing.html">Address Book &nbsp;</a></li>
+                          <li><a href="../pages/addressbook.html">Address Book &nbsp;</a></li>
                         </ul>
                       </nav>
                     </div>
-                    <div class="outerwear-caption">
-                      <h1 class="capt">ADDRESS BOOK</h1>
-                    </div>
-                    <span class="address-capt">Address Book</span>
-                    <hr class = "address-hr-line">
-                    <div class="address-container">
-                      <!-- <div class="address">
-                      </div> -->
-                    </div>
-                    <div class = "add-new-button-class">
-                        <button>
-                            <span>+ ADD NEW ADDRESS</span>
-                        </button>
-                    </div>
-                  </div>
+                    <div class="rigthsidecontainer">
+                        <div class ="dashboard-heading"> <br><br>
+                          <h2 id="welcomename">WELCOME <span id="loginusername"></span> </h2><br><br>
+                       </div>
+                       <div class="personalInfoNewsletterMain">
+                      <div class=" column leftoftherigthsidecontainer">
+                              <h4> Login details</h4>
+                              <hr><br>
+                                <div class="row">
+                                    <div class=" col-1 profile-pic">
+                                        <i class="bi bi-person-circle"></i>
+                                      </div>
+                                    <div class="col-1 firstnamecontainer">
+                                        <h4>Firstname</h4>
+                                        <h6 id ="userfirstname"></h6>
+                                        
+                                    </div>
+                                    <div class="col-1 lastnamecontainer">
+                                        <h4>Lastname</h4>
+                                        <h6 id ="userlastname"></h6>
+                                        
+                                    </div>
+                        
+                                </div>
+                
+                                <hr>
+                                <div class="row">
+                                    <div class=" col-1 profile-pic">
+                                        <i class="bi bi-envelope-fill"></i>
+                                      </div>
+                                    <div class="col-2 emailcontainer">
+                                        <h4>E-mail</h4>
+                                        <h6 id ="useremailid"></h6>
+                                        
+                                    </div> 
+                                </div>
+                        
+                        
+                            </div>
+                            <div class="newslettersubscriptioncolumn">
+                                <h4>Newsletter Subscription</h4>
+                                <hr>
+                                <label class="checkbox-container">
+                                    General Subscription
+                                    <input id="generalSubscription" type="checkbox" onchange="showSecondCheckbox()">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <br>
+                                <div id="interestDiv" style="display: none;">
+                                    <label class="checkbox-container">
+                                        * As an interested party, having read the Privacy Policy statement, drawn up pursuant to European regulation 2016/679, I expressly consent to the processing of my personal data for commercial purposes by LAMBORGHINI, including sending marketing communications (using telematic methods - such as for example newsletters and e-mail with invitations and commercial communications - and traditional methods, such as paper mail)
+                                        <input id="interestedParty" type="checkbox" onchange="checkSaveButton()">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <button id="saveButton" disabled><span>SAVE</span></button>
+                            </div>
+                            
+                         </div>
+                        </div>
                 </div>
-              </div>
+            </div>
+        
               <footer class="foot">
                 <div class="end-text">
                     <div class="end-left">
@@ -242,6 +289,9 @@
         
         <script src="../scripts/navbar-store.js"></script>
         <script src="../scripts/sidenavexpand.js"></script>
-        <script type = "module" src="../scripts/addressbook.js"></script>
+        <script src="../scripts/dashboard.js"></script>
+        <script type ="module" src="../scripts/dashboardconnect.js"></script>
+
+        
     </body>
 </html>
