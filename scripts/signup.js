@@ -74,7 +74,8 @@ function createUserData(email, firstName, lastName) {
     Email_ID: email,
     Address: [],
     Wishlist: {}, // Array of {product_id: string, API_URL: string, count: number}
-    Cart: [] // Array of {product_id: string, API_URL: string, count: number}
+    Cart: [], // Array of {product_id: string, API_URL: string, count: number}
+    TotalCost : 0
   };
 
   // Set the data in the document
