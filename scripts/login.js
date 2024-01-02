@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -12,30 +12,32 @@ const firebaseConfig = {
   measurementId: "G-MEBX1PZLTS"
 };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 const submitButton = document.getElementById("submit");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
-var email, password;
+submitButton.addEventListener("click", function (event) {
+  event.preventDefault();
 
-submitButton.addEventListener("click", function(event) {
-  
-  event.preventDefault()
-
-  email = emailInput.value;
-  console.log(email);
-  password = passwordInput.value;
-  console.log(password);
+  const email = emailInput.value;
+  const password = passwordInput.value;
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      sessionStorage.setItem('Email', email);
-      console.log("Success!, Welcome Back");
+
+      // Save email to ActiveUser collection
+      updateEmailInActiveUser(email)
+        .then(() => {
+          console.log("Success! Welcome Back");
+        })
+        .catch((error) => {
+          console.error("Error updating email in ActiveUser:", error);
+        });
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -53,3 +55,16 @@ submitButton.addEventListener("click", function(event) {
     });
 });
 
+async function updateEmailInActiveUser(email) {
+  const activeUserDocRef = doc(db, "ActiveUser", "Email_ID");
+
+  try {
+    // Update the document with the new email
+    await setDoc(activeUserDocRef, { Email: email });
+
+    // Save email to sessionStorage if needed
+    sessionStorage.setItem('Email', email);
+  } catch (error) {
+    throw error;
+  }
+}

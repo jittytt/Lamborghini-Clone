@@ -200,6 +200,9 @@
 .add-new-button-class {
     margin-top : 70px;
 }
+.add-new-button-class a{
+  text-decoration: none;
+}
 button {
     position: relative;
     display: flex;
