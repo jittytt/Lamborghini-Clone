@@ -15,6 +15,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+console.log(app);
+console.log(db);
 //check if all values entered
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector('div ');
@@ -45,7 +48,8 @@ document.getElementById('saveAddress').addEventListener('click', async function 
     var country = document.getElementById('country').value;
     var state = document.getElementById('state').value;
     var phone = document.getElementById('phone').value;
-    console.log('email');
+
+    console.log(fname);
     // Retrieve email from ActiveUser collection
     const email = await getEmailFromActiveUser();
     console.log(email)
