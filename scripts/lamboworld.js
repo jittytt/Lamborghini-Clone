@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.products');
-    let apiUrl = 'https://mocki.io/v1/5c4be462-92d7-46f4-abd6-9ac5feb1210a'; // Default URL
+    let apiUrl = 'https://mocki.io/v1/5c4be462-92d7-46f4-abd6-9ac5feb1210a';
 
     async function fetchProducts(url) {
         try {
@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <center><p class="product-price">$${formatPrice(response[index].price)}</p></center>
                 `;
 
-                // Add event listeners for hover effect
                 productElement.addEventListener('mouseover', () => {
                     changeImage(productElement, response[index].hover_image_url);
                 });
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             imgElement.src = newSrc;
             imgElement.style.opacity = 1;
-        }, 200); // Adjust the delay to match the transition duration
+        }, 200);
     }
 
     function restoreImage(element, originalSrc) {

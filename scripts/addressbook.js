@@ -17,51 +17,55 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 function displayAddresses() {
-    // Fetch the email from session storage
-    // const userEmail = sessionStorage.getItem("Email");
-    const userEmail = "varghesenigin2001@gmail.com";
-    if (!userEmail) {
-      console.error("Email not found in session storage");
-      return;
-    }
   
-    // Reference to the Firestore collection
-    const usersDataCollection = collection(db, "UsersData");
-  
-    // Query the document with the name as the user's email
-    const userDocRef = doc(usersDataCollection, userEmail);
-  
-    getDoc(userDocRef)
-      .then((doc) => {
-        if (doc.exists()) {
-          // Document found, fetch the addresses array
-          const addresses = doc.data().Address;
-  
-          // Display each address
-          addresses.forEach((address, index) => {
-            displayAddressCard(address, index);
-          });
+  const activeUserCollectionRef = collection(db, 'ActiveUser');
+  const emailIdDocumentRef = doc(activeUserCollectionRef, 'Email_ID');
+
+  getDoc(emailIdDocumentRef)
+    .then((docm) => {
+      if (docm.exists()) {
+        const userEmail = docm.data().Email;
+
+        if (userEmail) {
+          
+          const usersDataCollection = collection(db, 'UsersData');
+          const userDocRef = doc(usersDataCollection, userEmail);
+
+          getDoc(userDocRef)
+            .then((docm) => {
+              if (docm.exists()) {
+                const addresses = docm.data().Address;
+
+                addresses.forEach((address) => {
+                  displayAddressCard(address);
+                });
+              } else {
+                console.error("Document not found for user email:", userEmail);
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching user document:", error);
+            });
         } else {
-          console.error("Document not found for user email: ", userEmail);
+          console.error("Email not found in the ActiveUser document");
         }
-      })
-      .catch((error) => {
-        console.error("Error fetching document: ", error);
-      });
-  }
+      } else {
+        console.error("Document does not exist in the ActiveUser collection");
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching ActiveUser document:", error);
+    });
+}
   
-  // Function to create and append address card
-  function displayAddressCard(address, index) {
+  function displayAddressCard(address) {
     const addressContainer = document.querySelector(".address-container");
   
-    // Create a div element for the address card
     const addressCard = document.createElement("div");
     addressCard.classList.add("address");
   
-    // Extract details from the address map
     const { First_Name, Last_Name, Address, Zip, City, State, Country, Phone} = address;
   
-    // Create HTML content for the address card
     const cardContent = `
   <p class="name-part">${First_Name} ${Last_Name}</p>
   <br>
@@ -72,13 +76,8 @@ function displayAddresses() {
   <p class="info-part">${Phone}</p>
 `;
 
-  
-    // Set the HTML content of the address card
     addressCard.innerHTML = cardContent;
-  
-    // Append the address card to the address container
     addressContainer.appendChild(addressCard);
   }
   
-  // Call the displayAddresses function when the page is loaded
   document.addEventListener("DOMContentLoaded", displayAddresses);
