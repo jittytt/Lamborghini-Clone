@@ -82,6 +82,7 @@ function createUserData(email, firstName, lastName) {
   setDoc(userDocRef, userData)
     .then(() => {
       console.log("User data created successfully");
+      window.location.href = '../pages/login.html';
     })
     .catch((error) => {
       console.error("Error creating user data:", error);
