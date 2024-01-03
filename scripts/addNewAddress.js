@@ -18,7 +18,26 @@ const db = getFirestore(app);
 
 console.log(app);
 console.log(db);
+//check if all values entered
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector('div ');
+    const submitButton = document.getElementById('saveAddress');
 
+    const isFormValid = () => {
+        // Check the validity of all required form fields
+        const requiredFields = form.querySelectorAll('[required]');
+        const isValid = Array.from(requiredFields).every((element) => element.checkValidity());
+        return isValid;
+    };
+
+    form.addEventListener('input', function () {
+        // Check if the entire form is valid
+        const isValid = isFormValid();
+        submitButton.classList.toggle('active', isValid);
+    });
+});
+
+//save into firebase
 document.getElementById('saveAddress').addEventListener('click', async function () {
     // Get data from form fields
     var fname = document.getElementById('fname').value;
@@ -33,8 +52,9 @@ document.getElementById('saveAddress').addEventListener('click', async function 
     console.log(fname);
     // Retrieve email from ActiveUser collection
     const email = await getEmailFromActiveUser();
-
+    console.log(email)
     if (email) {
+        console.log(email)
         // Modify the structure of mapData
         const mapData = {
             First_Name: fname,
