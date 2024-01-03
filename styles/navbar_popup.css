@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+#pop-up {
+    position : absolute;
+    right : 0.1%;
+    top : 50%;
+    width : 200px;
+    height : 190px;
+    background-color: white;
+    font-size : 11px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    border-radius : 5px;
+    display: none;
+}
+
+.pop-up-icons {
+    width : 17.5px;
+    fill : rgba(0, 0, 0, 0.582);;
+}
+
+.pop-up-capt {
+    padding-top : 15px;
+    padding-left : 20px;
+}
+
+.pop-up-div-content {
+    padding-left : 40px;
+    margin-bottom : 20px;
+}
+
+.pop-up-dashboard-capt, .pop-up-addressbook-capt, .pop-up-ordersandreturns-capt, .pop-up-logout-capt {
+    height : 35px;
+    width : 200px;
+    padding-top : 10px;
+    padding-left : 15px;
+}
+
+.pop-up-dashboard-capt:hover, .pop-up-addressbook-capt:hover, .pop-up-ordersandreturns-capt:hover, .pop-up-logout-capt:hover {
+    background-color: #f0f0f0;
+}
+
+.pop-up-divider {
+    background-color: #000000b0;
+    margin-left : 15px;
+    margin-right : 20px;
+    margin-top : 10px;
+    margin-bottom :0px;
+}
+
+.pop-up-links {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .pop-up-links:hover {
+    text-decoration: none;
+    color: inherit;
+    cursor : pointer;
+    background-color: #f0f0f0;
+  }
+
+  .person-icon {
+    cursor : pointer;
+  }
