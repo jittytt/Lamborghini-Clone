@@ -294,7 +294,7 @@ header {
         text-decoration: none;
         color: white;
     }
-    .fixed-bottom-section button.active{
+    .fixed-bottom-section button .active{
         border: none;
         background-color: #050505;
         color: white;
