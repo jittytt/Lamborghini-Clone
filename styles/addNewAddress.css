@@ -52,12 +52,19 @@ body {
     font-size: 60%;
 }
 #phonePrefix{
-    margin-top: 22%;
+    margin-top: 21%;
     width: 100%;
     border: none;
     border-bottom: 1px solid #1f1d1d;
-    font-size: 80%;
+    font-size: 76%;
 }
+.phonepre{
+    max-width: 12%;
+}
+.phonenum{
+    min-width: 38%;
+}
+
 
 .form-row input {
     width:100%;

@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
+let amount=0;
 const firebaseConfig = {
   apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
   authDomain: "lamborghini-store-19cb4.firebaseapp.com",
@@ -83,7 +83,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector('div');
     //const submitButton = document.getElementById('shipAddress');
     displayAddress();
+
+    // Get the URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+
+// Retrieve the value of the 'amount' parameter
+amount = urlParams.get('amount');
+document.getElementById('totalAmount').innerHTML=("$"+amount);
    
 
 });
 
+
+//next button
+document.getElementById('nextButton').addEventListener('click', async function () {
+  window.location.href = `../pages/checkout_payment.html?amount=${amount}`;
+
+});
+  
