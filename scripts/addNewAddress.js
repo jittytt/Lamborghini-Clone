@@ -16,6 +16,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+console.log(app);
+console.log(db);
+
 document.getElementById('saveAddress').addEventListener('click', async function () {
     // Get data from form fields
     var fname = document.getElementById('fname').value;
@@ -27,6 +30,7 @@ document.getElementById('saveAddress').addEventListener('click', async function 
     var state = document.getElementById('state').value;
     var phone = document.getElementById('phone').value;
 
+    console.log(fname);
     // Retrieve email from ActiveUser collection
     const email = await getEmailFromActiveUser();
 
