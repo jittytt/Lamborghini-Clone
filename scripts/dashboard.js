@@ -15,17 +15,18 @@ function showSecondCheckbox() {
   } else {
       interestDiv.style.display = 'none';
       document.getElementById('interestedParty').checked = false; // Uncheck second checkbox if first is unchecked
-      document.getElementById('saveButton').disabled = true; // Disable save button if first checkbox is unchecked
   }
 } 
 
 function checkSaveButton() {
-  const interestedParty = document.getElementById('interestedParty');
-  const saveButton = document.getElementById('saveButton');
+  console.log("Clicked");
+  const interestedParty = document.getElementById('saveButton');
+  interestedParty.classList.add("enable-save");
+  //const saveButton = document.getElementById('saveButton');
   
-  if (interestedParty.checked) {
-      saveButton.disabled = false;
-  } else {
-      saveButton.disabled = true;
-  }
+  // if (interestedParty.checked) {
+  //     saveButton.disabled = false;
+  // } else {
+  //     saveButton.disabled = true;
+  // }
 }
