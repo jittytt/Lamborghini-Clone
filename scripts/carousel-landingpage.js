@@ -22,29 +22,24 @@ document.addEventListener('DOMContentLoaded', function () {
     showSlide(currentSlide);
   }
 
-  // Initial display
-  showSlide(currentSlide);
+  showSlide(currentSlide);  // Initial display
 
   // Automatic slide change
   setInterval(nextSlide, 8000);
 
-  // Event listeners for manual control
   document.getElementById('left-icon').addEventListener('click', prevSlide);
   document.getElementById('right-icon').addEventListener('click', nextSlide);
 
-  // Function to apply rolling-in animation and blur effect to caption lines
+  // Rolling Animation
   function applyAnimationAndBlur(slide) {
     const captionFirstLine = slide.querySelector('.caption-firstline');
     const captionSecondLine = slide.querySelector('.caption-secondline');
     const captionThirdLine = slide.querySelector('.caption-thirdline');
 
-    // Add class for rolling-in animation to caption-secondline
     captionSecondLine.classList.add('rolling-in');
-
-    // After a delay, add class for blur effect to caption-firstline and caption-thirdline
     setTimeout(function () {
       captionFirstLine.classList.add('blurred');
       captionThirdLine.classList.add('blurred');
-    }, 1000); // Adjust the delay as needed
+    }, 1000);
   }
 });

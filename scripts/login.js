@@ -30,7 +30,6 @@ submitButton.addEventListener("click", function (event) {
     .then((userCredential) => {
       const user = userCredential.user;
 
-      // Save email to ActiveUser collection
       updateEmailInActiveUser(email)
         .then(() => {
           console.log("Success! Welcome Back");
@@ -59,11 +58,7 @@ async function updateEmailInActiveUser(email) {
   const activeUserDocRef = doc(db, "ActiveUser", "Email_ID");
 
   try {
-    // Update the document with the new email
     await setDoc(activeUserDocRef, { Email: email });
-
-    // Save email to sessionStorage if needed
-    sessionStorage.setItem('Email', email);
   } catch (error) {
     throw error;
   }

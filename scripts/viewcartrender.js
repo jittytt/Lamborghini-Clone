@@ -17,7 +17,6 @@ const db = getFirestore(app);
 function renderCartItems() {
     const cartItemList = document.querySelector('.cart-item-list');
   
-    // Get active user's email from Firestore
     const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
     getDoc(activeUserDocRef)
       .then((docm) => {
@@ -25,14 +24,13 @@ function renderCartItems() {
           const activeEmail = docm.data().Email;
   
           console.log(activeEmail);
-          // Get user's data from Firestore
+
           const userDataDocRef = doc(db, 'UsersData', activeEmail);
           getDoc(userDataDocRef)
             .then((userDoc) => {
               if (userDoc.exists()) {
                 const cartItems = userDoc.data().Cart;
-  
-                // Render cart items
+
                 cartItems.forEach((item) => {
                   const cartItemDiv = document.createElement('div');
                   cartItemDiv.classList.add('cart-item-div');
@@ -76,7 +74,6 @@ function renderCartItems() {
                   cartItemList.appendChild(cartItemDiv);
                 });
   
-                // Add the "empty-cart-div" after rendering cart items
                 const emptyCartDiv = document.createElement('div');
                 emptyCartDiv.classList.add('empty-cart-div');
                 emptyCartDiv.innerHTML = `
@@ -84,7 +81,6 @@ function renderCartItems() {
     `;
                 cartItemList.appendChild(emptyCartDiv);
   
-                // Add hr element after "empty-cart-div"
                 const hrElement = document.createElement('hr');
                 hrElement.classList.add('cart-divider');
                 cartItemList.appendChild(hrElement);
@@ -105,5 +101,5 @@ function renderCartItems() {
   }
       
 
-// Call the function to render cart items when the page loads
+
 window.addEventListener('load', renderCartItems);
