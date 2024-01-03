@@ -29,14 +29,13 @@ submitButton.addEventListener("click", function (event) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-
-      // Save email to ActiveUser collection
       updateEmailInActiveUser(email)
         .then(() => {
           console.log("Success! Welcome Back");
         })
         .catch((error) => {
           console.error("Error updating email in ActiveUser:", error);
+          alert("Invalid Credentials");
         });
     })
     .catch((error) => {
@@ -44,6 +43,7 @@ submitButton.addEventListener("click", function (event) {
       const errorMessage = error.message;
       console.log(errorCode);
       console.log("Error Occured! Try Again");
+      alert("Invalid Credentials");
 
       if (errorCode === 'auth/wrong-password') {
         alert("Password Incorrect");
@@ -59,11 +59,8 @@ async function updateEmailInActiveUser(email) {
   const activeUserDocRef = doc(db, "ActiveUser", "Email_ID");
 
   try {
-    // Update the document with the new email
     await setDoc(activeUserDocRef, { Email: email });
-
-    // Save email to sessionStorage if needed
-    sessionStorage.setItem('Email', email);
+    window.location.href = '../index.html';
   } catch (error) {
     throw error;
   }

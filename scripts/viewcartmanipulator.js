@@ -28,22 +28,18 @@ function updateSubtotalAndTotal() {
                         if (userDoc.exists()) {
                             const cartItems = userDoc.data().Cart;
 
-                            // Calculate subtotal
                             const subtotal = cartItems.reduce((sum, item) => {
                                 return sum + item.count * item.price;
                             }, 0);
 
-                            // Update the subtotal value on the page with commas
                             const subtotalElement = document.querySelector('.subtotal-value');
                             if (subtotalElement) {
                                 subtotalElement.textContent = formatAmount(subtotal);
                             }
 
-                            // Calculate and update the total value (you might need to include shipping, tax, etc.)
-                            const total = subtotal; // Placeholder for now, update as needed
+                            const total = subtotal;
                             const tax = subtotal * 0.03;
                             const shipping_tax = subtotal * 0.02;
-                            // Update the total value on the page with commas
                             const totalElement = document.querySelector('.order-value');
                             const taxElement = document.querySelector('.tax-value');
                             const shippingElement = document.querySelector('.shipping-value');
@@ -53,7 +49,6 @@ function updateSubtotalAndTotal() {
                                 shippingElement.textContent = formatAmount(shipping_tax);
                             }
 
-                            // Add the logic for updating TotalCost here
                             const finalTotal = total + tax + shipping_tax;
                             updateTotalCost(userDataDocRef, finalTotal);
                         } else {
@@ -72,19 +67,16 @@ function updateSubtotalAndTotal() {
         });
 }
 
-// Helper function to format amount with commas
 function formatAmount(amount) {
     return amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-// Function to update TotalCost in the database
 function updateTotalCost(userDataDocRef, finalTotal) {
     updateDoc(userDataDocRef, {
         TotalCost: finalTotal
     })
         .then(() => {
             console.log('TotalCost updated successfully.');
-            // You can perform additional actions after updating TotalCost if needed
         })
         .catch((error) => {
             console.error('Error updating TotalCost:', error);
@@ -95,5 +87,4 @@ const checkoutButton = document.querySelector('.checkout-button');
 
 checkoutButton.addEventListener('click', updateSubtotalAndTotal);
 
-// Call the function to update subtotal and total when the page loads
 window.addEventListener('load', updateSubtotalAndTotal);

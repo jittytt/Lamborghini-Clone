@@ -24,6 +24,24 @@ const createacctbtn = document.getElementById("create-acct-btn");
 const firstName = document.getElementById("firstname");
 const lastName = document.getElementById("lastname");
 var signupEmail, signupPassword, confirmSignupPassword;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector('form ');
+  const submitButton = document.getElementById('create-acct-btn');
+
+  const isFormValid = () => {
+      // Check the validity of all required form fields
+      const requiredFields = form.querySelectorAll('[required]');
+      const isValid = Array.from(requiredFields).every((element) => element.checkValidity());
+      return isValid;
+  };
+
+  form.addEventListener('input', function () {
+      // Check if the entire form is valid
+      const isValid = isFormValid();
+      submitButton.style.pointerEvents='auto';
+  });
+})
  
 createacctbtn.addEventListener("click", function(event) {
  
@@ -82,6 +100,7 @@ function createUserData(email, firstName, lastName) {
   setDoc(userDocRef, userData)
     .then(() => {
       console.log("User data created successfully");
+      window.location.href = '../pages/login.html';
     })
     .catch((error) => {
       console.error("Error creating user data:", error);
