@@ -42,8 +42,16 @@ submitButton.addEventListener("click", function (event) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.error(errorCode);
-      console.error("Error Occurred! Try Again");
+      console.log(errorCode);
+      console.log("Error Occured! Try Again");
+
+      if (errorCode === 'auth/wrong-password') {
+        alert("Password Incorrect");
+        alert.style.backgroundColor = "red"; 
+      } else {
+        console.log("Error Occurred! Try Again");
+        console.log(errorCode);
+      }
     });
 });
 

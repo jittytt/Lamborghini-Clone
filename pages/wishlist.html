@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/addressbook_footer.css">
-    <link rel="stylesheet" href = "../styles/addressbook.css"> 
+    <!-- <link rel="stylesheet" href = "../styles/addressbook.css">  -->
+    <link rel="stylesheet" href = "../styles/wishlist.css"> 
+    <link rel="stylesheet" href = "../styles/leftsidenav.css"> 
     </head>
     <body>
         <div class = "clothing-page">
@@ -194,32 +196,68 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="content-container">
-                    <div class="breadcrumb-bar">
-                      <nav aria-label="breadcrumb">
-                        <ul class="d-flex flex-wrap">
-                          <li><a href="../index.html">Home &nbsp;</a></li>
-                          <li>/ &nbsp;</li>
-                          <li><a href="./clothing.html">Dashboard &nbsp;</a></li>
-                          <li>/ &nbsp;</li>
-                          <li><a href="./clothing.html">Address Book &nbsp;</a></li>
-                        </ul>
-                      </nav>
-                    </div>
-                    <div class="outerwear-caption">
-                      <h1 class="capt">ADDRESS BOOK</h1>
-                    </div>
-                    <span class="address-capt">Address Book</span>
-                    <hr class = "address-hr-line">
-                    <div class="address-container">
-                      <!-- <div class="address">
-                      </div> -->
-                    </div>
-                    <div class = "add-new-button-class">
-                        <button onclick="window.location.href='./addNewAddress.html'">
-                            <span  >+ ADD NEW ADDRESS</span>
-                        </button>
-                    </div>
+                  <div class="ifThereIsNoProduct"></div>
+                  <div class="ifThereIsAProduct">
+                    <br><br>
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="./index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
+                      </ol>
+                    </nav>
+                    <div class ="dashboard-heading"> <br><br>
+                      <h2>WISHLIST</h2><br><br>
+                       
+                   </div>
+                  <table class="wishlist-table">
+                      <thead class="table-heading-section">
+                        <tr>
+                          <th>&nbsp;&nbsp;</th>
+                          <th>Product</th>
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          <th>Subtotal</th>
+                          <th>&nbsp;&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="wishlist-row">
+                          <td class="product-image"><img src="https://static.lamborghinistore.com/rx/120x,ofmt_webp/media/catalog/product/1/6/16387CCG116_02.jpg" alt="Product Image"></td>
+                          <td class="product-name-id">
+                            <div class="product-name">
+                              UPCYCLED LEATHER AUTOMOBILI LAMBORGHINI PASSPORT HOLDER
+                            </div>
+                            <div class="product-id">
+                              16363LLH000000
+                            </div>
+                          </td>
+                          <td>$66.00</td>
+                          <td>
+                            <div class="quantity">
+                              <a href="#">
+                                  <i class="bi bi-plus-circle-fill" id="plus-icon0" style="color: black;"></i>
+                                </a>
+                              <input type="text" class="quantity-input" value="1">
+                              <a href="#">
+                                  <i class="bi bi-dash-circle-fill"  id="plus-icon0" style="color: black;"></i>
+                                </a>
+                                
+                            </div>
+                          </td>
+                          <td>$66.00</td>
+                          <td>
+                              <i class="bi bi-bag"></i>          
+                              <i class="bi bi-trash3"></i>
+                          </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                      </tbody>
+                    </table>
+                    <button class="empty-wishlist"> EMPTY WISHLIST
+                    </button>
+                   <button class="add-to-cart"> ADD ALL TO CART
+                    </button>
+                  
                   </div>
                 </div>
               </div>
