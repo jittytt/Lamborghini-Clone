@@ -1,7 +1,10 @@
 
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body{
     width: 100%;
     overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
 
 }
 /* Checkout headding */
@@ -121,9 +124,9 @@ body{
 
 .address-form button.active {
     pointer-events: auto; /* Enable the button when the form is valid */
-    background: linear-gradient(to left, #eee9e9e3 50%, #0e0d0dfa 50%);
+    background: linear-gradient(to left, #faf9f9fd 50%, #0e0d0dfa 50%);
     background-size: 200% 100%; /* Larger size to cover the entire button */
-    color: #f7f1f1ea;
+    color: #f7f1f1f6;
     padding: 8px 16px;
     border: 1px solid black;
     border-radius: 1px;
@@ -138,7 +141,7 @@ body{
 .address-form button:hover {
     
     background-position: 100% 100%; 
-    background-color: #fcf9f9fa;
+    background-color: #fcf9f9;
     color: #0f0f0fee;
     border: 1px solid black; /* Set border properties here */
     transition: background-position 0.3s ease ; 
@@ -323,5 +326,15 @@ header {
     }
     .payment-options p{
         font-size: 90%;
+        cursor: pointer;
+        text-decoration: none;
        
     }
+    .payment-options a{
+        font-size: 90%;
+        cursor: pointer;
+        text-decoration: none;
+        color: #050505;
+       
+    }
+    
