@@ -199,9 +199,7 @@
 .add-new-button-class {
     margin-top : 70px;
 }
-.add-new-button-class a{
-  text-decoration: none;
-}
+
 button {
     position: relative;
     display: flex;
@@ -251,6 +249,10 @@ button {
     color: black;
     font-weight:lighter;
     animation: scaleUp 0.3s ease-in-out;
+   }
+   button:hover a{
+    text-decoration: none;
+    color: black;
    }
    
    @keyframes scaleUp {

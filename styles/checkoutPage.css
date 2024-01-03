@@ -1,6 +1,10 @@
 
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body{
     width: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
 
 }
 /* Checkout headding */
@@ -14,6 +18,11 @@ body{
     margin-top: 2%;
     margin-left: 35%;
     margin-right: 35%;
+}
+.checkoutBar2{
+    margin-top: 0%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 .checkoutBar .two{
     text-align: left;
@@ -43,7 +52,7 @@ body{
 }
 
 .form-row {
-    margin-bottom: 9%;
+    margin-bottom: 5%;
 }
 
 .form-row i{
@@ -62,7 +71,7 @@ body{
 .form-row p{
     font-weight: bold;
     font-size: 78%;
-    color: rgba(22, 21, 21, 0.76);
+    color: rgba(36, 32, 32, 0.76);
 }
 .form-row label {
     display: block;
@@ -97,7 +106,7 @@ body{
 }
 .address-form button {
     background-color: #0c020262;
-    color: #f7f1f1d7;
+    color: #f7f7f7f6;
     padding: 8px 16px;
     border: 1px solid#0c020213;
     border-radius: 1px;
@@ -108,13 +117,16 @@ body{
     transition: background-color 0.3s ease; /* Add a smooth transition for better user experience */
    
 }
-
+.address-form a{
+    text-decoration: none;
+    color: #dee2e6;
+}
 
 .address-form button.active {
     pointer-events: auto; /* Enable the button when the form is valid */
-    background: linear-gradient(to left, #eee9e9e3 50%, #0e0d0dfa 50%);
+    background: linear-gradient(to left, #faf9f9fd 50%, #0e0d0dfa 50%);
     background-size: 200% 100%; /* Larger size to cover the entire button */
-    color: #f7f1f1ea;
+    color: #f7f1f1f6;
     padding: 8px 16px;
     border: 1px solid black;
     border-radius: 1px;
@@ -129,12 +141,19 @@ body{
 .address-form button:hover {
     
     background-position: 100% 100%; 
-    background-color: #fcf9f9fa;
+    background-color: #fcf9f9;
     color: #0f0f0fee;
     border: 1px solid black; /* Set border properties here */
     transition: background-position 0.3s ease ; 
-
-    
+   
+}
+.address-form button:hover a{
+    text-decoration: none;
+    color: #0c0d0e;
+}
+.address-form hr{
+    border: 1%;
+    border-color: black;
 }
 @keyframes scaleUp {
     0% {
@@ -190,3 +209,132 @@ header {
     padding-left: 2%;
     
 }
+
+/* checkout shipping address icon */
+.shippIcon{
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-bottom: -2%;
+}
+.homeicon{
+    text-align: right;
+    
+}
+.shippIcon i{
+    color: white;
+    font-size: 150%;
+    
+}
+.shippIcon .text{
+    font-size: 120%;
+}
+.shippIcon .ic{
+    margin-left: 81%;
+    padding-right: 3%;
+    background-color: #aca0a0;
+    border-radius: 50%;
+}
+/* checkout shipping address icon end */
+
+/* shipping method */
+#icon2{
+    margin-top: 0% !important;
+}
+.shipMethod{
+    margin-top: 5%;
+    margin-left: 22%;
+}
+.shipMethod1{
+    margin-top: 2%;
+    margin-left: 21%;
+}
+#editicon{
+    margin-left: 70%;
+    color: rgba(5, 5, 5, 0.671);
+    text-decoration: none;
+}
+/* shipping method end */
+
+/* Product price footer */
+.fixed-bottom-section {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    width:101.5%;
+    height: 15%;
+    background-color: #f8f9fa; /* Adjust background color as needed */
+    border-top: 1px solid #dee2e6; /* Optional: add a border at the top */
+    align-content: center;
+  }
+  .fixed-bottom-section .one {
+    align-items: center;
+    flex: 1;  
+    font-size: small;
+    
+}
+.fixed-bottom-section .two {
+    flex: 5;  
+    text-align: right;
+    }
+    .fixed-bottom-section .three{
+        flex: 6;
+        text-align: center;
+        margin-left: 10%;
+        align-items: center;
+    }
+    .fixed-bottom-section button{
+        border: none;
+        background-color: #aca0a0;
+        color: white;
+        font-weight:500;
+        pointer-events: none;
+        
+    }
+    .fixed-bottom-section a{
+        text-decoration: none;
+        color: white;
+    }
+    .fixed-bottom-section button.active{
+        border: none;
+        background-color: #050505;
+        color: white;
+        font-weight:500;
+        pointer-events: auto;
+        
+    }
+
+    /* payment page */
+    .paymentrow{
+        margin-top: 3%;
+        margin-left: 11%;
+        margin-right: 11%;
+
+    }
+    .shippIcon .ic1{
+        margin-left: 3%;
+        padding-right: 25%;
+        background-color: #aca0a0;
+        border-radius: 50%;
+    }
+    .payment-options label{
+        color: #050505;
+        font-size: 100%;
+    }
+    .payment-options hr{
+        margin-top: 0%;
+        border-color: #050505b7;
+    }
+    .payment-options p{
+        font-size: 90%;
+        cursor: pointer;
+        text-decoration: none;
+       
+    }
+    .payment-options a{
+        font-size: 90%;
+        cursor: pointer;
+        text-decoration: none;
+        color: #050505;
+       
+    }
+    

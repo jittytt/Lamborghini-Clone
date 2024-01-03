@@ -9,14 +9,17 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script> -->
   <link rel="stylesheet" href="../styles/checkoutPage.css">
   <link rel="stylesheet" href="../styles/addressbook_footer.css">
-  <script type="module" src="../scripts/checkoutPage.js"></script>
-  <!-- <link rel="stylesheet" href="../styles/navbar.css"> -->
+  <script src="../scripts/checkout_payment.js"></script>
     </head>
     <body >
+        <section>
+
+      
         <header class="">
             <div class="navbar-container container-fluid  align-items-center" id="main-navbar" >
 
@@ -51,87 +54,62 @@
 <div class="row checkoutBar2">
     <div class="col-4 text-center"><p>Shipping</p></i></div>
     <div class="col-2"></div>
-    <div class="col-6 ps-0 text-right two "><p>Payment & Review</p></div>
+    <div class="col-6 ps-0 text-right "><p>Payment & Review</p></div>
 
 </div>
-<div class="shippIcon row">
-<div class="homeicon col-2"><div class="ic"><i class="bi bi-house-door-fill"></i></div></div>
-<div class="text col-10">Shipping address</div>
-</div>
-        <div class="ms-12 me-12 address-form ">
-           <section>
-            <div class="form-row">
-                <div class="col">
-                    <label  for="fname">Firstname *</label>
-                    <input type="text" id="fname" name="fname" required>
-                </div>
-                <div class="col">
-                    <label for="lname">Lastname *</label>
-                    <input type="text" id="lname" name="lname" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <label for="address">Address *</label>
-                    <input type="text" id="address" name="address" required>
-                    <p>We do not ship to P.O Boxes. Additionally, Army Post Office (APO) and Fleet Post Office (FPO) addresses are not accepted.</p>
-                </div>
-                
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <label for="city">City *</label>
-                    <input type="text" id="city" name="city" required>
-                </div>
-                <div class="col">
-                    <label for="zipcode">Zipcode/Postal code *</label>
-                    <input type="text" id="zipcode" name="zipcode" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <label  for="fname">Country *</label>
-                    <input type="text" id="country" name="fname" required>
-                </div>
-                <div class="col">
-                    <label for="lname">State/Province/Region *</label>
-                    <input type="text" id="state" name="lname" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-1">
-                    <label for="phone" id="labelphone">Phone *</label>
-                    <select id="phonePrefix" name="phonePrefix">
-                        <option value="us">US +1</option>
-                        <option value="uk">UK +44</option>
-                        <option value="india">IN +91</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                    <!-- <input type="tel" id="phonePrefix" name="phone"> -->
-                </div>
-                <div class="col-5">
-                    <label for="phone">&nbsp;</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-            </div>
-            <div class="form-row addressButton">
-                <button id="shipAddress" ><a >SHIP TO THIS ADDRESS</a></button>
-            </div>
-            <hr>
-        </section>
+
+<div class="row paymentrow">
+<div class="col">
+    <div class="shippIcon row" id="icon">
+        <div class="homeicon col-2"><div class="ic1"><i class="bi bi-credit-card"></i></div></div>
+        <div class="text ps-0 col-10">Payment method</div>
         </div>
-        <div class="shippIcon row" id="icon2">
-            <div class="homeicon col-2"><div class="ic"><i class="bi bi-truck"></i></div></div>
-            <div class="text col-10">Choose the shipping method</div>
+        <div class="shipMethod">
+            <!-- Add this snippet inside the <div class="shipMethod"> -->
+<div class="payment-options">
+    <input type="radio" name="paymentOption" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <p class="d-inline-flex gap-1" type="radio">
+        <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Credit card </a>
+      </p>
+      <div class="collapse" id="collapseExample" >
+        <div class="card card-body border-0">
+          <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber">
+        <div class="row">
+            <div class="col-4">
+                <label for="cardNumber">Expiry Date:</label>
+        <input type="text" id="cardNumber" name="cardNumber">
             </div>
-            <div class="shipMethod">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2 text-body-secondary">FEDEX Economy</h6>
-                      <p class="card-text">$28.00</p>
-                    </div>
-                  </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+                <label for="cardNumber">CVV/CVC</label>
+        <input type="text" id="cardNumber" name="cardNumber">
             </div>
+            <div class="col-3"></div>
+        </div>
+       
+        </div>
+      </div><hr> 
+      <input type="radio" name="paymentOption" data-bs-toggle="collapse" onclick="razorpay()"  >
+    <p class="d-inline-flex gap-1" type="radio" onclick="razorpay()">Razor Pay</p>
+    <hr>
+
+    <input type="radio" name="paymentOption" data-bs-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample">
+    <p class="d-inline-flex gap-1" type="radio">Google Pay</p>
+    <hr>
+
+    <input type="radio" name="paymentOption" data-bs-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample">
+    <p class="d-inline-flex gap-1" type="radio">PayPal</p>
+    <hr>
+    
+</div>
+
+        </div>
+</div>
+<div class="col">
+
+</div>
+</div>
            
             <br><br>
         
@@ -168,7 +146,8 @@
                   </div>
            <div class="col two"> <h5 >$</h5></div>
            <div class="col three "><button  class="ps-4 pe-4 pt-2 pb-2" id="nextButton"><a href="checkout_payment.html">NEXT</a></button></div> 
-            <!-- Add your fixed content here -->
+           <!-- Add your fixed content here -->
           </div>
+        </section>
     </body>
 </html>
