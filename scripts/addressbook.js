@@ -17,7 +17,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 function displayAddresses() {
-  // Fetch user email from Firebase ActiveUser collection
+  
   const activeUserCollectionRef = collection(db, 'ActiveUser');
   const emailIdDocumentRef = doc(activeUserCollectionRef, 'Email_ID');
 
@@ -27,7 +27,7 @@ function displayAddresses() {
         const userEmail = docm.data().Email;
 
         if (userEmail) {
-          // Continue with the rest of the logic
+          
           const usersDataCollection = collection(db, 'UsersData');
           const userDocRef = doc(usersDataCollection, userEmail);
 
@@ -66,7 +66,6 @@ function displayAddresses() {
   
     const { First_Name, Last_Name, Address, Zip, City, State, Country, Phone} = address;
   
-    // Create HTML content for the address card
     const cardContent = `
   <p class="name-part">${First_Name} ${Last_Name}</p>
   <br>
@@ -77,13 +76,8 @@ function displayAddresses() {
   <p class="info-part">${Phone}</p>
 `;
 
-  
-    // Set the HTML content of the address card
     addressCard.innerHTML = cardContent;
-  
-    // Append the address card to the address container
     addressContainer.appendChild(addressCard);
   }
   
-  // Call the displayAddresses function when the page is loaded
   document.addEventListener("DOMContentLoaded", displayAddresses);

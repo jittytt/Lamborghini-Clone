@@ -1,23 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get product ID and API URL from the query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('productId');
     const apiUrl = urlParams.get('apiUrl');
 
-    // Call a function to fetch product details based on the product ID and API URL
     fetchProductDetails(productId, apiUrl);
 });
 
 async function fetchProductDetails(productId, apiUrl) {
     try {
-        // Fetch product details based on the product ID and API URL
         let data = await fetch(apiUrl);
         let response = await data.json();
 
-        // Find the product with the matching ID
         const product = response.find(item => item.product_id === productId);
 
-        // Display product details on the page
         displayProductDetails(product);
     } catch (error) {
         console.error('Error fetching product details:', error);
@@ -25,7 +20,6 @@ async function fetchProductDetails(productId, apiUrl) {
 }
 
 function displayProductDetails(product) {
-    // Create HTML elements to display product details
     const productDetailsContainer = document.getElementById('product-details');
     productDetailsContainer.innerHTML = `
         <img src="${product.default_image_url}" alt="Product Image">
