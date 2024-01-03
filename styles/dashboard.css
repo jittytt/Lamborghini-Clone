@@ -127,29 +127,16 @@ width: calc(100% - [sidebar width]);
      transform: scale(1);
     }
    }
-
-
-
-  
-
-  
-
-
-  /* Hide the default checkbox */
 .checkbox-container input {
   display: none;
 }
-
-/* Style the custom checkbox */
 .checkbox-container {
   display: inline-block;
   position: relative;
-  padding-left: 25px; /* Set the space for the checkbox */
+  padding-left: 25px; 
   font-size: 16px;
   cursor: pointer;
 }
-
-/* Create the checkmark */
 .checkmark {
   position: absolute;
   top: 0;
@@ -158,13 +145,11 @@ width: calc(100% - [sidebar width]);
   width: 20px;
   border: 1px solid black;
 }
-
-/* Style the smaller inner black square for checked state */
 .checkbox-container input:checked ~ .checkmark::after {
   content: "";
   display: block;
-  width: 10px; /* Adjust the inner square size */
-  height: 10px; /* Adjust the inner square size */
+  width: 10px; 
+  height: 10px; 
   background-color: black;
   position: absolute;
   top: 50%;
