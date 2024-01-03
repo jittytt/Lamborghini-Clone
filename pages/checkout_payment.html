@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="../styles/checkoutPage.css">
   <link rel="stylesheet" href="../styles/addressbook_footer.css">
   <script src="../scripts/checkout_payment.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="../scripts/razorpay.js"></script>
     </head>
     <body >
         <section>
@@ -67,6 +69,10 @@
         <div class="shipMethod">
             <!-- Add this snippet inside the <div class="shipMethod"> -->
 <div class="payment-options">
+    <!-- <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Default radio
+  </label> -->
     <input type="radio" name="paymentOption" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     <p class="d-inline-flex gap-1" type="radio">
         <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Credit card </a>
@@ -90,7 +96,7 @@
        
         </div>
       </div><hr> 
-      <input type="radio" name="paymentOption" data-bs-toggle="collapse" onclick="razorpay()"  >
+      <input type="radio" name="paymentOption"  onclick="razorpay()"  >
     <p class="d-inline-flex gap-1" type="radio" onclick="razorpay()">Razor Pay</p>
     <hr>
 
@@ -144,8 +150,8 @@
                   
                   
                   </div>
-           <div class="col two"> <h5 >$</h5></div>
-           <div class="col three "><button  class="ps-4 pe-4 pt-2 pb-2" id="nextButton"><a href="checkout_payment.html">NEXT</a></button></div> 
+           <div class="col two"> <h5 class="totalAmount" ></h5></div>
+           <div class="col three "><button  class="ps-4 pe-4 pt-2 pb-2" id="nextButton" onclick="makepayment()"><a href="{% url 'rpay' %}">NEXT</a></button></div> 
            <!-- Add your fixed content here -->
           </div>
         </section>

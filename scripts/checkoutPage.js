@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
+let amount;
 const firebaseConfig = {
   apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
   authDomain: "lamborghini-store-19cb4.firebaseapp.com",
@@ -19,7 +19,8 @@ const db = getFirestore(app);
 async function  displayAddress() {
     console.log("display function")
     const email = await getEmailFromActiveUser();
-    console.log(email)
+    console.log(email);
+
     if (!email) {
       console.error("Email not found in session storage");
       return;
@@ -31,10 +32,15 @@ async function  displayAddress() {
     getDoc(userDocRef)
       .then((doc) => {
         if (doc.exists()) {
+        //get total amount
+        const totalAmount = doc.data().TotalCost;
+        console.log(totalAmount);
+        amount=Math.floor(totalAmount);
+        document.getElementById('totalAmount').innerHTML=("$"+amount);
           // Document found, fetch the addresses array
           const addresses = doc.data().Address;
           const len=addresses.length;
-          console.log(len);
+          console.log("Array length"+len);
           console.log("Data Found",addresses[len-1]);
           document.getElementById('fname').value=addresses[len-1].First_Name;
           document.getElementById('lname').value=addresses[len-1].Last_Name;
@@ -142,7 +148,7 @@ async function addMapToAddress(email, mapData) {
             await updateDoc(userDocRef, { Address: updatedAddress });
 
             console.log("Map added successfully!");
-            window.location.href="../pages/checkout_shipping_method.html"
+            window.location.href = `../pages/checkout_shipping_method.html?amount=${amount}`;
         } else {
             console.error("Document not found for email:", email);
         }
