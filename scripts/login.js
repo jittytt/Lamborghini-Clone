@@ -40,18 +40,18 @@ submitButton.addEventListener("click", function (event) {
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
+      //const errorMessage = error.message;
       console.log(errorCode);
       console.log("Error Occured! Try Again");
-      alert("Invalid Credentials");
+      const errorDiv = document.querySelector(".error");
+      const errorTitle = document.querySelector(".error__title");
+      errorTitle.textContent = "Invalid Credentials";
+      errorDiv.style.display = "flex";
 
-      if (errorCode === 'auth/wrong-password') {
-        alert("Password Incorrect");
-        alert.style.backgroundColor = "red"; 
-      } else {
-        console.log("Error Occurred! Try Again");
-        console.log(errorCode);
-      }
+        // Set timeout to hide the error div after 1 seconds
+       setTimeout(() => {
+      errorDiv.style.display = "none";
+         }, 1000); // Hide after 1 seconds (3000 milliseconds)
     });
 });
 
