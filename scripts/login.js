@@ -45,13 +45,13 @@ submitButton.addEventListener("click", function (event) {
       console.log("Error Occured! Try Again");
       const errorDiv = document.querySelector(".error");
       const errorTitle = document.querySelector(".error__title");
-      errorTitle.textContent = "Invalid Credentials";
+      errorTitle.textContent = "Invalid username or password";
       errorDiv.style.display = "flex";
 
-        // Set timeout to hide the error div after 1 seconds
+        // Set timeout to hide the error div after 1 second
        setTimeout(() => {
       errorDiv.style.display = "none";
-         }, 1000); // Hide after 1 seconds (3000 milliseconds)
+         }, 1000); // Hide after 1 second
     });
 });
 
@@ -65,3 +65,41 @@ async function updateEmailInActiveUser(email) {
     throw error;
   }
 }
+
+
+
+document.getElementById("password").addEventListener("focus", function () {
+    var placeholderLabel = document.querySelector(
+      ".password-placeholder-label"
+    );
+    placeholderLabel.style.top = "30%";
+    placeholderLabel.style.fontSize = "12px";
+  });
+
+//Function to revert animated password field placeholder text
+document.getElementById("password").addEventListener("blur", function () {
+  var placeholderLabel = document.querySelector(".password-placeholder-label");
+  // Revert the styles when focus is lost
+  if (!this.value) {
+    placeholderLabel.style.top = "50%";
+    placeholderLabel.style.fontSize = "14px";
+  }
+});
+
+document.getElementById("email").addEventListener("focus", function () {
+  var placeholderLabel = document.querySelector(
+    ".email-placeholder-label"
+  );
+  placeholderLabel.style.top = "30%";
+  placeholderLabel.style.fontSize = "12px";
+});
+
+//Function to revert animated password field placeholder text
+document.getElementById("email").addEventListener("blur", function () {
+var placeholderLabel = document.querySelector(".email-placeholder-label");
+// Revert the styles when focus is lost
+if (!this.value) {
+  placeholderLabel.style.top = "50%";
+  placeholderLabel.style.fontSize = "14px";
+}
+});
