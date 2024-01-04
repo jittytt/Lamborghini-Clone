@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const button = document.getElementById('nextButton');
     button.innerHTML="PLACE ORDER";
+    
 
     // Get the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -22,6 +23,8 @@ function razorpay(){
     console.log("pAyment")
     const button = document.getElementById('nextButton');
     button.innerHTML="Razor Pay";
+    button.style.pointerEvents="auto";
+    button.style.background="black";
     button.classList.add('active');
    
 

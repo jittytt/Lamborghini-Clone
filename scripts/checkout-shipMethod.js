@@ -72,10 +72,12 @@ async function getEmailFromActiveUser() {
 
 function activateButton() {
   const nextButton = document.getElementById('nextButton');
+  nextButton.style.pointerEvents="auto";
+  nextButton.style.background="black";
+  console.log('class added')
   nextButton.classList.add('active');
 }
 
-activateButton();
 
 
 //empty data check(disable button)
@@ -83,7 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector('div');
     //const submitButton = document.getElementById('shipAddress');
     displayAddress();
-
+    console.log('call btn')
+    activateButton();
+    // const button = document.getElementById('nextButton');
+    // button.classList.add('active');
     // Get the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 
