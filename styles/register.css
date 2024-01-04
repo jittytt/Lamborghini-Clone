@@ -104,12 +104,52 @@ h2 {
 .label-input-group,
 .label-input-group input {
   width: calc(50% - 10px); /* Set width for each input and label */
-  margin-bottom: 20px; /* Adjust margin */
+  margin-bottom: 20px; 
 }
 
 .label-input-group label {
   display: block;
   text-align: left; /* Align labels to the left */
+}
+
+/* .firstname-placeholder-label {
+  margin-bottom: 20px;
+  padding-bottom:20px;
+  font-size: 14px;
+  position: absolute;
+  top: 5%;
+  left: 5px;
+  transform: translateY(-50%);
+  transition: top 0.3s, font-size 0.3s, color 0.3s;
+  pointer-events: none;
+  color: white; 
+}
+
+input[type="text"]:focus + .firstname-placeholder-label,
+input[type="text"]:not(:placeholder-shown) + .firstname-placeholder-label {
+top: 90%; 
+font-size: 12px; 
+color: #7f8c8d; 
+} */
+
+.email-placeholder-label {
+  margin-bottom: 20px;
+  padding-bottom:20px;
+  font-size: 14px;
+  position: absolute;
+  top: 5%;
+  left: 5px;
+  transform: translateY(-50%);
+  transition: top 0.3s, font-size 0.3s, color 0.3s; /* Added transition for top, font-size, and color */
+  pointer-events: none;
+  color: white; /* Set the default color */
+}
+
+input[type="text"]:focus + .email-placeholder-label,
+input[type="text"]:not(:placeholder-shown) + .email-placeholder-label {
+top: 90%; /* Adjusted top position when focused or when input is not empty */
+font-size: 12px; /* Adjusted font size when focused or when input is not empty */
+color: #7f8c8d; /* Adjusted color when focused or when input is not empty */
 }
 
 input[type="text"],
