@@ -23,6 +23,7 @@ const usersDataCollection = collection(db, "UsersData");
 const userDocRef = doc(usersDataCollection, email);
 const userDocSnap = await getDoc(userDocRef);
 let Cart = userDocSnap.data().Cart || [];
+let Wishlist = userDocSnap.data().Wishlist || [];
 
 //Retreiving the button by its id to perform the add to Cart functionality
 const addCartBtn = document.getElementById("select-option-btn");
@@ -35,10 +36,11 @@ addCartBtn.addEventListener('click', () => {
     const size = sessionStorage.getItem('size');
     let productInCart = Cart.find(product => product.product_id === productId && product.size === size);
     if (productInCart !== undefined)
-        Cart = Cart.map(product => product.product_id === productInCart.product_id && product.size === size ? { ...product, count: ++product.count } : product);
+        Cart = Cart.map(product => product.product_id === productInCart.product_id && product.size === size
+            ? { ...product, count: ++product.count } : product);
     else
         Cart.push({ ...storedProduct, size, count: 1 });
-    console.log(Cart);
+
     // if there is an object with the particular productId and size 
     // if yes updating the count value 
     // if no set the object -->size: sessionStorage.getItem('size') replaced by size
@@ -51,4 +53,31 @@ addCartBtn.addEventListener('click', () => {
         .catch(() => {
             console.log("product adding failed");
         })
+});
+
+const wishlistBtn = document.getElementById("add-wishlist-btn");
+wishlistBtn.addEventListener('click', () => {
+    const size = sessionStorage.getItem('size');
+    let wishlistText = 'add';
+    if (wishlistBtn.innerText.toLowerCase().includes("remove")) {
+        wishlistText = 'remove';
+        const index = Wishlist.findIndex(product => product.product_id === productId && product.size === size);
+        index > -1 && Wishlist.splice(index, 1);
+    } else {
+        const productInWishlist = Wishlist.find(product => product.product_id === productId && product.size === size);
+        if (productInWishlist === undefined)
+            Wishlist.push({ ...storedProduct, size, count: 1 });
+    }
+
+    console.log(Wishlist);
+
+    updateDoc(userDocRef, { Wishlist })
+        .then(() => {
+            console.log(`product ${wishlistText}ed ${wishlistText === 'add' ? 'to' : 'from'} wishlist`);
+            wishlistBtn.innerText = wishlistText === 'add'
+                ? "REMOVE FROM WISHLIST"
+                : "ADD TO WISHLIST";
+            sessionStorage.setItem('Wishlist', JSON.stringify(Wishlist));
+        })
+        .catch(() => { console.log(` error in ${wishlistText === 'add' ? 'adding to' : 'removing from'} wishlist`); });
 });

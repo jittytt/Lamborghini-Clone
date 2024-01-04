@@ -36,11 +36,17 @@ body {
     color:#6f6f6f;
 }
 
+.product-images-wrapper {
+    position: relative;
+}
+
 .product-images .img-container img {
     width: 100%;
 }
 .description-wrapper {
     padding: 0 20px;
+    position: sticky;
+    top: 118px;
 }
 .description-wrapper .description {
     margin: 0 auto;
