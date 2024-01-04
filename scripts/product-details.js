@@ -1,24 +1,34 @@
 const sizeSelectorElement = document.getElementById("size-list");
 const selectOptionButton = document.getElementById("select-option-btn");
+let productId;                                                              //global scope
 
 // Add an event listener to the select element
-sizeSelectorElement.addEventListener("change", () => {
-
+sizeSelectorElement.addEventListener("change", (event) => {
     // Check the selected value and enable/disable the button accordingly
-    if(sizeSelectorElement.value === 'none')
-        selectOptionButton.setAttribute('disabled','disabled');
-
+    if (sizeSelectorElement.value === 'none') {
+        selectOptionButton.setAttribute('disabled', 'disabled');
+        sizeSelectorElement.value = sessionStorage.getItem('size'); // previous size value
+        var event = new Event('change');
+        sizeSelectorElement.dispatchEvent(event);
+    }
     else {
         selectOptionButton.removeAttribute('disabled');
         selectOptionButton.innerText = "ADD TO CART";
         sessionStorage.setItem('size', sizeSelectorElement.value);
     }
+    const size = sessionStorage.getItem('size');
+    const wishlistBtn = document.getElementById("add-wishlist-btn");
+    const Wishlist = JSON.parse(sessionStorage.getItem('Wishlist'));
 
+    if (Wishlist.find(product => product.product_id === productId && product.size === size) !== undefined)
+        wishlistBtn.innerText = "REMOVE FROM WISHLIST";
+    else
+        wishlistBtn.innerText = "ADD TO WISHLIST";
 })
 document.addEventListener('DOMContentLoaded', () => {
     // Get product ID and API URL from the query parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('productId');
+    productId = urlParams.get('productId');
     const apiUrl = urlParams.get('apiUrl');
 
     // Call a function to fetch product details based on the product ID and API URL
@@ -43,6 +53,15 @@ async function fetchProductDetail(productId, apiUrl) {
 
 function updateProductDetail(product) {
     // Create HTML elements to display product details
+
+    var displayImages = [product.display_image_url_1,
+    product.display_image_url_2,
+    product.display_image_url_3];
+
+
+    const breadcrumbListName = document.getElementById("breadcrumb-prodname");
+    breadcrumbListName.innerText = product.name;
+
     const productId = document.getElementById('product-id');
     productId.innerText = product.product_id;
 
@@ -50,8 +69,18 @@ function updateProductDetail(product) {
     productTitle.innerText = product.name;
 
     const productPrice = document.getElementById("product-price");
-    productPrice.innerText = `$${product.price}`;
+    productPrice.innerText = `$${product.price}.00`;
 
     const productDescription = document.getElementById("accordion-description");
     productDescription.innerText = product.description;
+
+    const shapeColor = document.getElementById("hex-shape");
+    if (product.price > 300)
+        shapeColor.setAttribute("style", "background-color: var(--main-bg-color)");
+
+    const imgElements = document.querySelectorAll(".img-container img");
+    imgElements.forEach((img, index) => {
+        if (displayImages[index])
+            img.src = displayImages[index];
+    })
 }
