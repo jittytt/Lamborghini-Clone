@@ -23,8 +23,25 @@ const createacctbtn = document.getElementById("create-acct-btn");
 
 const firstName = document.getElementById("firstname");
 const lastName = document.getElementById("lastname");
-const address = document.getElementById("address");
 var signupEmail, signupPassword, confirmSignupPassword;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector('form ');
+  const submitButton = document.getElementById('create-acct-btn');
+
+  const isFormValid = () => {
+      // Check the validity of all required form fields
+      const requiredFields = form.querySelectorAll('[required]');
+      const isValid = Array.from(requiredFields).every((element) => element.checkValidity());
+      return isValid;
+  };
+
+  form.addEventListener('input', function () {
+      // Check if the entire form is valid
+      const isValid = isFormValid();
+      submitButton.style.pointerEvents='auto';
+  });
+})
  
 createacctbtn.addEventListener("click", function(event) {
  
@@ -38,7 +55,15 @@ createacctbtn.addEventListener("click", function(event) {
  
   if(signupEmail == null || signupPassword == null || confirmSignupPassword == null)
   {
-    window.alert("Please fill out all required fields.");
+    const errorDiv = document.querySelector(".error");
+    const errorTitle = document.querySelector(".error__title");
+    errorTitle.textContent = "Please fill out all required fields.";
+    errorDiv.style.display = "flex";
+
+      // Set timeout to hide the error div after 1 second
+     setTimeout(() => {
+    errorDiv.style.display = "none";
+  }, 1000);
     isVerified = false;
   }
  
@@ -48,20 +73,39 @@ createacctbtn.addEventListener("click", function(event) {
       .then((userCredential) => {
         const user = userCredential.user;
  
-        window.alert("Success! Account created");
+        //window.alert("Success! Account created");
+        const errorDiv = document.querySelector(".error");
+        const errorTitle = document.querySelector(".error__title");
+        errorTitle.textContent = "Success! Account created";
+        errorDiv.style.backgroundColor = "green";
+        errorDiv.style.display = "flex";
+  
+          // Set timeout to hide the error div after 1 second
+         setTimeout(() => {
+        errorDiv.style.display = "none";
+      }, 1000);
         // Call the function to create user data in Firestore
-      createUserData(signupEmailIn.value, firstName.value, lastName.value, address.value);
+      createUserData(signupEmailIn.value, firstName.value, lastName.value);
 
       })
       .catch((error) => {
         console.log(error);
-        window.alert("Error occured! Try Again!");
+        //window.alert("Error occured! Try Again!");
+        const errorDiv = document.querySelector(".error");
+        const errorTitle = document.querySelector(".error__title");
+        errorTitle.textContent = "Invalid Credentials";
+        errorDiv.style.display = "flex";
+  
+          // Set timeout to hide the error div after 1 second
+         setTimeout(() => {
+        errorDiv.style.display = "none";
+      }, 1000);
       });
   }
 });
 
 
-function createUserData(email, firstName, lastName, address) {
+function createUserData(email, firstName, lastName) {
   // Collection reference
   const usersDataCollection = collection(db, "UsersData");
 
@@ -73,17 +117,109 @@ function createUserData(email, firstName, lastName, address) {
     First_Name: firstName,
     Last_Name: lastName,
     Email_ID: email,
-    Address: address,
-    Wishlist: [], // Array of {product_id: string, API_URL: string, count: number}
-    Cart: [] // Array of {product_id: string, API_URL: string, count: number}
+    Address: [],
+    Wishlist: [], 
+    Cart: [], 
+    TotalCost : 0
   };
 
   // Set the data in the document
   setDoc(userDocRef, userData)
     .then(() => {
       console.log("User data created successfully");
+      window.location.href = '../pages/login.html';
     })
     .catch((error) => {
       console.error("Error creating user data:", error);
     });
 }
+
+document.getElementById("firstname").addEventListener("focus", function () {
+  var placeholderLabel = document.querySelector(
+    ".firstname-placeholder-label"
+  );
+  placeholderLabel.style.top = "-5%";
+  placeholderLabel.style.fontSize = "10px";
+});
+
+//Function to revert animated password field placeholder text
+document.getElementById("firstname").addEventListener("blur", function () {
+var placeholderLabel = document.querySelector(".firstname-placeholder-label");
+// Revert the styles when focus is lost
+if (!this.value) {
+  placeholderLabel.style.top = "5%";
+  placeholderLabel.style.fontSize = "14px";
+}
+});
+
+document.getElementById("lastname").addEventListener("focus", function () {
+  var placeholderLabel = document.querySelector(
+    ".lastname-placeholder-label"
+  );
+  placeholderLabel.style.top = "-5%";
+  placeholderLabel.style.fontSize = "10px";
+});
+
+//Function to revert animated password field placeholder text
+document.getElementById("lastname").addEventListener("blur", function () {
+var placeholderLabel = document.querySelector(".lastname-placeholder-label");
+// Revert the styles when focus is lost
+if (!this.value) {
+  placeholderLabel.style.top = "5%";
+  placeholderLabel.style.fontSize = "14px";
+}
+});
+
+document.getElementById("email-signup").addEventListener("focus", function () {
+  var placeholderLabel = document.querySelector(
+    ".email-placeholder-label"
+  );
+  placeholderLabel.style.top = "-5%";
+  placeholderLabel.style.fontSize = "10px";
+});
+
+//Function to revert animated password field placeholder text
+document.getElementById("email-signup").addEventListener("blur", function () {
+var placeholderLabel = document.querySelector(".email-placeholder-label");
+// Revert the styles when focus is lost
+if (!this.value) {
+  placeholderLabel.style.top = "5%";
+  placeholderLabel.style.fontSize = "14px";
+}
+});
+
+document.getElementById("password-signup").addEventListener("focus", function () {
+  var placeholderLabel = document.querySelector(
+    ".password-placeholder-label"
+  );
+  placeholderLabel.style.top = "-5%";
+  placeholderLabel.style.fontSize = "10px";
+});
+
+//Function to revert animated password field placeholder text
+document.getElementById("password-signup").addEventListener("blur", function () {
+var placeholderLabel = document.querySelector(".password-placeholder-label");
+// Revert the styles when focus is lost
+if (!this.value) {
+  placeholderLabel.style.top = "5%";
+  placeholderLabel.style.fontSize = "14px";
+}
+});
+
+document.getElementById("confirm-password-signup").addEventListener("focus", function () {
+  var placeholderLabel = document.querySelector(
+    ".confirmpassword-placeholder-label"
+  );
+  placeholderLabel.style.top = "-5%";
+  placeholderLabel.style.fontSize = "10px";
+});
+
+//Function to revert animated password field placeholder text
+document.getElementById("confirm-password-signup").addEventListener("blur", function () {
+var placeholderLabel = document.querySelector(".confirmpassword-placeholder-label");
+// Revert the styles when focus is lost
+if (!this.value) {
+  placeholderLabel.style.top = "5%";
+  placeholderLabel.style.fontSize = "14px";
+}
+});

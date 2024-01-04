@@ -6,7 +6,7 @@
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 20px;   
 }
 .foot hr{
     border-color: #0e0d0d;
@@ -37,7 +37,7 @@
     font-size: 1.2em;
     margin-bottom: 10px;
 }
-.footer-section-newsletter p, label {
+.footer-section-newsletter p{
     color:  #d8d0d0 ;
     font-size: 0.8em;
 }

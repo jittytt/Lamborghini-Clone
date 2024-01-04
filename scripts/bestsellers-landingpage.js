@@ -6,23 +6,19 @@ function initializeTabs() {
 document.addEventListener('DOMContentLoaded', initializeTabs);
 
 function selectTab(tabId) {
-    // Remove 'active' class from all tabs
     document.querySelectorAll('.nav-link').forEach(function (ele) {
         ele.classList.remove('active');
     });
 
-    // Add 'active' class to the selected tab
     document.getElementById(`${tabId}-tab`).classList.add('active');
 
-    // Set the border color for the parent nav-item
     document.querySelectorAll('.nav-item').forEach(function (item) {
-        item.style.borderBottomColor = ''; // Reset the border color for all items
+        item.style.borderBottomColor = '';
     });
 
-    // Set the border color for the active tab's parent nav-item
     document.getElementById(`${tabId}-tab`).parentElement.style.borderBottomColor = 'black';
 
-    // Show the corresponding content
+    
     document.querySelectorAll('.tab-pane').forEach(function (content) {
         content.classList.remove('show', 'active');
     });
@@ -35,7 +31,7 @@ function changeImage(element, newSrc) {
     setTimeout(() => {
         imgElement.src = newSrc;
         imgElement.style.opacity = 1;
-    }, 150); // Adjust the delay to match the transition duration
+    }, 150);
 }
 
 function restoreImage(element, originalSrc) {

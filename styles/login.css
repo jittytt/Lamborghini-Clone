@@ -85,9 +85,48 @@ body {
   }
   
   .input-group {
+    position: relative;
     margin-bottom: 20px;
   }
-  
+  .password-placeholder-label {
+    margin-bottom: 20px;
+    padding-bottom:20px;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    transition: top 0.3s, font-size 0.3s, color 0.3s; /* Added transition for top, font-size, and color */
+    pointer-events: none;
+    color: white; /* Set the default color */
+  }
+
+  input[type="password"]:focus + .password-placeholder-label,
+input[type="password"]:not(:placeholder-shown) + .password-placeholder-label {
+  top: 90%; /* Adjusted top position when focused or when input is not empty */
+  font-size: 12px; /* Adjusted font size when focused or when input is not empty */
+  color: #7f8c8d; /* Adjusted color when focused or when input is not empty */
+}
+ 
+.email-placeholder-label {
+  margin-bottom: 20px;
+  padding-bottom:20px;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  transition: top 0.3s, font-size 0.3s, color 0.3s; /* Added transition for top, font-size, and color */
+  pointer-events: none;
+  color: white; /* Set the default color */
+}
+
+input[type="email"]:focus + .email-placeholder-label,
+input[type="email"]:not(:placeholder-shown) + .email-placeholder-label {
+top: 90%; /* Adjusted top position when focused or when input is not empty */
+font-size: 12px; /* Adjusted font size when focused or when input is not empty */
+color: #7f8c8d; /* Adjusted color when focused or when input is not empty */
+}
   label {
     display: block;
   }
@@ -105,6 +144,8 @@ body {
     width: 100%;
     padding: 5px;
     margin-top: 5px;
+    margin-bottom: 5px;
+
     transition: border-bottom 0.3s;
     outline: none;
   }
