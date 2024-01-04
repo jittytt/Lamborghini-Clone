@@ -108,6 +108,26 @@ async function addMapToAddress(email, mapData) {
             await updateDoc(userDocRef, { Address: updatedAddress });
 
             console.log("Map added successfully!");
+
+            //Alert success
+            const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+            const appendAlert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                `   <div>${message}</div>`,
+                '</div>'
+            ].join('')
+
+            alertPlaceholder.append(wrapper);
+            //goto resulting page
+            setTimeout(function() {
+                console.log('Page will after in 4 seconds.');
+                window.location.href = `../pages/addressbook.html`;
+            }, 4000); 
+            }
+            appendAlert('Address added successfully', 'success');
+
         } else {
             console.error("Document not found for email:", email);
         }
