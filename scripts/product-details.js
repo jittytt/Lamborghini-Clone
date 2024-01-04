@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Call a function to fetch product details based on the product ID and API URL
     fetchProductDetail(productId, apiUrl);
+    sizeSelectorElement.value = 'none';
+
+    if(document.referrer === '')
+        sizeSelectorElement.value = sessionStorage.getItem('size');
 });
 
 async function fetchProductDetail(productId, apiUrl) {
