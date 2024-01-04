@@ -40,18 +40,18 @@ submitButton.addEventListener("click", function (event) {
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
+      //const errorMessage = error.message;
       console.log(errorCode);
       console.log("Error Occured! Try Again");
-      alert("Invalid Credentials");
+      const errorDiv = document.querySelector(".error");
+      const errorTitle = document.querySelector(".error__title");
+      errorTitle.textContent = "Invalid username or password";
+      errorDiv.style.display = "flex";
 
-      if (errorCode === 'auth/wrong-password') {
-        alert("Password Incorrect");
-        alert.style.backgroundColor = "red"; 
-      } else {
-        console.log("Error Occurred! Try Again");
-        console.log(errorCode);
-      }
+        // Set timeout to hide the error div after 1 second
+       setTimeout(() => {
+      errorDiv.style.display = "none";
+         }, 1000); // Hide after 1 second
     });
 });
 
@@ -65,3 +65,41 @@ async function updateEmailInActiveUser(email) {
     throw error;
   }
 }
+
+
+
+document.getElementById("password").addEventListener("focus", function () {
+    var placeholderLabel = document.querySelector(
+      ".password-placeholder-label"
+    );
+    placeholderLabel.style.top = "30%";
+    placeholderLabel.style.fontSize = "12px";
+  });
+
+//Function to revert animated password field placeholder text
+document.getElementById("password").addEventListener("blur", function () {
+  var placeholderLabel = document.querySelector(".password-placeholder-label");
+  // Revert the styles when focus is lost
+  if (!this.value) {
+    placeholderLabel.style.top = "50%";
+    placeholderLabel.style.fontSize = "14px";
+  }
+});
+
+document.getElementById("email").addEventListener("focus", function () {
+  var placeholderLabel = document.querySelector(
+    ".email-placeholder-label"
+  );
+  placeholderLabel.style.top = "30%";
+  placeholderLabel.style.fontSize = "12px";
+});
+
+//Function to revert animated password field placeholder text
+document.getElementById("email").addEventListener("blur", function () {
+var placeholderLabel = document.querySelector(".email-placeholder-label");
+// Revert the styles when focus is lost
+if (!this.value) {
+  placeholderLabel.style.top = "50%";
+  placeholderLabel.style.fontSize = "14px";
+}
+});
