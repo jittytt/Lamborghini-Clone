@@ -64,13 +64,13 @@ function displayAddresses() {
     const addressCard = document.createElement("div");
     addressCard.classList.add("address");
   
-    const { First_Name, Last_Name, Address, Zip, City, State, Country, Phone} = address;
+    const { First_Name, Last_Name, Address, Zipcode, City, State, Country, Phone} = address;
   
     const cardContent = `
   <p class="name-part">${First_Name} ${Last_Name}</p>
   <br>
   <p class="info-part">${Address}</p>
-  <p class="info-part">${Zip}</p>
+  <p class="info-part">${Zipcode}</p>
   <p class="info-part">${City} (${State})</p>
   <p class="info-part">${Country}</p>
   <p class="info-part">${Phone}</p>
