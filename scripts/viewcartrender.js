@@ -66,7 +66,7 @@ function renderCartItems() {
             <hr class="cart-divider">
             <div class="price-section">
                 <span class="price-part">Price &nbsp;&#36;<span class="price-value">${item.price}</span></span>
-                <span class="subtotal-part">Subtotal &nbsp;&#36;<span class="subtotal-part">${item.subtotal}</span></span>
+                <span class="subtotal-part">Subtotal &nbsp;&#36;<span class="subtotal-part">${item.count * item.price}</span></span>
             </div>
             <hr class="cart-divider">
         </div>
