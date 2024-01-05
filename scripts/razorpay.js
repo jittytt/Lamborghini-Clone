@@ -9,8 +9,9 @@
         "image": "../assets/logo.png",// COMPANY LOGO
         "handler": function (response) {
             console.log(response);
+            alert("Order successfully placed");
             window.location.href = `addressbook.html` 
-            alert(response.razorpay_payment_id);
+            
             // AFTER TRANSACTION IS COMPLETE YOU WILL GET THE RESPONSE HERE.
         },
         "prefill": {

@@ -1,3 +1,5 @@
 # Exclude the file
 pay.html
 user_make_payment.html
+navbar.html
+../scripts/import/headder-import.js

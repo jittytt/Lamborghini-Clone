@@ -35,7 +35,7 @@ async function  displayAddress() {
         //get total amount
         const totalAmount = doc.data().TotalCost;
         console.log(totalAmount);
-        amount=Math.floor(totalAmount);
+        amount=Math.floor(totalAmount) +28;//includes shipping
         document.getElementById('totalAmount').innerHTML=("$"+amount);
           // Document found, fetch the addresses array
           const addresses = doc.data().Address;
