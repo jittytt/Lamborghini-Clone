@@ -122,9 +122,9 @@ async function addMapToAddress(email, mapData) {
             alertPlaceholder.append(wrapper);
             //goto resulting page
             setTimeout(function() {
-                console.log('Page will after in 4 seconds.');
+                console.log('Page will after in 3 seconds.');
                 window.location.href = `../pages/addressbook.html`;
-            }, 4000); 
+            }, 3000); 
             }
             appendAlert('Address added successfully', 'success');
 
