@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-export {incrementProductQuantity, decrementProductQuantity};
+export {incrementProductQuantity, decrementProductQuantity, removeProduct};
 
 const firebaseConfig = {
     apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -76,5 +76,31 @@ async function decrementProductQuantity(productID, size) {
         console.error("Error incrementing quantity:", error);
     }
 
+    reloadPage();
+}
+
+async function removeProduct(productID, size) {
+    try {
+        const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
+        const activeUserDoc = await getDoc(activeUserDocRef);
+        const email = activeUserDoc.data().Email;
+
+        const userDataDocRef = doc(db, 'UsersData', email);
+        const userDataDoc = await getDoc(userDataDocRef);
+
+        if (userDataDoc.exists()) {
+            const cartItems = userDataDoc.data().Cart;
+
+            const updatedCart = cartItems.filter(item => !(item.product_id === productID && item.size === size));
+
+            await setDoc(userDataDocRef, { Cart: updatedCart });
+
+            console.log("Product removed successfully.");
+        } else {
+            console.log('User document not found.');
+        }
+    } catch (error) {
+        console.error("Error removing product:", error);
+    }
     reloadPage();
 }
