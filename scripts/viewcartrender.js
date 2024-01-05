@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {incrementProductQuantity, decrementProductQuantity} from './quantity-controller.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -46,9 +47,9 @@ function renderCartItems() {
                     <p class="cart-product-size"> Size : <span class="size-value">${item.size.toUpperCase()}</span></p>
                 </div>
                 <div class="cart-product-quantity">
-                    <svg class="minus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="updateQuantity('minus', ${item.product_id})"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"></path></svg>
-                    <span class="cart-product-quantity-number">${item.count}</span>
-                    <svg class="plus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="updateQuantity('plus', ${item.product_id})"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>                            
+                <svg class="minus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="decrementProductQuantity('${item.product_id}', '${item.size}')"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"></path></svg>
+                <span class="cart-product-quantity-number">${item.count}</span>
+                <svg class="plus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="incrementProductQuantity('${item.product_id}', '${item.size}')"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>                            
                 </div>
                 <div class="wishlist-delete-icons-container">
                     <span class="MuiIconButton-label">
@@ -103,3 +104,6 @@ function renderCartItems() {
 
 
 window.addEventListener('load', renderCartItems);
+
+window.decrementProductQuantity=decrementProductQuantity;
+window.incrementProductQuantity=incrementProductQuantity;
