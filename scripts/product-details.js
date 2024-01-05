@@ -1,25 +1,36 @@
 const sizeSelectorElement = document.getElementById("size-list");
 const selectOptionButton = document.getElementById("select-option-btn");
 const sizePopup = document.getElementById("size-popup");
+const sizeCloseBtn = document.getElementById('size-close-btn');
+const sizeTable = document.getElementById('size-table-div');
 let productId;                                                              //global scope
+
+
+// window.addEventListener('beforeunload', () => {
+//     sessionStorage.removeItem('size');
+// });
 
 // Add an event listener to the select element
 sizeSelectorElement.addEventListener("change", (event) => {
     // Check the selected value and enable/disable the button accordingly
-    if (sizeSelectorElement.value === 'none') {
+    const previousProductSize = JSON.parse(sessionStorage.getItem('size'));
+    const previousSize = previousProductSize[productId].size;
+    if (sizeSelectorElement.value === 'none' && previousSize !== 'none') {
         selectOptionButton.setAttribute('disabled', 'disabled');
-        sizeSelectorElement.value = sessionStorage.getItem('size'); // previous size value
+        sizeSelectorElement.value = previousSize; // previous size value
         var event = new Event('change');
         sizeSelectorElement.dispatchEvent(event);
     }
     else {
         selectOptionButton.removeAttribute('disabled');
         selectOptionButton.innerText = "ADD TO CART";
-        sessionStorage.setItem('size', sizeSelectorElement.value);
+        const productSize = {[productId]: {productId, 'size': sizeSelectorElement.value}};
+        sessionStorage.setItem('size',JSON.stringify(productSize)); 
     }
-    const size = sessionStorage.getItem('size');
+    const productSize = JSON.parse(sessionStorage.getItem('size'));
+    const size = productSize[productId].size;
     const wishlistBtn = document.getElementById("add-wishlist-btn");
-    const Wishlist = JSON.parse(sessionStorage.getItem('Wishlist'));
+    const Wishlist = JSON.parse(sessionStorage.getItem('Wishlist')) || [];
 
     if (Wishlist.find(product => product.product_id === productId && product.size === size) !== undefined)
         wishlistBtn.innerText = "REMOVE FROM WISHLIST";
@@ -27,16 +38,16 @@ sizeSelectorElement.addEventListener("change", (event) => {
         wishlistBtn.innerText = "ADD TO WISHLIST";
 })
 
-// function popup() {
-//     const sizeTable = document.getElementById('size-table');
-//     sizeTable.style.display = 'block';
-// }
 
+sizePopup.addEventListener('click', () => {
+    
+    sizeTable.style.display = 'block';
+})
 
-// sizePopup.addEventListener('click', () => {
-//     const sizeTable = document.getElementById('size-table');
-//     sizeTable.style.display = sizeTable.style.display === 'none' ? 'block' : 'none';
-// })
+sizeCloseBtn.addEventListener('click', () => {
+    sizeTable.style.display = 'none';
+})
+
 document.addEventListener('DOMContentLoaded', () => {
     // Get product ID and API URL from the query parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -46,11 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Call a function to fetch product details based on the product ID and API URL
     fetchProductDetail(productId, apiUrl);
     sizeSelectorElement.value = 'none';
-
-    if(sessionStorage.getItem('size') === null)
+    
+    if(sessionStorage.getItem('size') === null) {
         sizeSelectorElement.value = 'none';
-    else
-        sizeSelectorElement.value = sessionStorage.getItem('size');
+        const productSize = {[productId]: {productId, 'size': sizeSelectorElement.value}};
+        sessionStorage.setItem('size',JSON.stringify(productSize));   
+    }   
+    else {
+        const productSizeRetreived = JSON.parse(sessionStorage.getItem('size'));
+        sizeSelectorElement.value = productSizeRetreived[productId].size;
+    }
+        
+    var event = new Event('change');
+    sizeSelectorElement.dispatchEvent(event);
 });
 
 async function fetchProductDetail(productId, apiUrl) {
@@ -102,3 +121,6 @@ function updateProductDetail(product) {
             img.src = displayImages[index];
     })
 }
+
+
+

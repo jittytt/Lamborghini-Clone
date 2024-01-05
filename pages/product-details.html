@@ -317,7 +317,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="size-guide" >
+                                    <div class="size-guide">
                                         <p id="size-popup">SIZE GUIDE</p>
                                     </div>
                                 </div>
@@ -393,121 +393,134 @@
                             </div>
                         </div>
                     </div>
+                    <div class="toast-container">
+                         <div id="toast-show" class="toast align-items-center border-0 " role="alert"
+                            aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    <div id="toast-content"></div>
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                    data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
         </div>
     </div>
-    
-        <div class="size-table p-2">
-            <div class="close-button float-right">
-                <button type="button" class="btn-close" aria-label="Close"></button>
-            </div>
-            <div class="table-contents p-4 d-flex flex-column align-items-center justify-content-center">
-                <table border="0" style="width: 840px;">
-                    <colgroup>
-                        <col>
-                        <col span="8">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <th colspan="8">MEN'S SIZE GUIDE</th>
-                        </tr>
-                        <tr>
-                            <td class="xl65">SIZING</td>
-                            <td class="xl65">XS</td>
-                            <td class="xl65">S</td>
-                            <td class="xl65">M</td>
-                            <td class="xl65">L</td>
-                            <td class="xl65">XL</td>
-                            <td class="xl65">XXL</td>
-                            <td class="xl65">XXXL</td>
-                        </tr>
-                        <tr>
-                            <td class="xl66">IT</td>
-                            <td class="xl65">44</td>
-                            <td class="xl65">46</td>
-                            <td class="xl65">48</td>
-                            <td class="xl65">50</td>
-                            <td class="xl65">52</td>
-                            <td class="xl65">54</td>
-                            <td class="xl65">56</td>
-                        </tr>
-                        <tr>
-                            <td class="xl66">FR/EU</td>
-                            <td class="xl65">40</td>
-                            <td class="xl65">42</td>
-                            <td class="xl65">44</td>
-                            <td class="xl65">46</td>
-                            <td class="xl65">48</td>
-                            <td class="xl65">50</td>
-                            <td class="xl65">52</td>
-                        </tr>
-                        <tr>
-                            <td class="xl66">US/UK CHEST (inch)</td>
-                            <td class="xl65">34</td>
-                            <td class="xl65">36</td>
-                            <td class="xl65">38</td>
-                            <td class="xl65">40</td>
-                            <td class="xl65">42</td>
-                            <td class="xl65">44</td>
-                            <td class="xl65">46</td>
-                        </tr>
-                        <tr>
-                            <td class="xl66">JEANS WAIST (inch)</td>
-                            <td class="xl65">29-30</td>
-                            <td class="xl65">31/32</td>
-                            <td class="xl65">33-34</td>
-                            <td class="xl65">35-36</td>
-                            <td class="xl65">37-38</td>
-                            <td class="xl65">39-40</td>
-                            <td class="xl65">41-42</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="MuiTypography-root MuiTypography-body1">&nbsp;</p>
-                <table border="0" style="width: 840px;">
-                    <colgroup>
-                        <col>
-                        <col>
-                        <col span="8">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <th colspan="8">JACKETS - OVERCOATS</th>
-                        </tr>
-                        <tr>
-                            <td class="xl66">Sizing</td>
-                            <td class="xl65">XS</td>
-                            <td class="xl65">S</td>
-                            <td class="xl65">M</td>
-                            <td class="xl65">L</td>
-                            <td class="xl65">XL</td>
-                            <td class="xl65">XXL</td>
-                            <td class="xl65">XXXL</td>
-                        </tr>
-                        <tr>
-                            <td class="xl66">
-                                <div>Chest cm</div>
-                            </td>
-                            <td class="xl65">102-105</td>
-                            <td class="xl65">106-109</td>
-                            <td class="xl65">110-113</td>
-                            <td class="xl65">116-120</td>
-                            <td class="xl65">122-126</td>
-                            <td class="xl65">128-132</td>
-                            <td class="xl65">134-138</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
+    <div id="size-table-div" class="size-table p-2">
+        <div class="close-button float-right">
+            <button type="button" class="btn-close" aria-label="Close" id="size-close-btn"></button>
+        </div>
+        <div class="table-contents p-4 d-flex flex-column align-items-center justify-content-center">
+            <table border="0" style="width: 840px;">
+                <colgroup>
+                    <col>
+                    <col span="8">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th colspan="8">MEN'S SIZE GUIDE</th>
+                    </tr>
+                    <tr>
+                        <td class="xl65">SIZING</td>
+                        <td class="xl65">XS</td>
+                        <td class="xl65">S</td>
+                        <td class="xl65">M</td>
+                        <td class="xl65">L</td>
+                        <td class="xl65">XL</td>
+                        <td class="xl65">XXL</td>
+                        <td class="xl65">XXXL</td>
+                    </tr>
+                    <tr>
+                        <td class="xl66">IT</td>
+                        <td class="xl65">44</td>
+                        <td class="xl65">46</td>
+                        <td class="xl65">48</td>
+                        <td class="xl65">50</td>
+                        <td class="xl65">52</td>
+                        <td class="xl65">54</td>
+                        <td class="xl65">56</td>
+                    </tr>
+                    <tr>
+                        <td class="xl66">FR/EU</td>
+                        <td class="xl65">40</td>
+                        <td class="xl65">42</td>
+                        <td class="xl65">44</td>
+                        <td class="xl65">46</td>
+                        <td class="xl65">48</td>
+                        <td class="xl65">50</td>
+                        <td class="xl65">52</td>
+                    </tr>
+                    <tr>
+                        <td class="xl66">US/UK CHEST (inch)</td>
+                        <td class="xl65">34</td>
+                        <td class="xl65">36</td>
+                        <td class="xl65">38</td>
+                        <td class="xl65">40</td>
+                        <td class="xl65">42</td>
+                        <td class="xl65">44</td>
+                        <td class="xl65">46</td>
+                    </tr>
+                    <tr>
+                        <td class="xl66">JEANS WAIST (inch)</td>
+                        <td class="xl65">29-30</td>
+                        <td class="xl65">31/32</td>
+                        <td class="xl65">33-34</td>
+                        <td class="xl65">35-36</td>
+                        <td class="xl65">37-38</td>
+                        <td class="xl65">39-40</td>
+                        <td class="xl65">41-42</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="MuiTypography-root MuiTypography-body1">&nbsp;</p>
+            <table border="0" style="width: 840px;">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col span="8">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th colspan="8">JACKETS - OVERCOATS</th>
+                    </tr>
+                    <tr>
+                        <td class="xl66">Sizing</td>
+                        <td class="xl65">XS</td>
+                        <td class="xl65">S</td>
+                        <td class="xl65">M</td>
+                        <td class="xl65">L</td>
+                        <td class="xl65">XL</td>
+                        <td class="xl65">XXL</td>
+                        <td class="xl65">XXXL</td>
+                    </tr>
+                    <tr>
+                        <td class="xl66">
+                            <div>Chest cm</div>
+                        </td>
+                        <td class="xl65">102-105</td>
+                        <td class="xl65">106-109</td>
+                        <td class="xl65">110-113</td>
+                        <td class="xl65">116-120</td>
+                        <td class="xl65">122-126</td>
+                        <td class="xl65">128-132</td>
+                        <td class="xl65">134-138</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <div id="foot-section">
+    </div>
+    <br>
+    <div id="foot-section">
 
-        </div>  
-        
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../scripts/import/footer-import.js"></script>
     <script src="../scripts/navbar-store.js"></script>
