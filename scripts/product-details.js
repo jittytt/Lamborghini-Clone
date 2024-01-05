@@ -1,5 +1,6 @@
 const sizeSelectorElement = document.getElementById("size-list");
 const selectOptionButton = document.getElementById("select-option-btn");
+const sizePopup = document.getElementById("size-popup");
 let productId;                                                              //global scope
 
 // Add an event listener to the select element
@@ -25,6 +26,17 @@ sizeSelectorElement.addEventListener("change", (event) => {
     else
         wishlistBtn.innerText = "ADD TO WISHLIST";
 })
+
+// function popup() {
+//     const sizeTable = document.getElementById('size-table');
+//     sizeTable.style.display = 'block';
+// }
+
+
+// sizePopup.addEventListener('click', () => {
+//     const sizeTable = document.getElementById('size-table');
+//     sizeTable.style.display = sizeTable.style.display === 'none' ? 'block' : 'none';
+// })
 document.addEventListener('DOMContentLoaded', () => {
     // Get product ID and API URL from the query parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -35,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchProductDetail(productId, apiUrl);
     sizeSelectorElement.value = 'none';
 
-    if(document.referrer === '')
+    if(sessionStorage.getItem('size') === null)
+        sizeSelectorElement.value = 'none';
+    else
         sizeSelectorElement.value = sessionStorage.getItem('size');
 });
 
