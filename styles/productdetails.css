@@ -40,16 +40,19 @@ body {
     position: relative;
 }
 
+.product-images {
+    position: relative;
+}
 .product-images .img-container img {
     width: 100%;
 }
 .description-wrapper {
     padding: 0 20px;
-    position: sticky;
-    top: 118px;
 }
 .description-wrapper .description {
     margin: 0 auto;
+    position: sticky;
+    top: -35px;
 }
 
 .description .prod-id {
