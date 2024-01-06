@@ -20,12 +20,22 @@ const amount = urlParams.get('amount');
 
 });
 function razorpay(){
-    console.log("pAyment")
+    console.log("razorpay")
     const button = document.getElementById('nextButton');
     button.innerHTML="Razor Pay";
     button.style.pointerEvents="auto";
     button.style.background="black";
     button.classList.add('active');
+   
+
+}
+function otherPayments(){
+    console.log("other payments")
+    const button = document.getElementById('nextButton');
+    button.innerHTML="Pay now";
+    button.style.pointerEvents="none";
+    button.style.background="black";
+    //button.classList.add('active');
    
 
 }
