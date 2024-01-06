@@ -5,11 +5,6 @@ const sizeCloseBtn = document.getElementById('size-close-btn');
 const sizeTable = document.getElementById('size-table-div');
 let productId;                                                              //global scope
 
-
-// window.addEventListener('beforeunload', () => {
-//     sessionStorage.removeItem('size');
-// });
-
 // Add an event listener to the select element
 sizeSelectorElement.addEventListener("change", (event) => {
     // Check the selected value and enable/disable the button accordingly
@@ -21,7 +16,7 @@ sizeSelectorElement.addEventListener("change", (event) => {
         var event = new Event('change');
         sizeSelectorElement.dispatchEvent(event);
     }
-    else {
+    else if(sizeSelectorElement.value !== 'none') {
         selectOptionButton.removeAttribute('disabled');
         selectOptionButton.innerText = "ADD TO CART";
         const productSize = {[productId]: {productId, 'size': sizeSelectorElement.value}};
@@ -56,15 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Call a function to fetch product details based on the product ID and API URL
     fetchProductDetail(productId, apiUrl);
-    sizeSelectorElement.value = 'none';
-    
-    if(sessionStorage.getItem('size') === null) {
+    const productSizeRetreived = JSON.parse(sessionStorage.getItem('size'));
+
+    if(!productSizeRetreived?.[productId]) {
         sizeSelectorElement.value = 'none';
         const productSize = {[productId]: {productId, 'size': sizeSelectorElement.value}};
-        sessionStorage.setItem('size',JSON.stringify(productSize));   
+        sessionStorage.setItem('size', JSON.stringify(productSize));   
     }   
     else {
-        const productSizeRetreived = JSON.parse(sessionStorage.getItem('size'));
+        
         sizeSelectorElement.value = productSizeRetreived[productId].size;
     }
         
