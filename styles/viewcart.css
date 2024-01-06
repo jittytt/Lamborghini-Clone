@@ -470,6 +470,10 @@
    .minus-icon path, .plus-icon path:hover {
     cursor :pointer;
    }
+
+   .trash-icon, .favourites-icon {
+    cursor : pointer;
+   }
    
    .apply span {
    
