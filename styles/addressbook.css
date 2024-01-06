@@ -65,8 +65,9 @@
     color:#6f6f6f;
 }
   
-  .outerwear-caption {
+  .orders-caption {
     margin-bottom: 20px;
+    font-weight: bold;
   }
   
 
@@ -140,11 +141,7 @@
     padding-top: 118px;
 }
 
-.outerwear-caption {
-    font-weight: bold;
-}
-
-.outerwear-caption .capt {
+.orders-caption .order-heading {
     font-weight: 600;
     color: black;
     font-family: 'Roboto', sans-serif;

@@ -27,6 +27,8 @@ let Wishlist = userDocSnap.data().Wishlist || [];
 
 //Retreiving the button by its id to perform the add to Cart functionality
 const addCartBtn = document.getElementById("select-option-btn");
+const toastContent = document.getElementById('toast-content');
+const toastShow = document.getElementById('toast-show');
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('productId');
 const apiUrl = urlParams.get('apiUrl');
@@ -49,6 +51,9 @@ addCartBtn.addEventListener('click', () => {
     updateDoc(userDocRef, { Cart })                       // {Cart: Cart} is same as {Cart}
         .then(() => {
             console.log("product added to cart");
+            toastContent.innerText = `You added ${storedProduct.name} to your cart`;
+            const myToast = new bootstrap.Toast(toastShow);
+            myToast.show();
         })
         .catch(() => {
             console.log("product adding failed");
