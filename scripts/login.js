@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -34,6 +34,7 @@ submitButton.addEventListener("click", function (event) {
           console.log("Success! Welcome Back");
         })
         .catch((error) => {
+          validateEmail(email);
           console.error("Error updating email in ActiveUser:", error);
           alert("Invalid Credentials");
         });
@@ -51,9 +52,36 @@ submitButton.addEventListener("click", function (event) {
         // Set timeout to hide the error div after 1 second
        setTimeout(() => {
       errorDiv.style.display = "none";
-         }, 1000); // Hide after 1 second
+         }, 2000); 
+
     });
+    if( validateEmail(email)){
+
+    fetchSignInMethodsForEmail(auth, email)
+        .then((signInMethods) => {
+          if (signInMethods.length === 0) {
+            console.log(signInMethods);
+            console.log("Email is not registered.");
+            window.location.href = "../pages/register.html";
+          } else {
+            console.log("Email is already registered.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error checking email:", error);
+        });
+    }
+
+
 });
+
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+
+
 
 async function updateEmailInActiveUser(email) {
   const activeUserDocRef = doc(db, "ActiveUser", "Email_ID");
