@@ -3,12 +3,12 @@
 
 .data-part {
     display: flex;
-    height: 100vh; /* Set the height of the container */
+    padding-top: 118px;
   }
   
   .leftrightmaincontainer {
     display: flex;
-    flex: 1; /* Take up remaining space */
+    /* flex: 1; Take up remaining space */
   }
   
   
@@ -267,6 +267,6 @@ button {
     }
    }
 
-   .foot {
+   /* .foot {
     margin-top : 180px;
-   }
+   } */

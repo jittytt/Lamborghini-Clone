@@ -1,72 +1,101 @@
-window.addEventListener("scroll",() => {
-    const navbar = document.getElementById("main-navbar");
-    if(navbar && navbar.style.backgroundColor === "#181818") {
-        return;
-    }
+console.log("inside menuu script");
+
+const navbar = document.getElementById("main-navbar");
+navbar.style.backgroundColor = "#181818";
+
+
+//main-nav elements
+const shopLookMainmenu = document.getElementById("shop-the-look");
+const navbarSpecialEdition = document.getElementById("special-editions");
+const navbarCollaborations = document.getElementById("collaborations");
+const navbarLamboWorld = document.getElementById("lambo-world");
+const navbarPromo = document.getElementById("promo");
+
+//submenu-nav items
+const shopLookSubmenu = document.getElementById("shop-the-look-submenu");
+const specialEditionsSubmenu = document.getElementById("special-editions-submenu");
+const collaborationsSubmenu = document.getElementById("collaborations-submenu");
+const lamboSubmenu = document.getElementById("lambo-world-submenu");
+const promoSubmenu = document.getElementById("promo-submenu");
+
+shopLookMainmenu?.addEventListener("mouseover", () => {
+    shopLookSubmenu.setAttribute("style", "bottom: 0; height: 65vh;");
+})
+shopLookMainmenu?.addEventListener("mouseleave", () => {
+    shopLookSubmenu.setAttribute("style", "bottom: 65vh; height: 0;");
+})
+
+shopLookSubmenu?.addEventListener("mouseenter", () => {
+    shopLookSubmenu.setAttribute("style", "bottom: 0; height: 65vh;");
     navbar.style.backgroundColor = "#181818";
 })
-const navbarListItem = document.getElementById("shop-the-look");
-navbarListItem?.addEventListener("mouseover", () => {
-    document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-})
-navbarListItem?.addEventListener("mouseleave", () => {
-    document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 100vh; height: 0;");
+
+shopLookSubmenu?.addEventListener("mouseleave", () => {
+    shopLookSubmenu.setAttribute("style", "bottom: 65vh; height: 0;");
 })
 
-document.getElementById("shop-the-look-submenu").addEventListener("mouseenter", () => {
-    document.getElementById("shop-the-look-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-    document.getElementById("main-navbar").style.backgroundColor = "#181818"
-})
+console.log(navbarSpecialEdition);
 
-const navbarSpecialEdition = document.getElementById("special-editions");
 navbarSpecialEdition?.addEventListener("mouseover", () => {
-    document.getElementById("special-editions-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+    specialEditionsSubmenu.setAttribute("style", "bottom: 0; height: 65vh;");
 })
 navbarSpecialEdition?.addEventListener("mouseleave", () => {
-    document.getElementById("special-editions-submenu").setAttribute("style","bottom: 100vh; height: 0;");
+    specialEditionsSubmenu.setAttribute("style", "bottom: 65vh; height: 0;");
 })
 
-document.getElementById("special-editions-submenu").addEventListener("mouseenter", () => {
-    document.getElementById("special-editions-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-    document.getElementById("main-navbar").style.backgroundColor = "#181818"
+specialEditionsSubmenu?.addEventListener("mouseenter", () => {
+    specialEditionsSubmenu.setAttribute("style", "bottom: 0; height: 65vh;");
+    navbar.style.backgroundColor = "#181818";
+})
+specialEditionsSubmenu?.addEventListener("mouseleave", () => {
+    specialEditionsSubmenu.setAttribute("style", "bottom: 65vh; height: 0;");
 })
 
-const navbarCollaborations = document.getElementById("collaborations");
+
 navbarCollaborations?.addEventListener("mouseover", () => {
-    document.getElementById("collaborations-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+    collaborationsSubmenu.setAttribute("style", "bottom: 0; height: 100vh;");
 })
 navbarCollaborations?.addEventListener("mouseleave", () => {
-    document.getElementById("collaborations-submenu").setAttribute("style","bottom: 100vh; height: 0;");
+    collaborationsSubmenu.setAttribute("style", "bottom: 100vh; height: 0;");
 })
 
-document.getElementById("collaborations-submenu").addEventListener("mouseenter", () => {
-    document.getElementById("collaborations-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-    document.getElementById("main-navbar").style.backgroundColor = "#181818";
+collaborationsSubmenu?.addEventListener("mouseenter", () => {
+    collaborationsSubmenu.setAttribute("style", "bottom: 0; height: 100vh;");
+    navbar.style.backgroundColor = "#181818";
+})
+collaborationsSubmenu?.addEventListener("mouseleave", () => {
+    collaborationsSubmenu.setAttribute("style", "bottom: 100vh; height: 0;");
 })
 
-const navbarLamboWorld = document.getElementById("lambo-world");
+
 navbarLamboWorld?.addEventListener("mouseover", () => {
-    document.getElementById("lambo-world-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+    lamboSubmenu.setAttribute("style", "bottom: 0; height: 100vh;");
 })
 navbarLamboWorld?.addEventListener("mouseleave", () => {
-    document.getElementById("lambo-world-submenu").setAttribute("style","bottom: 100vh; height: 0;");
+    lamboSubmenu.setAttribute("style", "bottom: 100vh; height: 0;");
 })
 
-document.getElementById("lambo-world-submenu").addEventListener("mouseenter", () => {
-    document.getElementById("lambo-world-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-    document.getElementById("main-navbar").style.backgroundColor = "#181818";
+lamboSubmenu?.addEventListener("mouseenter", () => {
+    lamboSubmenu.setAttribute("style", "bottom: 0; height: 100vh;");
+    navbar.style.backgroundColor = "#181818";
+})
+lamboSubmenu?.addEventListener("mouseleave", () => {
+    lamboSubmenu.setAttribute("style", "bottom: 100vh; height: 0;");
 })
 
-
-const navbarPromo = document.getElementById("promo");
 navbarPromo?.addEventListener("mouseover", () => {
-    document.getElementById("promo-submenu").setAttribute("style","bottom: 0; height: 100vh;");
+    promoSubmenu.setAttribute("style", "bottom: 0; height: 65vh;");
 })
 navbarPromo?.addEventListener("mouseleave", () => {
-    document.getElementById("promo-submenu").setAttribute("style","bottom: 100vh; height: 0;");
+    promoSubmenu.setAttribute("style", "bottom: 65vh; height: 0;");
 })
 
-document.getElementById("promo-submenu").addEventListener("mouseenter", () => {
-    document.getElementById("promo-submenu").setAttribute("style","bottom: 0; height: 100vh;");
-    document.getElementById("main-navbar").style.backgroundColor = "#181818";
+promoSubmenu?.addEventListener("mouseenter", () => {
+    promoSubmenu.setAttribute("style", "bottom: 0; height: 65vh;");
+    navbar.style.backgroundColor = "#181818";
 })
+promoSubmenu?.addEventListener("mouseleave", () => {
+    promoSubmenu.setAttribute("style", "bottom: 65vh; height: 0;");
+})
+
+
