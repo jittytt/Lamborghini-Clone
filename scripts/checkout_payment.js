@@ -12,7 +12,7 @@ const urlParams = new URLSearchParams(window.location.search);
 
 // Retrieve the value of the 'amount' parameter
 const amount = urlParams.get('amount');
-// document.getElementById('totalAmount').innerHTML=("$"+amount);
+document.getElementById('totalAmount').innerHTML=("$"+amount);
 // Now 'amount' contains the value passed from the previous page
 
 

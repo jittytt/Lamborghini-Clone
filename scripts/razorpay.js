@@ -22,7 +22,6 @@ async function clearCart() {
   const email = await getEmailFromActiveUser();
   console.log(email);
   
-  
   if (!email) {
     console.error("Email not found in session storage");
     return;
@@ -53,10 +52,11 @@ async function clearCart() {
 }
 
 //payment integration function
-window.makepayment = () => {const urlParams = new URLSearchParams(window.location.search);
+window.makepayment = () => {
+    const urlParams = new URLSearchParams(window.location.search);
     const amount = urlParams.get('amount');
      var options = {
-        "key": "rzp_test_pyOyM0RD5UE7IF",
+        "key": "rzp_test_YmH4Dk6I7ujP1G",
         "amount": amount*100, // Example: 2000 paise = INR 20
         "name": "LAMBORGHINI",
         "description": "description",

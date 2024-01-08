@@ -34,14 +34,14 @@ sizeSelectorElement.addEventListener("change", (event) => {
 })
 
 
-sizePopup.addEventListener('click', () => {
+// sizePopup.addEventListener('click', () => {
     
-    sizeTable.style.display = 'block';
-})
+//     sizeTable.style.display = 'block';
+// })
 
-sizeCloseBtn.addEventListener('click', () => {
-    sizeTable.style.display = 'none';
-})
+// sizeCloseBtn.addEventListener('click', () => {
+//     sizeTable.style.display = 'none';
+// })
 
 document.addEventListener('DOMContentLoaded', () => {
     // Get product ID and API URL from the query parameters
