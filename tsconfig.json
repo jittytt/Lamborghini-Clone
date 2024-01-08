@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "outDir": "./scripts",
+    "rootDir": "./typescript",
+    "strict": true
+  },
+  "include": [
+    "typescript/*.ts"
+  ],
+}
