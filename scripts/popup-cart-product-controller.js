@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc, setDoc, collection, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-export {incrementProductQuantity, decrementProductQuantity, removeProduct, addToWishlist, emptyCart};
+export {incrementProductQuantityPopupNav, decrementProductQuantityPopupNav, removeProductPopupNav};
+// import { popup_cartrender } from "./popup-cartrender";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -17,9 +18,10 @@ const db = getFirestore(app);
 
 function reloadPage() {
     location.reload();
+    // popup_cartrender();
 }
 
-async function incrementProductQuantity(productID, size) {
+async function incrementProductQuantityPopupNav(productID, size) {
 
     try {
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
@@ -47,7 +49,7 @@ async function incrementProductQuantity(productID, size) {
     reloadPage();
 }
 
-async function decrementProductQuantity(productID, size) {
+async function decrementProductQuantityPopupNav(productID, size) {
     
     try {
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
@@ -79,8 +81,7 @@ async function decrementProductQuantity(productID, size) {
     reloadPage();
 }
 
-
-async function removeProduct(productID, size) {
+async function removeProductPopupNav(productID, size) {
     try {
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
         const activeUserDoc = await getDoc(activeUserDocRef);
@@ -105,69 +106,3 @@ async function removeProduct(productID, size) {
     }
     reloadPage();
 }
-
-async function addToWishlist(productID, size) {
-    try {
-        const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
-        const activeUserDoc = await getDoc(activeUserDocRef);
-        const email = activeUserDoc.data().Email;
-
-        const userDataDocRef = doc(db, 'UsersData', email);
-        const userDataDoc = await getDoc(userDataDocRef);
-
-        if (userDataDoc.exists()) {
-            const cartItems = userDataDoc.data().Cart || [];
-
-            // Find the item with the matching productID and size in Cart
-            const itemToMove = cartItems.find(item => item.product_id === productID && item.size === size);
-
-            if (itemToMove) {
-                // Remove the item from Cart
-                const updatedCart = cartItems.filter(item => item !== itemToMove);
-
-                // Get the current Wishlist array
-                const wishlistItems = userDataDoc.data().Wishlist || [];
-
-                // Add the entire map to Wishlist
-                wishlistItems.push(itemToMove);
-
-                // Update the document with the modified Cart and Wishlist arrays
-                await updateDoc(userDataDocRef, { Cart: updatedCart, Wishlist: wishlistItems });
-
-                console.log("Product moved to Wishlist successfully.");
-            } else {
-                console.log("Product not found in Cart.");
-            }
-        } else {
-            console.log('User document not found.');
-        }
-    } catch (error) {
-        console.error("Error moving product to Wishlist:", error);
-    }
-    reloadPage();
-}
-
-
-async function emptyCart(activeEmail) {
-    console.log("clearing cart");
-    const email = activeEmail;
-    console.log(email);
-   
-    // Reference to the Firestore collection
-    const usersDataCollection = collection(db, "UsersData");
-    const userDocRef = doc(usersDataCollection, email);
-    console.log("Hi");
-    try {
-      const userDoc = await getDoc(userDocRef);
-      if (userDoc.exists()) {
-        const cart = userDoc.data().Cart;
-        await updateDoc(userDocRef, { Cart: [] });
-        console.log("Cart successfully cleared.");
-      } else {
-        console.error("Document not found for user email: ", email);
-      }
-    } catch (error) {
-      console.error("Error fetching or updating document: ", error);
-    }
-    reloadPage(); 
-  }
