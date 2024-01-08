@@ -22,11 +22,4 @@ function checkSaveButton() {
   console.log("Clicked");
   const interestedParty = document.getElementById('saveButton');
   interestedParty.classList.add("enable-save");
-  //const saveButton = document.getElementById('saveButton');
-  
-  // if (interestedParty.checked) {
-  //     saveButton.disabled = false;
-  // } else {
-  //     saveButton.disabled = true;
-  // }
 }
