@@ -23,6 +23,13 @@
     <link rel="stylesheet" href = "./styles/navbar_popup.css">
     <script src="scripts/specialEdition.js"></script>
     <script src="scripts/bestsellers-landingpage.js"></script>
+    <script src = "scripts/index-clothing.js"></script>
+    <script src = "scripts/product-details.js"></script>
+    <script src = "scripts/index-accessories.js"></script>
+    <script src = "scripts/index-collectibles.js"></script>
+    <script type = "module" src = "./scripts/popup-cartrender.js"></script>
+    <script src = "scripts/rightsidenavanimation.js"></script>
+
 <title>Lambhorghini Store</title>
 <title>Lambhorghini Store</title>
 </head>
@@ -95,7 +102,7 @@
                                     <div class = "pop-up-capt">
                                         Welcome <span id = "pop-up-name-part">Nigin N</span>
                                     </div>
-                                    <hr class = "pop-up-divider">
+                                    <hr class = "pop-up-divider" style = "margin-top : 10px;">
                                     <div class = "pop-up-dashboard-capt">
                                         <a class = "pop-up-links" href = "./pages/dashboard.html">
                                             <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
@@ -122,16 +129,49 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class = "store-rightside-nav-container">
+                                <div class = "store-rightside-nav-cont">
+                                    <div class = "store-rightside-nav-div">
+                                        <div class = "store-rightsize-close-icon">
+                                            <span id = "close-button" class="store-close-icon"><svg width="23" height="22" fill="gray" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root" focusable="false" viewBox="0 0 23 22" aria-hidden="true"><path d="M22.09 20.43l-9.87-9.86 9.07-9.07-.7-.71-9.07 9.07-9.1-9.1-.71.71 9.1 9.1-9.9 9.89.71.71 9.9-9.89 9.86 9.86.71-.71z"></path></svg></span>
+                                        </div>
+                                        <div class = "store-rightside-cart-items-div">
+                                            <div class = "store-rightside-cart-items-capt">
+                                                Cart Items
+                                            </div>
+                                        </div>
+                                        <div class = "cart-section">
+                                            <div class = "cart-product-list">
+                                            </div>
+                                            <div class = "popup-store-divider">
+                                                
+                                            </div>
+                                            <div class = "grand-total-div">
+                                            </div>
+                                            <div class = "procced-to-checkout-button-div">
+                                            </div>
+                                            <div class = "view-cart-div">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <span class = "pipe-sym">&#124;</span>
                             <div class="nav-right-list">
-                                <a href="">
+                                <a href="./pages/wishlist.html">
                                     <i class="bi bi-star"></i>
                                 </a>
+                                <div class = "wishlist-count-div">
+                                    <center><span class = "wishlist-count-value"></span></center>
+                            </div>
                             </div>
                             <div class="nav-right-list">
-                                <a href="">
-                                    <i class="bi bi-bag"></i>
+                                <a>
+                                    <i class="bi bi-bag" id = "store-button"></i>
                                 </a>
+                                <div class = "cart-count-div">
+                                    <center><span class = "cart-count-value"></span></center>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -402,280 +442,16 @@
                 <div class="tab-pane fade show active" id="clothing">
                     <!-- Data for Clothing tab -->
                     <div class="scroll-container cards-section">
-                        <div class="card" style="width: 18rem;" onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16199YYU095_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16199YYU095_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16199YYU095_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Softshell<br>Jacket</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;214.00</p>
-                                </center>
-                            </div>
-                        </div>
-    
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16197PAU095_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16197PAU095_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16197PAU095_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Padded Gilet<br>&nbsp; </p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;203.00</p>
-                                </center>
-                            </div>
-                        </div>
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16195llb000_01.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16195llb000_02.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16195llb000_02.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Leather Bomber<br>Jacket</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;799.00</p>
-                                </center>
-                            </div>
-                        </div>
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16194llb000_01.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16194llb000_02.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16194llb000_02.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Leather Bomber<br>Jacket</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;852.00</p>
-                                </center>
-                            </div>
-                        </div>
-                        
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16202CCB000_01.jpg')" onmouseout = "restoreImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16202CCB000_02.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16202CCB000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Polo Shirt<br>&nbsp; </p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;118.00</p>
-                                </center>
-                            </div>
-                        </div>
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16202CCU095_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16202CCU095_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16202CCU095_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Polo Shirt<br>&nbsp; </p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;118.00</p>
-                                </center>
-                            </div>
-                        </div>
-                        
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16202CCW000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16202CCW000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16202CCW000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Polo Shirt<br>&nbsp; </p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;118.00</p>
-                                </center>
-                            </div>
-                        </div>
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16204CCB000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16204CCB000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16204CCB000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Small Shield<br>Crew Neck T-shirt</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;75.00</p>
-                                </center>
-                            </div>
-                        </div>
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16204CCU095_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16204CCU095_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16204CCU095_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Small Shield<br>Crew Neck T-shirt</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;75.00</p>
-                                </center>
-                            </div>
-                        </div>
-    
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16204CCW000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16204CCW000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16204CCW000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Automobili Lamborghini Iconic Small Shield<br>Crew Neck T-shirt</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;75.00</p>
-                                </center>
-                            </div>
-                        </div>
+                        <div id = "clothing-tab-div-gen"></div> 
                     </div>
                 </div>
                 <div class="tab-pane fade" id="accessories">
-
-                    <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16162LLB000000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16162LLB000000_01.jpg')">
-                        <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16162LLB000000_01.jpg" alt="Card image cap">
-                        <p class = "upscaled">UPSCALED</p>
-                        <div class="card-body">
-                            <center>
-                                <p class="product-title">iPad Case - 11" Screen IN AUTOMOBILI<br>LAMBORGHINI UPCYCLED LEATHER</p>
-                            </center>
-                            <center>
-                                <p class="product-price">&#36;76.00</p>
-                            </center>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16162LLH000000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16162llh000000_01.jpg')">
-                        <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16162llh000000_01.jpg" alt="Card image cap">
-                        <p class = "upscaled">UPSCALED</p>
-                        <div class="card-body">
-                            <center>
-                                <p class="product-title">iPad Case - 11" Screen IN AUTOMOBILI<br>LAMBORGHINI UPCYCLED LEATHER</p>
-                            </center>
-                            <center>
-                                <p class="product-price">&#36;76.00</p>
-                            </center>
-                        </div>
-                    </div>
+                    <div id = "accessories-tab-div-gen"></div>                    
                 </div>
 
                 <div class="tab-pane fade" id="collectibles">
                     <div class="scroll-container cards-section">
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16349REO046118_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16349REO046118_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16349REO046118_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">LAMBORGHINI REVUELTO MODEL CAR ON<br> A SCALE OF 1:18 BY MR COLLECTION</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;597.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16469BRE121000_02.jpg')" onmouseout="changeImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16469BRE121000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16469BRE121000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">KEYRING WITH SHIELD<br>&nbsp; </p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;45.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16469BRE121000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16469BRZ000000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16469BRZ000000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">KEYRING WITH SHIELD<br>&nbsp; </p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;45.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16413JJH000DES_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16413JJH000DES_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16413JJH000DES_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">AUTOMOBILI LAMBORGHINI “FROM NOW<br>ON” 2024 DESK CALENDAR</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;16.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16414JJH000WAL_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16414JJH000WAL_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16414JJH000WAL_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">AUTOMOBILI LAMBORGHINI “FROM NOW<br>ON” 2024 DESK CALENDAR</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;27.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16415JJH000000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16415JJH000000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16415JJH000000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">BOX OF 4 AUTOMOBILI LAMBORGHINI<br>CHRISTMAS BAUBLES</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;32.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/0/10434GGW000000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/0/10434GGW000000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/0/10434GGW000000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">AUTOMOBILI LAMBORGHINI<br>GLASS CHRISTMAS BAUBLE</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;22.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16239STU094000_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16239STU094000_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16239STU094000_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">60TH ANNIVERSARY SPECIAL-EDITION<br>CLIMA BOTTLE BY 24BOTTLES FOR<br>AUTOMOBILI LAMBORGHINI</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;48.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/9/0/9014518JJB000000XX_02_1.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/9/0/9014518JJB000000XX_01_1.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/9/0/9014518JJB000000XX_01_1.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">Moleskine Notebook A5<br>&nbsp; </p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;38.00</p>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;"onmouseover="changeImage(this, 'https://static.lamborghinistore.com/rx/456x,ofmt_webp/media/catalog/product/1/6/16361JJH000ENG_02.jpg')" onmouseout="restoreImage(this, 'https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16361JJH000ENG_01.jpg')">
-                            <img class="card-img-top" src="https://static.lamborghinistore.com/rx/500x,ofmt_webp/media/catalog/product/1/6/16361JJH000ENG_01.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <center>
-                                    <p class="product-title">THE OFFICIAL LAMBORGHINI BOOK<br>ENGLISH VERSION - ANTONIO GHINI</p>
-                                </center>
-                                <center>
-                                    <p class="product-price">&#36;85.00</p>
-                                </center>
-                                </div>
-                        </div>
+                        <div id = "collectibles-tab-div-gen"></div>
                     </div>
                 </div>
             </div>

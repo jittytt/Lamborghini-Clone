@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+export {updateCountsAndVisibility};
 
 const firebaseConfig = {
     apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -15,6 +16,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', function () {
+    updateCountsAndVisibility();
     const showPopUpButton = document.getElementById('showPopUp');
     const popUp = document.querySelector('.pop-up');
     const popUpNamePart = document.getElementById('pop-up-name-part');
@@ -85,3 +87,47 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+async function updateCountsAndVisibility() {
+    // Get references to the cart-count-div and wishlist-count-div
+    console.log("Hello");
+    const cartCountDiv = document.querySelector('.cart-count-div');
+    const wishlistCountDiv = document.querySelector('.wishlist-count-div');
+
+    // Get the active user's email
+    const activeUserDocRef = doc(collection(db, 'ActiveUser'), 'Email_ID');
+    const activeUserSnapshot = await getDoc(activeUserDocRef);
+    
+    if (activeUserSnapshot.exists()) {
+        const email = activeUserSnapshot.data().Email;
+
+        // Get the reference to the user's data
+        const userDataDocRef = doc(collection(db, 'UsersData'), email);
+        const userSnapshot = await getDoc(userDataDocRef);
+
+        if (userSnapshot.exists()) {
+            const cartArray = userSnapshot.data().Cart || [];
+            const wishlistArray = userSnapshot.data().Wishlist || [];
+
+            console.log("Hi2");
+            // Update visibility of cart-count-div
+            console.log(cartArray.length);
+            if (cartArray.length > 0) {
+                cartCountDiv.style.display = 'block';
+                cartCountDiv.querySelector('.cart-count-value').textContent = cartArray.length;
+            } else {
+                cartCountDiv.style.display = 'none';
+            }
+            console.log("Hi3");
+            // Update visibility of wishlist-count-div
+            console.log(wishlistArray.length);
+            if (wishlistArray.length > 0) {
+                wishlistCountDiv.style.display = 'block';
+                wishlistCountDiv.querySelector('.wishlist-count-value').textContent = wishlistArray.length;
+            } else {
+                wishlistCountDiv.style.display = 'none';
+            }
+            console.log("Hi4");
+        }
+    }
+}

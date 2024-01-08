@@ -1,5 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, doc, getDocs, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {updateCountsAndVisibility} from "./logincontroller.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
     authDomain: "lamborghini-store-19cb4.firebaseapp.com",
@@ -49,6 +51,7 @@ addCartBtn.addEventListener('click', () => {
     updateDoc(userDocRef, { Cart })                       // {Cart: Cart} is same as {Cart}
         .then(() => {
             console.log("product added to cart");
+            updateCountsAndVisibility();
         })
         .catch(() => {
             console.log("product adding failed");
