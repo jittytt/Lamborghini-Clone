@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 Email: ''
             });
             popUp.style.display = 'none';
-            window.location.reload();
+            window.location.href = "../index.html";
         } catch (error) {
             console.error('Error during logout:', error);
         }
