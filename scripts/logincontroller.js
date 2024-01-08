@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const popUp = document.querySelector('.pop-up');
     const popUpNamePart = document.getElementById('pop-up-name-part');
     const popUpLogoutCapt = document.querySelector('.pop-up-logout-capt');
-
+    const navbarLogout = document.getElementById('navbar-signout');
     showPopUpButton.addEventListener('click', function () {
         fetchDataFromFirebase()
             .then(userData => {
@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     popUpLogoutCapt.addEventListener('click', logout);
+    navbarLogout.addEventListener('click', logout);
 
     async function logout() {
         try {

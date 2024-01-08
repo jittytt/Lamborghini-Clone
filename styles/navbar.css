@@ -174,7 +174,7 @@ ul {
 .hexicon p {
     color: white;
 }
-.column3-img {
+.column3-container .column3-img {
     width: 100%;
     margin-top: 20px;
 }

@@ -33,11 +33,13 @@ const toastContent = document.getElementById('toast-content');
 const toastShow = document.getElementById('toast-show');
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('productId');
+console.log(productId);
 const apiUrl = urlParams.get('apiUrl');
 const storedProduct = JSON.parse(sessionStorage.getItem('product'));
 
 addCartBtn.addEventListener('click', () => {
-    const size = sessionStorage.getItem('size');
+    const sizeKeyRetreived = JSON.parse(sessionStorage.getItem('size'));
+    const size = sizeKeyRetreived[productId].size;
     let productInCart = Cart.find(product => product.product_id === productId && product.size === size);
     if (productInCart !== undefined)
         Cart = Cart.map(product => product.product_id === productInCart.product_id && product.size === size
@@ -53,6 +55,7 @@ addCartBtn.addEventListener('click', () => {
     updateDoc(userDocRef, { Cart })                       // {Cart: Cart} is same as {Cart}
         .then(() => {
             console.log("product added to cart");
+            console.log(Cart);
             toastContent.innerText = `You added ${storedProduct.name} to your cart`;
             const myToast = new bootstrap.Toast(toastShow);
             myToast.show();

@@ -1,0 +1,86 @@
+.accordion {
+  --bs-accordion-btn-focus-border-color: transparent;
+  --bs-accordion-btn-focus-box-shadow: transparent;
+  --bs-accordion-border-color: transparent;
+}
+
+.accordion-title h6 {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-family: "Roboto";
+  color: #000;
+  line-height: 2.5;
+}
+
+.image-container {
+  width: 100px;
+  height: 133px;
+}
+
+.image-container img {
+  width: 100%;
+}
+
+.product-item {
+  padding: 0 30px;
+}
+
+.product-info .order-product-name {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: "Roboto";
+  color: #000;
+  line-height: 2.5;
+}
+
+.product-info .order-product-id {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: "Roboto";
+  color: rgba(0, 0, 0, 0.54);
+  line-height: 2.5;
+}
+
+.product-info .order-product-size {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: "Roboto";
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 2.5;
+}
+
+.price-quantity-info .product-price,
+.price-quantity-info .product-quantity {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: "Roboto";
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 2.5;
+}
+
+.product-divider {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.6901960784);
+  border-width: 10px solid;
+}
+
+.price-section {
+  padding: 0 20px;
+}
+
+.individual-price,
+.subtotal-price {
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: "Roboto";
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 2.5;
+}/*# sourceMappingURL=orders.css.map */

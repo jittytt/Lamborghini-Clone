@@ -1,0 +1,80 @@
+$font-roboto: "Roboto";
+$color-black: #000;
+$color-light: rgba(0, 0, 0, 0.54);
+$color-medium: rgba(0, 0, 0, 0.87);
+
+@mixin imageLayout($width) {
+  width: $width;
+}
+
+@mixin textLayout(
+  $font-weight,
+  $font-size,
+  $letter-spacing,
+  $font-family,
+  $color,
+  $line-height
+) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  font-family: $font-family;
+  color: $color;
+  line-height: $line-height;
+}
+
+.accordion {
+  --bs-accordion-btn-focus-border-color: transparent;
+  --bs-accordion-btn-focus-box-shadow: transparent;
+  --bs-accordion-border-color: transparent;
+}
+
+.accordion-title h6 {
+  @include textLayout(500, 15px, 1px, $font-roboto, $color-black, 2.5);
+}
+
+.image-container {
+  @include imageLayout(100px);
+  height: 133px;
+}
+
+.image-container img {
+  @include imageLayout(100%);
+}
+
+.product-item {
+  padding: 0 30px;
+}
+
+.product-info .order-product-name {
+  @include textLayout(400, 12px, 1px, $font-roboto, $color-black, 2.5);
+}
+
+.product-info .order-product-id {
+  @include textLayout(400, 12px, 1px, $font-roboto, $color-light, 2.5);
+}
+
+.product-info .order-product-size {
+  @include textLayout(400, 12px, 1px, $font-roboto, $color-medium, 2.5);
+}
+
+.price-quantity-info .product-price,
+.price-quantity-info .product-quantity {
+  @include textLayout(400, 12px, 1px, $font-roboto, $color-medium, 2.5);
+}
+
+.product-divider {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 0;
+  background-color: #000000b0;
+  border-width: 10px solid;
+}
+
+.price-section {
+  padding: 0 20px;
+}
+.individual-price,
+.subtotal-price {
+  @include textLayout(300, 12px, 1px, $font-roboto, $color-medium, 2.5);
+}

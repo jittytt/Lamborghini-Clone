@@ -3,7 +3,7 @@
 
 .data-part {
     display: flex;
-    height: 100vh; /* Set the height of the container */
+    padding-top: 118px;
   }
   
   .leftrightmaincontainer {
@@ -267,6 +267,6 @@ button {
     }
    }
 
-   .foot {
+   /* .foot {
     margin-top : 180px;
-   }
+   } */
