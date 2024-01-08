@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc, setDoc, collection, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-export {incrementProductQuantity, decrementProductQuantity, removeProduct, addToWishlist, emptyCart};
+export {incrementProductQuantityWishlist, addToCart, decrementProductQuantityWishlist, removeProductWishlist, addAllToCart, emptyCart};
 
 const firebaseConfig = {
     apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -19,26 +19,27 @@ function reloadPage() {
     location.reload();
 }
 
-async function incrementProductQuantity(productID, size) {
+async function incrementProductQuantityWishlist(productID, size) {
 
     try {
+        console.log("Hi");
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
         const activeUserDoc = await getDoc(activeUserDocRef);
         const email = activeUserDoc.data().Email;
-
+        console.log("Hi");
         const userDataDocRef = doc(db, 'UsersData', email);
         const userDataDoc = await getDoc(userDataDocRef);
-
+        console.log("Hi");
         if (userDataDoc.exists()) {
-            const cartItems = userDataDoc.data().Cart;
-            const updatedCart = cartItems.map(item => {
+            const WishlistItems = userDataDoc.data().Wishlist;
+            const updatedCart = WishlistItems.map(item => {
                 if (item.product_id === productID && item.size === size) {
                     return { ...item, count: item.count + 1 };
                 }
                 return item;
             });
 
-            await updateDoc(userDataDocRef, { Cart: updatedCart });
+            await updateDoc(userDataDocRef, { Wishlist: updatedCart });
         }
     } catch (error) {
         console.error("Error incrementing quantity:", error);
@@ -47,7 +48,7 @@ async function incrementProductQuantity(productID, size) {
     reloadPage();
 }
 
-async function decrementProductQuantity(productID, size) {
+async function decrementProductQuantityWishlist(productID, size) {
     
     try {
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
@@ -58,8 +59,8 @@ async function decrementProductQuantity(productID, size) {
         const userDataDoc = await getDoc(userDataDocRef);
 
         if (userDataDoc.exists()) {
-            const cartItems = userDataDoc.data().Cart;
-            const updatedCart = cartItems.map(item => {
+            const WishlistItems = userDataDoc.data().Wishlist;
+            const updatedCart = WishlistItems.map(item => {
                 if (item.product_id === productID && item.size === size) {
                     const newCount = Math.max(1, item.count);
                     if(item.count > 1)
@@ -70,7 +71,7 @@ async function decrementProductQuantity(productID, size) {
                 return item;
             });
 
-            await updateDoc(userDataDocRef, { Cart: updatedCart });
+            await updateDoc(userDataDocRef, { Wishlist: updatedCart });
         }
     } catch (error) {
         console.error("Error incrementing quantity:", error);
@@ -79,8 +80,7 @@ async function decrementProductQuantity(productID, size) {
     reloadPage();
 }
 
-
-async function removeProduct(productID, size) {
+async function removeProductWishlist(productID, size) {
     try {
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
         const activeUserDoc = await getDoc(activeUserDocRef);
@@ -90,11 +90,11 @@ async function removeProduct(productID, size) {
         const userDataDoc = await getDoc(userDataDocRef);
 
         if (userDataDoc.exists()) {
-            const cartItems = userDataDoc.data().Cart;
+            const WishlistItems = userDataDoc.data().Wishlist;
 
-            const updatedCart = cartItems.filter(item => !(item.product_id === productID && item.size === size));
+            const updatedCart = WishlistItems.filter(item => !(item.product_id === productID && item.size === size));
 
-            await updateDoc(userDataDocRef, { Cart: updatedCart });
+            await updateDoc(userDataDocRef, { Wishlist: updatedCart });
 
             console.log("Product removed successfully.");
         } else {
@@ -106,7 +106,7 @@ async function removeProduct(productID, size) {
     reloadPage();
 }
 
-async function addToWishlist(productID, size) {
+async function addToCart(productID, size) {
     try {
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
         const activeUserDoc = await getDoc(activeUserDocRef);
@@ -116,40 +116,40 @@ async function addToWishlist(productID, size) {
         const userDataDoc = await getDoc(userDataDocRef);
 
         if (userDataDoc.exists()) {
-            const cartItems = userDataDoc.data().Cart || [];
+            const wishlistItems = userDataDoc.data().Wishlist || [];
 
-            // Find the item with the matching productID and size in Cart
-            const itemToMove = cartItems.find(item => item.product_id === productID && item.size === size);
+            // Find the item with the matching productID and size in Wishlist
+            const itemToMove = wishlistItems.find(item => item.product_id === productID && item.size === size);
 
             if (itemToMove) {
-                // Remove the item from Cart
-                const updatedCart = cartItems.filter(item => item !== itemToMove);
+                // Remove the item from Wishlist
+                const updatedWishlist = wishlistItems.filter(item => item !== itemToMove);
 
-                // Get the current Wishlist array
-                const wishlistItems = userDataDoc.data().Wishlist || [];
+                // Get the current Cart array
+                const cartItems = userDataDoc.data().Cart || [];
 
-                // Add the entire map to Wishlist
-                wishlistItems.push(itemToMove);
+                // Add the entire map to Cart
+                cartItems.push(itemToMove);
 
-                // Update the document with the modified Cart and Wishlist arrays
-                await updateDoc(userDataDocRef, { Cart: updatedCart, Wishlist: wishlistItems });
+                // Update the document with the modified Wishlist and Cart arrays
+                await updateDoc(userDataDocRef, { Wishlist: updatedWishlist, Cart: cartItems });
 
-                console.log("Product moved to Wishlist successfully.");
+                console.log("Product moved to Cart successfully.");
             } else {
-                console.log("Product not found in Cart.");
+                console.log("Product not found in Wishlist.");
             }
         } else {
             console.log('User document not found.');
         }
     } catch (error) {
-        console.error("Error moving product to Wishlist:", error);
+        console.error("Error moving product to Cart:", error);
     }
     reloadPage();
 }
 
 
 async function emptyCart(activeEmail) {
-    console.log("clearing cart");
+    console.log("clearing Wishlist");
     const email = activeEmail;
     console.log(email);
    
@@ -160,9 +160,14 @@ async function emptyCart(activeEmail) {
     try {
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
-        const cart = userDoc.data().Cart;
-        await updateDoc(userDocRef, { Cart: [] });
-        console.log("Cart successfully cleared.");
+        console.log("Hi");
+        // Document found, fetch the Wishlist array
+        const Wishlist = userDoc.data().Wishlist;
+        console.log("Hi");
+        // Clear the Wishlist by updating the document
+        await updateDoc(userDocRef, { Wishlist: [] });
+        console.log("Hi");
+        console.log("Wishlist successfully cleared.");
       } else {
         console.error("Document not found for user email: ", email);
       }
@@ -171,3 +176,40 @@ async function emptyCart(activeEmail) {
     }
     reloadPage(); 
   }
+
+  async function addAllToCart(activeEmail) {
+    try {
+        // Get a reference to the UsersData collection
+        const userDataCollectionRef = collection(db, 'UsersData');
+
+        // Get a reference to the document with the given activeEmail
+        const userDataDocRef = doc(userDataCollectionRef, activeEmail);
+
+        // Get the document snapshot
+        const userDataDoc = await getDoc(userDataDocRef);
+
+        if (userDataDoc.exists()) {
+            // Retrieve the Wishlist and Cart arrays from the document
+            const wishlistItems = userDataDoc.data().Wishlist || [];
+            const cartItems = userDataDoc.data().Cart || [];
+
+            if (wishlistItems.length > 0) {
+                // Move all elements from Wishlist to Cart
+                const updatedCart = [...cartItems, ...wishlistItems];
+
+                // Update the document with the modified Cart array
+                await updateDoc(userDataDocRef, { Cart: updatedCart, Wishlist: [] });
+
+                console.log("All items moved from Wishlist to Cart successfully.");
+            } else {
+                console.log("Wishlist is empty. Nothing to move to Cart.");
+            }
+        } else {
+            console.log('User document not found.');
+        }
+    } catch (error) {
+        console.error("Error moving items from Wishlist to Cart:", error);
+    }
+    reloadPage();
+}
+

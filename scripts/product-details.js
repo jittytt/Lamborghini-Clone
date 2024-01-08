@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     productId = urlParams.get('productId');
     const apiUrl = urlParams.get('apiUrl');
+    console.log(productId);
+    console.log(apiUrl);
 
     // Call a function to fetch product details based on the product ID and API URL
     fetchProductDetail(productId, apiUrl);
