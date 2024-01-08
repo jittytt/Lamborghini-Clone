@@ -149,3 +149,32 @@ body {
     --bs-accordion-btn-focus-box-shadow: transparent;
     --bs-accordion-border-color: transparent;
 }
+
+.modal-body table tbody {
+    font-size: 11px;
+    font-family: 'Roboto';
+}
+
+/* .modal-dialog {
+    top: 20%;
+} */
+.modal-content {
+    width: 840px;
+    height: 240px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.toast {
+    width: 550px !important;
+    max-width: 550px !important;
+    background-color: #43a047 !important;
+    color: white !important;
+}
