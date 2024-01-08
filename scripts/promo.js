@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let productElement = document.createElement('div');
                 productElement.classList.add('product');
                 productElement.innerHTML = `
-                    <a href="product-details.html?productId=${response[index].product_id}&apiUrl=${url}" class="product-link">
+                    <a href="product-details.html?productId=${response[index].product_id}&apiUrl=${url}&category=promo" class="product-link">
                         <img src="${response[index].default_image_url}" alt="" class="product-default_image_url">
                         <center><h2 class="product-name">${response[index].name}</h2></center>
                     </a>

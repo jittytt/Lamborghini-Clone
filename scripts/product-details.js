@@ -3,7 +3,8 @@ const selectOptionButton = document.getElementById("select-option-btn");
 const sizePopup = document.getElementById("size-popup");
 const sizeCloseBtn = document.getElementById('size-close-btn');
 const sizeTable = document.getElementById('size-table-div');
-let productId;                                                              //global scope
+let breadcrumbFirstLink, backButton;
+let productId, category;                                                              //global scope
 
 // Add an event listener to the select element
 sizeSelectorElement.addEventListener("change", (event) => {
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     productId = urlParams.get('productId');
     const apiUrl = urlParams.get('apiUrl');
+    category = urlParams.get('category');
     console.log(productId);
     console.log(apiUrl);
 
@@ -76,16 +78,41 @@ async function fetchProductDetail(productId, apiUrl) {
     }
 }
 
+const breadcrumbSetting = (firstLinkText, link) => {
+    breadcrumbFirstLink.innerText = firstLinkText;
+    breadcrumbFirstLink.href = link;
+    backButton.href = link;
+}
+
 function updateProductDetail(product) {
     // Create HTML elements to display product details
 
+    document.title = product.name;
+    
     var displayImages = [product.display_image_url_1,
     product.display_image_url_2,
     product.display_image_url_3];
 
+    breadcrumbFirstLink = document.getElementById("breadcrumb-firstlink");
+    backButton = document.getElementById("back-btn");
+    
+    if(category == "man_collection") {
+        breadcrumbSetting("OUTERWEAR", "../pages/clothing.html");
+    }
+    else if(category == "bags") {
+        breadcrumbSetting("TRAVEL", "../pages/bagsandluggages.html");
+    }
+    if(category == "promo") {
+        breadcrumbSetting("-30%OFF", "../pages/promo.html");
+    }
+    if(category == "lamboworld") {
+        breadcrumbSetting("MODEL CARS", "../pages/lamboworld.html");
+    }
+    if(category == "skiwear") {
+        breadcrumbSetting("SKIWEAR", "../pages/skiwear.html");
+    }
+    
 
-    // const breadcrumbFirstLink = document.getElementById('breadcrumb-firstlink');
-    // breadcrumbFirstLink.innerText = 
     const breadcrumbListName = document.getElementById("breadcrumb-prodname");
     breadcrumbListName.innerText = product.name;
 
