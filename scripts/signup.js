@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })
  
-createacctbtn.addEventListener("click", function(event) {
+createacctbtn.addEventListener("click", async function(event) {
  
   event.preventDefault();
  
@@ -102,6 +102,25 @@ createacctbtn.addEventListener("click", function(event) {
       }, 1000);
       });
   }
+
+  
+    const userKey = "ALFl0fcSX2LmAUN0Z";
+     emailjs.init(userKey);
+     console.log("Hey I got inside emailjs function");
+   
+     const templateParams = {
+       to_email: signupEmailIn.value,
+       to_name: firstName.value,
+     };
+   
+     emailjs.send("service_40gbo68", "template_kye5sks", templateParams)
+       .then(response => {
+         console.log('Email sent successfully:', response);
+       })
+       .catch(error => {
+         console.error('Error sending email:', error);
+       });
+  
 });
 
 
@@ -133,6 +152,8 @@ function createUserData(email, firstName, lastName) {
       console.error("Error creating user data:", error);
     });
 }
+
+
 
 document.getElementById("firstname").addEventListener("focus", function () {
   var placeholderLabel = document.querySelector(
