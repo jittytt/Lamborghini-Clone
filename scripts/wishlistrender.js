@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import {incrementProductQuantity, decrementProductQuantity, removeProduct, addToWishlist, emptyCart} from './viewcart-product-controller.js';
+import {incrementProductQuantityWishlist, decrementProductQuantityWishlist, removeProductWishlist, addToCart, addAllToCart, emptyCart} from './wishlist-product-controller.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-function renderCartItems() {
+function renderwishlistItems() {
     const cartItemList = document.querySelector('.cart-item-list');
   
     const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
@@ -30,9 +30,9 @@ function renderCartItems() {
           getDoc(userDataDocRef)
             .then((userDoc) => {
               if (userDoc.exists()) {
-                const cartItems = userDoc.data().Cart;
+                const wishlistItems = userDoc.data().Wishlist;
 
-                cartItems.forEach((item) => {
+                wishlistItems.forEach((item) => {
                   const cartItemDiv = document.createElement('div');
                   cartItemDiv.classList.add('cart-item-div');
                   cartItemDiv.innerHTML = `
@@ -44,29 +44,25 @@ function renderCartItems() {
                 <div class="product-info">
                     <h5 class="cart-product-name">${item.name}</h5>
                     <p class="cart-product-id">${item.product_id}</p>
-                    <p class="cart-product-size"> Size : <span class="size-value">${item.size.toUpperCase()}</span></p>
+                    </div>
+                <div class = "product-price">
+                  <span class="price-part">&#36;<span class="price-value">${formatAmount(item.price)}</span></span>
                 </div>
                 <div class="cart-product-quantity">
-                <svg class="minus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="decrementProductQuantity('${item.product_id}', '${item.size}')"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"></path></svg>
+                <svg class="minus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="decrementProductQuantityWishlist('${item.product_id}', '${item.size}')"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"></path></svg>
                 <span class="cart-product-quantity-number">${item.count}</span>
-                <svg class="plus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="incrementProductQuantity('${item.product_id}', '${item.size}')"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>                            
+                <svg class="plus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="incrementProductQuantityWishlist('${item.product_id}', '${item.size}')"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>                            
+                </div>
+                <div class = "subtotal-section">
+                <span class="subtotal-part">&#36;<span class="subtotal-part">${formatAmount(item.count * item.price)}</span></span>
                 </div>
                 <div class="wishlist-delete-icons-container">
-                    <span class="MuiIconButton-label">
-                    <svg width="27" height="25" fill="gray" xmlns="http://www.w3.org/2000/svg" class="favourites-icon" focusable="false" viewBox="0 0 27 25" aria-hidden="true" onclick="addToWishlist('${item.product_id}', '${item.size}')">
-                    <path d="M26.77 9.59l-9.17-1.3L13.5.18 9.4 8.29.23 9.59l6.63 6.32-1.56 8.91 8.2-4.21 8.2 4.21-1.56-8.91 6.63-6.32zM20.37 23L14 19.72l-.46-.23-.46.23L6.63 23l1.22-6.94.09-.53-.39-.37-5.14-4.87 7.13-1 .52-.07.23-.47 3.21-6.36 3.21 6.35.23.47.52.07 7.13 1-5.14 4.89-.39.37.09.53L20.37 23z"></path>
-                        </svg>
-                    </span>
+                <span class="MuiIconButton-label"><svg width="19" height="21" fill="gray" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root" focusable="false" viewBox="0 0 19 26" aria-hidden="true"  onclick="addToCart('${item.product_id}', '${item.size}')"><path clip-rule="evenodd" d="M13.8 5.82v-1a4.3 4.3 0 10-8.6 0v1H.9v20.06h17.2V5.82h-4.3zm-7.64-1a3.34 3.34 0 116.68 0v1H6.16v-1zm11 20.06H1.86V6.78H5.2v3.82h1V6.78h6.68v3.82h1V6.78h3.34l-.06 18.1z"></path></svg></span>
                     <span class="MuiIconButton-label-del">
-                    <svg width="21" height="27" fill="none" xmlns="http://www.w3.org/2000/svg" class="trash-icon" focusable="false" viewBox="0 0 21 27" aria-hidden="true"  onclick="removeProduct('${item.product_id}', '${item.size}')"><path d="M20.07 4.44h-4.75A4.91 4.91 0 0010.5.91a4.91 4.91 0 00-4.82 3.53H.93v3.65h1.5v18.84h16.14V8.09h1.5V4.44zM10.5 1.8a4.05 4.05 0 013.9 2.64H6.6a4.05 4.05 0 013.9-2.64zm7.08 24.14H3.42V8.09h14.16v17.85zm1.49-18.85H1.93V5.44h17.14v1.65z" fill="#010202"></path>
+                    <svg width="21" height="27" fill="none" xmlns="http://www.w3.org/2000/svg" class="trash-icon" focusable="false" viewBox="0 0 21 27" aria-hidden="true"  onclick="removeProductWishlist('${item.product_id}', '${item.size}')"><path d="M20.07 4.44h-4.75A4.91 4.91 0 0010.5.91a4.91 4.91 0 00-4.82 3.53H.93v3.65h1.5v18.84h16.14V8.09h1.5V4.44zM10.5 1.8a4.05 4.05 0 013.9 2.64H6.6a4.05 4.05 0 013.9-2.64zm7.08 24.14H3.42V8.09h14.16v17.85zm1.49-18.85H1.93V5.44h17.14v1.65z" fill="#010202"></path>
                         </svg>
                     </span>
                 </div>
-            </div>
-            <hr class="cart-divider">
-            <div class="price-section">
-                <span class="price-part">Price &nbsp;&#36;<span class="price-value">${item.price}</span></span>
-                <span class="subtotal-part">Subtotal &nbsp;&#36;<span class="subtotal-part">${item.count * item.price}</span></span>
             </div>
             <hr class="cart-divider">
         </div>
@@ -77,7 +73,10 @@ function renderCartItems() {
                 const emptyCartDiv = document.createElement('div');
                 emptyCartDiv.classList.add('empty-cart-div');
                 emptyCartDiv.innerHTML = `
-                <button CLASS='empty-cart-button' onclick="emptyCart('${activeEmail}')">EMPTY CART</button>
+                <div class = "viewcart-buttons-div">
+                <button CLASS='empty-wishlist-button' onclick="emptyCart('${activeEmail}')"><span>EMPTY WISHLIST</span></button>
+                <button CLASS='add-all-to-cart-button' onclick="addAllToCart('${activeEmail}')"><span>ADD ALL TO CART</span></button>
+                </div>
                 `;
                 cartItemList.appendChild(emptyCartDiv);
   
@@ -100,12 +99,15 @@ function renderCartItems() {
       });
   }
       
+function formatAmount(amount) {
+    return amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
+window.addEventListener('load', renderwishlistItems);
 
-window.addEventListener('load', renderCartItems);
-
-window.decrementProductQuantity=decrementProductQuantity;
-window.incrementProductQuantity=incrementProductQuantity;
-window.removeProduct = removeProduct;
-window.addToWishlist = addToWishlist;
+window.decrementProductQuantityWishlist=decrementProductQuantityWishlist;
+window.incrementProductQuantityWishlist=incrementProductQuantityWishlist;
+window.removeProductWishlist = removeProductWishlist;
+window.addToCart = addToCart;
+window.addAllToCart = addAllToCart;
 window.emptyCart = emptyCart;

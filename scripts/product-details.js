@@ -34,20 +34,13 @@ sizeSelectorElement.addEventListener("change", (event) => {
 })
 
 
-sizePopup.addEventListener('click', () => {
-    
-    sizeTable.style.display = 'block';
-})
-
-sizeCloseBtn.addEventListener('click', () => {
-    sizeTable.style.display = 'none';
-})
-
 document.addEventListener('DOMContentLoaded', () => {
     // Get product ID and API URL from the query parameters
     const urlParams = new URLSearchParams(window.location.search);
     productId = urlParams.get('productId');
     const apiUrl = urlParams.get('apiUrl');
+    console.log(productId);
+    console.log(apiUrl);
 
     // Call a function to fetch product details based on the product ID and API URL
     fetchProductDetail(productId, apiUrl);
@@ -91,6 +84,8 @@ function updateProductDetail(product) {
     product.display_image_url_3];
 
 
+    // const breadcrumbFirstLink = document.getElementById('breadcrumb-firstlink');
+    // breadcrumbFirstLink.innerText = 
     const breadcrumbListName = document.getElementById("breadcrumb-prodname");
     breadcrumbListName.innerText = product.name;
 
@@ -107,13 +102,13 @@ function updateProductDetail(product) {
     productDescription.innerText = product.description;
 
     const shapeColor = document.getElementById("hex-shape");
-    if (product.price > 300)
-        shapeColor.setAttribute("style", "background-color: var(--main-bg-color)");
+    shapeColor.setAttribute("style", `background-color: ${product.color_one.toLowerCase()}`);
 
     const imgElements = document.querySelectorAll(".img-container img");
     imgElements.forEach((img, index) => {
-        if (displayImages[index])
+        if (displayImages[index]) 
             img.src = displayImages[index];
+        
     })
 }
 

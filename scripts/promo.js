@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.products');
-    let apiUrl = 'https://mocki.io/v1/9982c5f4-cc37-42d4-9721-4ff66ddde2a7';
+    let apiUrl = 'https://mocki.io/v1/e22b2554-a60f-4e57-98e1-c858bcac400d';
 
     async function fetchProducts(url) {
         try {

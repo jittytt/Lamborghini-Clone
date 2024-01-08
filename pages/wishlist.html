@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lamborghini Jackets, Coats, Outerwear for Men &#124; Official Store</title>
+        <title>Wishlist</title>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
@@ -10,10 +10,12 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/navbar.css">
-    <link rel="stylesheet" href="../styles/addressbook_footer.css">
-    <!-- <link rel="stylesheet" href = "../styles/addressbook.css">  -->
+    <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href = "../styles/wishlist.css"> 
-    <link rel="stylesheet" href = "../styles/leftsidenav.css"> 
+    <script type = "module" src = "../scripts/wishlistrender.js"></script>
+    <script type = "module" src = "../scripts/viewcartmanipulator.js"></script>
+    <script type = "module" src = "../scripts/quantity-controller.js"></script>
+    <link rel="stylesheet" href="../styles/addressbook.css">
     </head>
     <body>
         <div class = "clothing-page">
@@ -90,6 +92,7 @@
                                 </div>
                             </div>
                         </div>
+    
                     </div>
                 </div>
     
@@ -151,117 +154,147 @@
                     </div>
                 </div>
             </header>
-            <div class="data-part">
-                <div class="leftrightmaincontainer">
-                  <div class="sidebar">
-                    <div class="arrow-icon" id="toggleSidebar">
-                        <i class="bi bi-chevron-right"></i>
-                    </div>
-
-                    <br><br>
-                    <div class="sidebar-options">
-                      <ul class="sidebar-list">
-                        <a href="../pages/dashboard.html" style="color: black;">
-                          <li>
-                            <i class="bi bi-person-circle"></i>
-                            <span class="option-label">Dashboard</span>
-                          </li>
-                        </a>
-                        <br>
-                        <a href="../pages/addressbook.html" style="color: black;">
-                          <li>
-                            <i class="bi bi-house-door-fill"></i>
-                            <span class="option-label">Address Book</span>
-                          </li>
-                        </a>
-                        <br>
-                        <a href="../pages/wishlist.html" style="color: black;">
-                          <li>
-                            <i class="bi bi-heart"></i>
-                            <span class="option-label">Wishlist</span>
-                          </li>
-                        </a>
-                        <br>
-                        <a href="myorders.html" style="color: black;">
-                          <li>
-                            <i class="bi bi-card-list"></i>
-                            <span class="option-label">My Orders</span>
-                          </li>
-                        </a>
-                        <br>
-                        <li>
-                          <i class="bi bi-box-arrow-right"></i>
-                          <span class="option-label">Sign Out</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="ifThereIsNoProduct"></div>
-                  <div class="ifThereIsAProduct">
-                    <br><br>
-                    <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="./index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
-                      </ol>
-                    </nav>
-                    <div class ="dashboard-heading"> <br><br>
-                      <h2>WISHLIST</h2><br><br>
-                       
-                   </div>
-                  <table class="wishlist-table">
-                      <thead class="table-heading-section">
-                        <tr>
-                          <th>&nbsp;&nbsp;</th>
-                          <th>Product</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                          <th>Subtotal</th>
-                          <th>&nbsp;&nbsp;</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="wishlist-row">
-                          <td class="product-image"><img src="https://static.lamborghinistore.com/rx/120x,ofmt_webp/media/catalog/product/1/6/16387CCG116_02.jpg" alt="Product Image"></td>
-                          <td class="product-name-id">
-                            <div class="product-name">
-                              UPCYCLED LEATHER AUTOMOBILI LAMBORGHINI PASSPORT HOLDER
-                            </div>
-                            <div class="product-id">
-                              16363LLH000000
-                            </div>
-                          </td>
-                          <td>$66.00</td>
-                          <td>
-                            <div class="quantity">
-                              <a href="#">
-                                  <i class="bi bi-plus-circle-fill" id="plus-icon0" style="color: black;"></i>
-                                </a>
-                              <input type="text" class="quantity-input" value="1">
-                              <a href="#">
-                                  <i class="bi bi-dash-circle-fill"  id="plus-icon0" style="color: black;"></i>
-                                </a>
-                                
-                            </div>
-                          </td>
-                          <td>$66.00</td>
-                          <td>
-                              <i class="bi bi-bag"></i>          
-                              <i class="bi bi-trash3"></i>
-                          </td>
-                        </tr>
-                        <!-- Add more rows as needed -->
-                      </tbody>
-                    </table>
-                    <button class="empty-wishlist"> EMPTY WISHLIST
-                    </button>
-                   <button class="add-to-cart"> ADD ALL TO CART
-                    </button>
-                  
-                  </div>
+            <div class = "data-part">
+                <div class = "leftrightmaincontainer">
+                    <div class="sidebar">
+                        <div style = "margin-left : 8px;" class="arrow-icon" id="toggleSidebar">
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
+    
+                        <br><br>
+                        <div class="sidebar-options">
+                          <ul class="sidebar-list">
+                            <a href="../pages/dashboard.html" style="color: black;">
+                              <li>
+                                <i class="bi bi-person-circle"></i>
+                                <span class="option-label">Dashboard</span>
+                              </li>
+                            </a>
+                            <br>
+                            <a href="../pages/addressbook.html" style="color: black;">
+                              <li>
+                                <i class="bi bi-house-door-fill"></i>
+                                <span class="option-label">Address Book</span>
+                              </li>
+                            </a>
+                            <br>
+                            <a href="../pages/wishlist.html" style="color: black;">
+                              <li>
+                                <i class="bi bi-heart"></i>
+                                <span class="option-label">Wishlist</span>
+                              </li>
+                            </a>
+                            <br>
+                            <a href="myorders.html" style="color: black;">
+                              <li>
+                                <i class="bi bi-card-list"></i>
+                                <span class="option-label">My Orders</span>
+                              </li>
+                            </a>
+                            <br>
+                            <li>
+                              <i id = "left-nav-arrow-icon" class="bi bi-box-arrow-right"></i>
+                              <span class="option-label">Sign Out</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                 </div>
-              </div>
-              <footer class="foot">
+                <div class = "content-container" style = "margin-left : 50px;">
+                    <div class="breadcrumb-bar">
+                        <nav aria-label="breadcrumb">
+                            <ul class="d-flex flex-wrap">
+                                <li><a href="../index.html">Home &nbsp </a></li>
+                                <li>/ &nbsp</li>
+                                <li><a href="../index.html">Dashboard &nbsp </a></li>
+                                <li>/ &nbsp</li>
+                                <li><a href="./clothing.html">Wishlist &nbsp </a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class = "outerwear-caption">
+                        <h1 class = "capt">WISHLIST</h1>
+                    </div>
+                    <div class = "data-sec">
+                        <div class = "cart-headings-section">
+                            <div class = "product-heading-capt">
+                                Product
+                            </div>
+                            <div class = "price-heading-capt">
+                                Price
+                            </div>
+                            <div class = "qty-heading-capt">
+                                Qty
+                            </div>
+                            <div class = "subtotal-heading-capt">
+                                Subtotal
+                            </div>
+                        </div>
+                        <hr class="cart-divider" style = "margin-left : 30px;">
+                        <div class = "cart-container">
+                            <div class = "cart-item-list">
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <footer class="foot" style = "margin-top: 100px;">
+                <br>
+                <hr>
+                <div class="footer">
+                    <div class="footer-section">
+                        <h3>CUSTOMER CARE</h3>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Return Policy</a></li>
+                            <li><a href="#">Payments</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section">
+                        <h3>LEGAL AREA</h3>
+                        <ul>
+                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section">
+                        <h3>STORE LOCATOR</h3>
+                        <ul>
+                            <li><a href="#">Find a store</a></li>
+                        </ul>
+                        <br>
+                        <h3>COUNTRY</h3>
+                        <ul>
+                            <li><a href="#">US</a></li>
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section-follow">
+                        <h3>FOLLOW US</h3>
+                        <ul class="social-media">
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Facebook.png" alt="Facebook"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Twitter.png" alt="Twitter"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Instagram.png" alt="Instagram"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/YouTube.png" alt="YouTube"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Pinterest.png" alt="Pinterest"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://static.lamborghinistore.com/media/wysiwyg/TIKTOK.png" alt="TIKTOK"></a></li>
+                        
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section-newsletter">
+                        <h3>SUBSCRIBE TO OUR <br> NEWSLETTER</h3>
+                        <p>Insert your email here</p>
+                        <br>
+                        <label for="">E-mail *</label>
+                        <input class="newsletter-input" type="email">
+                    </div>
+                </div>
                 <div class="end-text">
                     <div class="end-left">
                         <p>*Values refer to the European area. Contact your dealer for information on fuel consumption and emissions valid in your country.</p>
@@ -275,11 +308,13 @@
                 </div>
             </footer>
             
-            
         </div>
-        
+        <script>
+            function toggleDescriptionCard(card) {
+            card.classList.toggle("active");
+            console.log("Hi");
+        }
+        </script>
         <script src="../scripts/navbar-store.js"></script>
-        <script src="../scripts/sidenavexpand.js"></script>
-        <script type = "module" src="../scripts/addressbook.js"></script>
     </body>
 </html>
