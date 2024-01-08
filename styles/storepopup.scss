@@ -47,8 +47,10 @@
   color: #000000b6;
 }
 
-.cart-product-quantity .minus-icon, .cart-product-quantity .plus-icon {
+.cart-product-quantity .pop-up-minus-icon,
+.cart-product-quantity .pop-up-plus-icon {
   width: 16px;
+  cursor: pointer; // Add cursor: pointer here
 }
 
 .cart-product-code-value {
@@ -71,11 +73,11 @@
   color: rgba(0, 0, 0, 0.54);
 }
 
-.cart-product-quantity .minus-icon {
+.cart-product-quantity .pop-up-minus-icon {
   margin-right: 10px;
 }
 
-.cart-product-quantity .plus-icon {
+.cart-product-quantity .pop-up-plus-icon {
   margin-left: 10px;
 }
 

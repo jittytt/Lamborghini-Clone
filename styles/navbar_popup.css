@@ -162,6 +162,7 @@
   .procced-to-checkout-button-div{
     DISPLAY : flex;
     justify-content: center;
+    height : 65px;
   }
 
   .procced-to-checkout-button {
