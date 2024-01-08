@@ -82,6 +82,8 @@ function updateProductDetail(product) {
     product.display_image_url_3];
 
 
+    // const breadcrumbFirstLink = document.getElementById('breadcrumb-firstlink');
+    // breadcrumbFirstLink.innerText = 
     const breadcrumbListName = document.getElementById("breadcrumb-prodname");
     breadcrumbListName.innerText = product.name;
 
@@ -98,13 +100,13 @@ function updateProductDetail(product) {
     productDescription.innerText = product.description;
 
     const shapeColor = document.getElementById("hex-shape");
-    if (product.price > 300)
-        shapeColor.setAttribute("style", "background-color: var(--main-bg-color)");
+    shapeColor.setAttribute("style", `background-color: ${product.color_one.toLowerCase()}`);
 
     const imgElements = document.querySelectorAll(".img-container img");
     imgElements.forEach((img, index) => {
-        if (displayImages[index])
+        if (displayImages[index]) 
             img.src = displayImages[index];
+        
     })
 }
 
