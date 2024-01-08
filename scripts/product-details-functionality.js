@@ -51,6 +51,7 @@ addCartBtn.addEventListener('click', () => {
     updateDoc(userDocRef, { Cart })                       // {Cart: Cart} is same as {Cart}
         .then(() => {
             console.log("product added to cart");
+            console.log(Cart);
             toastContent.innerText = `You added ${storedProduct.name} to your cart`;
             const myToast = new bootstrap.Toast(toastShow);
             myToast.show();

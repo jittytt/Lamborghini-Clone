@@ -34,15 +34,6 @@ sizeSelectorElement.addEventListener("change", (event) => {
 })
 
 
-sizePopup.addEventListener('click', () => {
-    
-    sizeTable.style.display = 'block';
-})
-
-sizeCloseBtn.addEventListener('click', () => {
-    sizeTable.style.display = 'none';
-})
-
 document.addEventListener('DOMContentLoaded', () => {
     // Get product ID and API URL from the query parameters
     const urlParams = new URLSearchParams(window.location.search);
