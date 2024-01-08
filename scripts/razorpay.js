@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
+//import { v4 as uuidv4 } from 'uuid';
 console.log("razor loaded");
 const firebaseConfig = {
   apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
@@ -17,11 +17,10 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 //clear cart 
-async function clearCart() {
-  console.log("clearing cart");
+async function addOrdersClearCart() {
   const email = await getEmailFromActiveUser();
   console.log(email);
-  
+
   if (!email) {
     console.error("Email not found in session storage");
     return;
@@ -36,20 +35,44 @@ async function clearCart() {
 
     if (userDoc.exists()) {
       // Document found, fetch the cart array
-      const cart = userDoc.data().Cart;
+      const cart = await userDoc.data().Cart || [];
+      const orders = await userDoc.data().Orders;
+      const cartProducts = [...cart];
+      console.log(':cart fetched',cart);
+      const newOrderId = generateUUID();
+      console.log(newOrderId);
 
-      // Clear the cart by updating the document
-      await updateDoc(userDocRef, { Cart: [] });
+      // Add to "Orders" collection with a dynamically generated order ID
+      console.log("Adding to my orders");
+      const orderData = {
+        order_id: newOrderId, // You can use any unique identifier here
+        delivery_date: "28/12/2024",
+        total_cost: 789.0,
+        product_array: cartProducts 
+      };
+     
+      const updatedOrder = {...orders, [newOrderId]: orderData };
 
-      console.log("Cart successfully cleared.");
+      // Update the document and clear array
+      await updateDoc(userDocRef, { Orders: updatedOrder, Cart: [] });
+
+            console.log("Map added successfully!");
+
+      // // Clear the cart by updating the document
+      // console.log("Clearing cart");
+      // await updateDoc(userDocRef, { Cart: [] });
+      // console.log("Cart successfully cleared.");
     } else {
       console.error("Document not found for user email: ", email);
     }
   } catch (error) {
     console.error("Error fetching or updating document: ", error);
   }
-  window.location.href = `addressbook.html` 
+
+  alert("Order successfully placed");
+  window.location.href = `addressbook.html`;
 }
+
 
 //payment integration function
 window.makepayment = () => {
@@ -63,15 +86,15 @@ window.makepayment = () => {
         "image": "../assets/logo.png",// COMPANY LOGO
         "handler": function (response) {
             console.log(response);
-            clearCart();
-            alert("Order successfully placed");
+            addOrdersClearCart();
+            
             
             // AFTER TRANSACTION IS COMPLETE YOU WILL GET THE RESPONSE HERE.
         },
         "prefill": {
             "name": "BOBY", // pass customer name
             "email": 'bobybenny888@gmail.com',// customer email
-            "contact": '+919123456780' //customer phone no.
+            "contact": '+917123456780' //customer phone no.
         },
         "notes": {
             "address": "address" //customer address 
@@ -102,4 +125,13 @@ async function getEmailFromActiveUser() {
         console.error("Error retrieving email from ActiveUser collection:", error);
         return null;
     }
+}
+
+// const { v4: uuidv4 } = require('uuid');
+
+function generateUUID() {
+  const array = new Uint32Array(1);
+  window.crypto.getRandomValues(array);
+  return array[0].toString(16);
+  //return uuidv4();
 }
