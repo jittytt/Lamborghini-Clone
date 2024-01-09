@@ -122,9 +122,9 @@ async function addMapToAddress(email, mapData) {
             alertPlaceholder.append(wrapper);
             //goto resulting page
             setTimeout(function() {
-                console.log('Page will after in 3 seconds.');
+                console.log('Page will after in 2 seconds.');
                 window.location.href = `../pages/addressbook.html`;
-            }, 3000); 
+            }, 2000); 
             }
             appendAlert('Address added successfully', 'success');
 
@@ -135,3 +135,4 @@ async function addMapToAddress(email, mapData) {
         console.error("Error updating document:", error);
     }
 }
+// https://mocki.io/v1/4f87cd3b-a9ad-411e-bbea-e42228282769
