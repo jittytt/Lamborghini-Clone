@@ -84,7 +84,6 @@ function updateTotalCost(userDataDocRef, finalTotal) {
 }
 
 const checkoutButton = document.querySelector('.checkout-button');
-
 checkoutButton.addEventListener('click', updateSubtotalAndTotal);
 
 window.addEventListener('load', updateSubtotalAndTotal);

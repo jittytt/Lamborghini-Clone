@@ -14,8 +14,8 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-
-  let address;
+  
+let address;
   let totalAmount;
   function popup_cartrender() {
         const cartProductList = document.querySelector('.cart-product-list-popup');
@@ -33,7 +33,7 @@ const firebaseConfig = {
                         .then((userDoc) => {
                         if (userDoc.exists()) {
                             const cartItems = userDoc.data().Cart;
-                            address = userDoc.data().Address; //to determine proceed to checkout page.
+address = userDoc.data().Address; //to determine proceed to checkout page.
                             const totalAmountt = userDoc.data().TotalCost;
                             totalAmount=totalAmountt;
                             console.log(totalAmount);
