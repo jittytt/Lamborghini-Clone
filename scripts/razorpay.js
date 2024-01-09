@@ -1,17 +1,11 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { userKey, firebaseConfig, service_id, template_invoice_id} from "./environment.js";
+
 //import { v4 as uuidv4 } from 'uuid';
 console.log("razor loaded");
-const firebaseConfig = {
-  apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
-  authDomain: "lamborghini-store-19cb4.firebaseapp.com",
-  projectId: "lamborghini-store-19cb4",
-  storageBucket: "lamborghini-store-19cb4.appspot.com",
-  messagingSenderId: "123605469618",
-  appId: "1:123605469618:web:70da09f3d62d69b39abcab",
-  measurementId: "G-MEBX1PZLTS"
-};
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -64,10 +58,10 @@ async function addOrdersClearCart() {
       await updateDoc(userDocRef, { Orders: updatedOrder, Cart: [] });
 
         console.log("Map added successfully!");
-        const userKey = "ALFl0fcSX2LmAUN0Z";
-  emailjs.init(userKey);
-  console.log("Hey I got inside emailjs function");
-console.log("here",bill_email)
+        
+   emailjs.init(userKey);
+   console.log("Hey I got inside emailjs function");
+
   const templateParams = {
     to_email: bill_email,
     to_name: firstname,
@@ -76,7 +70,7 @@ console.log("here",bill_email)
     to_total:totalAmount
   };
 
-  emailjs.send("service_40gbo68", "template_14pex7a", templateParams)
+  emailjs.send(service_id, template_invoice_id, templateParams)
     .then(response => {
       console.log('Email sent successfully:', response);
     })

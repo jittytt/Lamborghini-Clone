@@ -1,16 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {firebaseConfig} from "./environment.js";
 let amount;
-const firebaseConfig = {
-  apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
-  authDomain: "lamborghini-store-19cb4.firebaseapp.com",
-  projectId: "lamborghini-store-19cb4",
-  storageBucket: "lamborghini-store-19cb4.appspot.com",
-  messagingSenderId: "123605469618",
-  appId: "1:123605469618:web:70da09f3d62d69b39abcab",
-  measurementId: "G-MEBX1PZLTS"
-};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -140,12 +132,21 @@ async function addMapToAddress(email, mapData) {
         const docSnapshot = await getDoc(userDocRef);
         if (docSnapshot.exists()) {
             const currentAddress = docSnapshot.data().Address || [];
+            const addresslength=currentAddress.length;
+            if(addresslength==1){
+               
+            // Update the document with the modified Address array
+            await updateDoc(userDocRef, { Address: [mapData] });
 
-            // Append the new mapData to the currentAddress array
+            }
+            else{
+                // Append the new mapData to the currentAddress array
             const updatedAddress = [...currentAddress, mapData];
 
             // Update the document with the modified Address array
             await updateDoc(userDocRef, { Address: updatedAddress });
+
+            }
 
             console.log("Map added successfully!");
             window.location.href = `../pages/checkout_shipping_method.html?amount=${amount}`;
