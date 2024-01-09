@@ -11,7 +11,8 @@ const firebaseConfig = {
     appId: "1:123605469618:web:70da09f3d62d69b39abcab",
     measurementId: "G-MEBX1PZLTS"
   };
-
+let address;
+let totalAmount;
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -31,6 +32,11 @@ function renderCartItems() {
             .then((userDoc) => {
               if (userDoc.exists()) {
                 const cartItems = userDoc.data().Cart;
+                address = userDoc.data().Address; //to determine proceed to checkout page.
+                const totalAmountt = userDoc.data().TotalCost;
+                totalAmount=totalAmountt;
+               console.log(totalAmount);
+              
 
                 cartItems.forEach((item) => {
                   const cartItemDiv = document.createElement('div');
@@ -115,5 +121,20 @@ window.addEventListener('load', renderCartItems);
 window.decrementProductQuantity=decrementProductQuantity;
 window.incrementProductQuantity=incrementProductQuantity;
 window.removeProduct = removeProduct;
+
+//determine page to load
+window.checkoutPage = () => {
+  let amount=Math.floor(totalAmount) +28;//includes shipping
+  const addresslength=address.length;
+  console.log(amount);
+  if (addresslength==0){
+    console.log("no address");
+    window.location.href='../pages/checkout_shipping.html'
+  }
+  else{
+    console.log("has address");
+    window.location.href=`../pages/checkout_shipping_method.html?amount=${amount}`
+  }
+};
 window.addToWishlist = addToWishlist;
 window.emptyCart = emptyCart;

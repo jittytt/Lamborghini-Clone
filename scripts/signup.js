@@ -139,7 +139,9 @@ function createUserData(email, firstName, lastName) {
     Address: [],
     Wishlist: [], 
     Cart: [], 
-    TotalCost : 0
+    TotalCost : 0,
+    Orders: {}, 
+
   };
 
   // Set the data in the document
