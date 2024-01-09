@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 let amount=0;
+let divid=0;
 const firebaseConfig = {
   apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
   authDomain: "lamborghini-store-19cb4.firebaseapp.com",
@@ -36,12 +37,37 @@ async function  displayAddress() {
           const len=addresses.length;
           console.log(len);
           console.log("Data Found",addresses[len-1]);
+          if (len==1){
+          document.getElementById('single-address').classList.add('shippingMethod2');
          document.getElementById('name').innerHTML=(addresses[len-1].First_Name+" "+addresses[len-1].Last_Name);
          document.getElementById('address').innerHTML=(addresses[len-1].Address);
          document.getElementById('zip').innerHTML=(addresses[len-1].Zipcode+", "+addresses[len-1].City+"("+addresses[len-1].State+")");
          document.getElementById('country').innerHTML=(addresses[len-1].Country);
          document.getElementById('number').innerHTML=(addresses[len-1].Phone);
-  
+         activateButton();
+          }
+          else{
+            document.getElementById('single-address').style.display = 'none';
+            document.getElementById('single-address').classList.add('shipMethod1');
+            const addressContainer = document.querySelector(".shippingMethod1");
+            const btnContainer = document.querySelector(".shippIcon");
+            const headding = document.createElement("h5");
+            const newbtn = document.createElement("button");
+            newbtn.classList.add('newbtn');
+            newbtn.style.width='20%';
+            // newbtn.style.marginLeft='17%';
+            headding.innerHTML='Choose the shipping address';
+            newbtn.innerHTML='+Add new address';
+            newbtn.onclick=function () {
+              window.location.href = `../pages/addNewAddress.html`;
+            };
+            addressContainer.appendChild(headding);
+            btnContainer.appendChild(newbtn);
+            addresses.forEach((address) => {
+              displayAddressCard(address);
+              document.getElementById('editpen').style.visibility = 'hidden';
+            });
+          }
         } else {
           console.error("Document not found for user email: ", email);
         }
@@ -77,7 +103,54 @@ function activateButton() {
   console.log('class added')
   nextButton.classList.add('active');
 }
+function handleClick(event, divid) {
+  console.log('call btn')
+    activateButton();
+  const clickedAddressCard = event.currentTarget;
+  console.log("Clicked Address Card:", clickedAddressCard);
+  let clickedId=clickedAddressCard.id;
+ // clicked div
+  clickedAddressCard.style.border = '1px solid #333'; // You can adjust the color and thickness
+  clickedAddressCard.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)'; // Add a shadow
 
+  //document.getElementById(clickedId)
+  //not selected div
+  const addressCards = document.querySelectorAll('.addresss');
+  addressCards.forEach((addressCard) => {
+    if (addressCard.id !== clickedId) {
+      addressCard.style.border = 'initial'; // Set to the default background color or any color you prefer
+      addressCard.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.2)';
+    }
+  });
+}
+function displayAddressCard(address){
+  const addressContainer = document.querySelector(".shippingMethod1");
+  
+  const addressCard = document.createElement("div");
+  divid=divid+1;
+  addressCard.id=divid;
+  addressCard.classList.add("addresss");
+  
+  const { First_Name, Last_Name, Address, Zipcode, City, State, Country, Phone} = address;
+  
+  const cardContent = `
+  <p class="name-part">${First_Name} ${Last_Name}</p>
+  <br>
+  <p class="info-part">${Address}</p>
+  <p class="info-part">${Zipcode}</p>
+  <p class="info-part">${City} (${State})</p>
+  <p class="info-part">${Country}</p>
+  <p class="info-part">${Phone}</p>
+  `;
+  
+  addressCard.innerHTML = cardContent;
+  addressContainer.appendChild(addressCard);
+  const currentaddressCard=document.getElementById(divid);
+  currentaddressCard.onclick = function (event) {
+    handleClick(event, divid);
+  };
+  
+}
 
 
 //empty data check(disable button)
@@ -85,8 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector('div');
     //const submitButton = document.getElementById('shipAddress');
     displayAddress();
-    console.log('call btn')
-    activateButton();
     // const button = document.getElementById('nextButton');
     // button.classList.add('active');
     // Get the URL parameters
