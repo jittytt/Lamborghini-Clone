@@ -8,6 +8,7 @@
   
   .leftrightmaincontainer {
     display: flex;
+    width: 100%;
     /* flex: 1; Take up remaining space */
   }
   

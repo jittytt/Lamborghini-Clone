@@ -1,18 +1,60 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, doc, getDocs, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { updateCountsAndVisibility } from "./logincontroller.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
+    authDomain: "lamborghini-store-19cb4.firebaseapp.com",
+    projectId: "lamborghini-store-19cb4",
+    storageBucket: "lamborghini-store-19cb4.appspot.com",
+    messagingSenderId: "123605469618",
+    appId: "1:123605469618:web:70da09f3d62d69b39abcab",
+    measurementId: "G-MEBX1PZLTS"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+//Retreiving email of the user currently logged in
+const activeUserCollection = collection(db, "ActiveUser");
+const activeUserSnapshot = await getDocs(activeUserCollection);
+const email = activeUserSnapshot.docs[0].data().Email;
+
+//Retreiving the details of the active user
+const usersDataCollection = collection(db, "UsersData");
+const userDocRef = doc(usersDataCollection, email);
+const userDocSnap = await getDoc(userDocRef);
+let orders = userDocSnap.data().Orders || {};
+
 const ordersAccordionContainer = document.getElementById("orders-accordion");
-document.addEventListener("DOMContentLoaded", async () => {
-    const orders = await fetch("../sample-data/orders.json");
-    const orderData = await orders.json();
-    console.log(Object.entries(orderData));
-    for (const [key, value] of Object.entries(orderData)) {
-        const orderAccordion = document.createElement('div');
-        orderAccordion.innerHTML = `
+
+
+console.log(Object.entries(orders));
+for (const [key, value] of Object.entries(orders)) {
+    const orderAccordion = document.createElement('div');
+    //taking the date as string and splitting it to get the date, month and year
+    const orderDateArray = value["order_date"].split('/');
+    
+    //seeting the shipping date date as 2 days after ordering
+    const shippedDate = parseInt(orderDateArray[0])+1;
+    
+    //checks whether the current date is greater than shipped date and updates shipment status
+    let shipmentStatus = "";
+    const currentDate = new Date();
+    if(currentDate.getDate() >= shippedDate) 
+        shipmentStatus = "Order Shipped";
+    else
+        shipmentStatus = "Ordered Successfully";
+
+    orderAccordion.innerHTML = `
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-${key}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${key}" aria-expanded="false" aria-controls="collapse-${key}">
                         <div class="accordion-title w-100 d-flex justify-content-around">
                             <h6>Order Number : ${value["order_id"]}</h6>
-                            <h6>Shipment Status : ${value["delivery_date"]}</h6>
-                            <h6>Total Price: ${value["total_cost"]}</h6>      
+                            <h6>Order Date : ${value["order_date"]}</h6>
+                            <h6>Shipment Status : ${shipmentStatus}</h6>
+                            <h6>Total Price: $ ${value["total_cost"].toFixed(2)}</h6>      
                         </div>
                     </button>
                 </h2>
@@ -21,12 +63,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
                 </div>
             </div>`;
-        ordersAccordionContainer.appendChild(orderAccordion);
-        const accordionBody = document.getElementById(`accordion-body-${key}`);
-        for (const product of value["product_array"]) {
-            console.log(product);
-            const productDiv = document.createElement('div');
-            productDiv.innerHTML = `
+    ordersAccordionContainer.appendChild(orderAccordion);
+    const accordionBody = document.getElementById(`accordion-body-${key}`);
+    for (const product of value["product_array"]) {
+        const productDiv = document.createElement('div');
+        productDiv.innerHTML = `
             <div class="product-item d-flex align-items-center justify-content-between">
                 <div class="image-container">
                     <img src="${product.default_image_url}" alt="Product Image">
@@ -47,9 +88,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <span class="subtotal-price">Subtotal: &nbsp;&#36;<span class="subtotal-part">${product.count * product.price}</span></span>
                 </div>
             <hr class="product-divider">`;
-            accordionBody.appendChild(productDiv);
-        }
-        
+        accordionBody.appendChild(productDiv);
     }
-    
-})
+
+}
+
