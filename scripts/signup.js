@@ -1,16 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { userKey, firebaseConfig, service_id, template_id} from "./environment.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
-  authDomain: "lamborghini-store-19cb4.firebaseapp.com",
-  projectId: "lamborghini-store-19cb4",
-  storageBucket: "lamborghini-store-19cb4.appspot.com",
-  messagingSenderId: "123605469618",
-  appId: "1:123605469618:web:70da09f3d62d69b39abcab",
-  measurementId: "G-MEBX1PZLTS"
-};
+
  
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -104,16 +97,15 @@ createacctbtn.addEventListener("click", async function(event) {
   }
 
   
-    const userKey = "ALFl0fcSX2LmAUN0Z";
+    
      emailjs.init(userKey);
-     console.log("Hey I got inside emailjs function");
    
      const templateParams = {
        to_email: signupEmailIn.value,
        to_name: firstName.value,
      };
    
-     emailjs.send("service_40gbo68", "template_kye5sks", templateParams)
+     emailjs.send(service_id, template_id, templateParams)
        .then(response => {
          console.log('Email sent successfully:', response);
        })
