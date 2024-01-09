@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc, setDoc, collection, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 export {incrementProductQuantityPopupNav, decrementProductQuantityPopupNav, removeProductPopupNav};
+import { updateCountsAndVisibility } from "./logincontroller.js";
+
 // import { popup_cartrender } from "./popup-cartrender";
 
 const firebaseConfig = {
@@ -41,6 +43,7 @@ async function incrementProductQuantityPopupNav(productID, size) {
             });
 
             await updateDoc(userDataDocRef, { Cart: updatedCart });
+            updateCountsAndVisibility();
         }
     } catch (error) {
         console.error("Error incrementing quantity:", error);
@@ -73,6 +76,7 @@ async function decrementProductQuantityPopupNav(productID, size) {
             });
 
             await updateDoc(userDataDocRef, { Cart: updatedCart });
+            updateCountsAndVisibility();
         }
     } catch (error) {
         console.error("Error incrementing quantity:", error);
@@ -96,6 +100,7 @@ async function removeProductPopupNav(productID, size) {
             const updatedCart = cartItems.filter(item => !(item.product_id === productID && item.size === size));
 
             await updateDoc(userDataDocRef, { Cart: updatedCart });
+            updateCountsAndVisibility();
 
             console.log("Product removed successfully.");
         } else {

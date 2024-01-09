@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, updateDoc, getDoc, collection } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 export {updateCountsAndVisibility};
 
 const firebaseConfig = {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     popUpLogoutCapt.addEventListener('click', logout);
-    navbarLogout.addEventListener('click', logout);
+    // navbarLogout.addEventListener('click', logout);
 
     async function logout() {
         try {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 Email: ''
             });
             popUp.style.display = 'none';
-            window.location.reload();
+            window.location.href = "../index.html";
         } catch (error) {
             console.error('Error during logout:', error);
         }
@@ -90,19 +90,16 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function updateCountsAndVisibility() {
-    // Get references to the cart-count-div and wishlist-count-div
-    console.log("Hello");
+
     const cartCountDiv = document.querySelector('.cart-count-div');
     const wishlistCountDiv = document.querySelector('.wishlist-count-div');
 
-    // Get the active user's email
     const activeUserDocRef = doc(collection(db, 'ActiveUser'), 'Email_ID');
     const activeUserSnapshot = await getDoc(activeUserDocRef);
     
     if (activeUserSnapshot.exists()) {
         const email = activeUserSnapshot.data().Email;
 
-        // Get the reference to the user's data
         const userDataDocRef = doc(collection(db, 'UsersData'), email);
         const userSnapshot = await getDoc(userDataDocRef);
 
@@ -110,25 +107,16 @@ async function updateCountsAndVisibility() {
             const cartArray = userSnapshot.data().Cart || [];
             const wishlistArray = userSnapshot.data().Wishlist || [];
 
-            console.log("Hi2");
-            // Update visibility of cart-count-div
             console.log(cartArray.length);
-            if (cartArray.length > 0) {
-                cartCountDiv.style.display = 'block';
-                cartCountDiv.querySelector('.cart-count-value').textContent = cartArray.length;
-            } else {
-                cartCountDiv.style.display = 'none';
-            }
-            console.log("Hi3");
-            // Update visibility of wishlist-count-div
+            cartCountDiv.style.display = 'block';
+            cartCountDiv.querySelector('.cart-count-value').textContent = cartArray.length;
+
             console.log(wishlistArray.length);
-            if (wishlistArray.length > 0) {
-                wishlistCountDiv.style.display = 'block';
-                wishlistCountDiv.querySelector('.wishlist-count-value').textContent = wishlistArray.length;
-            } else {
-                wishlistCountDiv.style.display = 'none';
-            }
+            wishlistCountDiv.style.display = 'block';
+            wishlistCountDiv.querySelector('.wishlist-count-value').textContent = wishlistArray.length;
+
             console.log("Hi4");
         }
     }
 }
+

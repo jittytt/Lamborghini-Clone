@@ -41,6 +41,10 @@
     <link rel="stylesheet" href="../styles/kidsCollections.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
     <script src="../scripts/kids-collection-page.js"></script>
+    <link rel="stylesheet" href="../styles/navbar_popup.css">
+    <script type = "module" src = "../scripts/popup-cartrender.js"></script>
+    <script src = "../scripts/rightsidenavanimation.js"></script>
+    <link rel="stylesheet" href="../styles/storepopup.css">
 
     <title>Kid Collection | Lamborghini Store</title>
   </head>
@@ -65,14 +69,12 @@
                 </div>
             </div>
         </div>
-        
-        <div class="navbar-container container-fluid d-flex align-items-center" id="main-navbar" style = "background-color: var(--main-bg-color) !important;">
+
+        <div class="navbar-container container-fluid d-flex align-items-center" id="main-navbar">
             <div class="navbar-wrapper d-flex">
                 <div class="logo-nav d-flex">
                     <div class="logo-wrapper d-flex align-items-center">
-                        <a href="../index.html">
-                            <img src="../assets/lamborghini.png" alt="">
-                        </a>
+                        <img src="../assets/lamborghini.png" alt="">
                     </div>
                     <div class="navbar container">
                         <nav class="">
@@ -108,65 +110,153 @@
                             </a>
                         </div>
                         <div class="nav-right-list">
-                            <a href="./pages/login.html">
-                                <i class="bi bi-person"></i>
-                            </a>
+                            <div class="person-icon">
+                                <i id="showPopUp" class="bi bi-person"></i>
+                            </div>
+                            <div id="pop-up" class="pop-up">
+                                <div class="pop-up-capt">
+                                    Welcome <span id="pop-up-name-part">Nigin N</span>
+                                </div>
+                                <hr class="pop-up-divider" style = "margin-top : 10px;">
+                                <div class="pop-up-dashboard-capt">
+                                    <a class="pop-up-links" href="../pages/dashboard.html">
+                                        <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+                                            </path>
+                                        </svg>
+                                        <span class="pop-up-div-content">Dashboard</span>
+                                    </a>
+                                </div>
+                                <div class="pop-up-addressbook-capt">
+                                    <a class="pop-up-links" href="../pages/addressbook.html">
+                                        <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                            aria-hidden="true">
+                                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+                                        </svg>
+                                        <span class="pop-up-div-content">Address Book</span>
+                                    </a>
+                                </div>
+                                <div class="pop-up-ordersandreturns-capt">
+                                    <a class="pop-up-links" href="../pages/orders.html">
+                                        <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z">
+                                            </path>
+                                        </svg>
+                                        <span class="pop-up-div-content">Orders &amp; Returns</span>
+                                    </a>
+                                </div>
+                                <div class="pop-up-logout-capt">
+                                    <a class="pop-up-links" onclick="logout();">
+                                        <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z">
+                                            </path>
+                                        </svg>
+                                        <span class="pop-up-div-content">Logout</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "store-rightside-nav-container">
+                            <div class = "store-rightside-nav-cont">
+                                <div class = "store-rightside-nav-div">
+                                    <div class = "store-rightsize-close-icon">
+                                        <span id = "close-button" class="store-close-icon"><svg width="23" height="22" fill="gray" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root" focusable="false" viewBox="0 0 23 22" aria-hidden="true"><path d="M22.09 20.43l-9.87-9.86 9.07-9.07-.7-.71-9.07 9.07-9.1-9.1-.71.71 9.1 9.1-9.9 9.89.71.71 9.9-9.89 9.86 9.86.71-.71z"></path></svg></span>
+                                    </div>
+                                    <div class = "store-rightside-cart-item-div">
+                                        <div class = "store-rightside-cart-item-popups-capt">
+                                            Cart Items
+                                        </div>
+                                    </div>
+                                    <div class = "cart-section">
+                                        <div class = "cart-product-list-popup">
+                                        </div>
+                                        <div class = "popup-store-divider">
+                                            
+                                        </div>
+                                        <div class = "grand-total-div">
+                                        </div>
+                                        <div class = "procced-to-checkout-button-div">
+                                        </div>
+                                        <div class = "view-cart-div-popup">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <span class = "pipe-sym">&#124;</span>
                         <div class="nav-right-list">
-                            <a href="">
-                                <i class="bi bi-star"></i>
-                            </a>
+                            <a href="../pages/wishlist.html">
+                                <div class = "star">
+                                    <i id="star-icon" class="bi bi-star"></i>
+                                    <div class = "store-num-div">
+                                        <div class = "wishlist-count-div">
+                                            <center><span class = "wishlist-count-value"></span></center>
+                                        </div>
+                                    </div>
+                                </div>                                    
+                            </a>      
                         </div>
                         <div class="nav-right-list">
-                            <a href="">
-                                <i class="bi bi-bag"></i>
+                            <a>
+                                <div class = "bag">
+                                    <i class="bi bi-bag" id = "store-button"></i>
+                                    <div class = "cart-num-div">
+                                        <div class = "cart-count-div">
+                                            <span class = "cart-count-value"></span>
+                                        </div>
+                                    </div>
+                                
+                                </div>
                             </a>
                         </div>
+                        
                     </div>
                 </div>
-
             </div>
+            
         </div>
 
         <div class="dropdown-nav d-flex" id="shop-the-look-submenu">
             <div class="dropdown-column1">
                 <ul>
                     <li><a href="">MAN COLLECTION</a></li>
-                    <li><a href="">TRAVEL</a></li>
-                    <li><a href="">SQUADRA CORSE</a></li>
-                    <li><a href="">SKIWEAR</a></li>
                     <li><a href="">KIDS</a></li>
-                    <li><a href="">ACCESSORIES</a></li>
-                    <li><a href="">SHOP BY CAR</a></li>
+                    <li><a href="../pages/skiwear.html">SKIWEAR</a></li>
+                    <li><a href="">SQUADRA CORSE</a></li>
                 </ul>
             </div>
             <div class="dropdown-column2">
                 <ul>
-                    <li><a href="/pages/clothing.html">OUTWEAR</a></li>
-                    <li><a href="">SWEATSHIRTS AND KNITWEAR</a></li>
-                    <li><a href="">T-SHIRTS AND POLO</a></li>
-                    <li><a href="">COMPLETE THE LOOK</a></li>
-                    <li><a href="">VIEW ALL</a></li>
+                    <li><a href="../pages/clothing.html">JACKETS</a></li>
+                    <li><a href="">SWEATSHIRTS</a></li>
+                    <li><a href="">POLOS & T-SHIRTS</a></li>
                 </ul>
             </div>
             <div class="dropdown-column3">
                 <div class="column3-container d-flex">
                     <div class="dropdown-img1">
                         <div class="column3-img">
-                            <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-345x264-A01.jpg" alt="">
+                            <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-345x264-A01.jpg"
+                                alt="">
                         </div>
                         <div class="hexicon d-flex align-items-center">
-                           <img src="./assets/hexicon.svg" alt="">
+                            <img src="../assets/hexicon.svg" alt="">
                             <p>See now</p>
                         </div>
                     </div>
                     <div class="dropdown-img2">
                         <div class="column3-img">
-                            <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-TENDINA-517x264-B01.jpg" alt="">
+                            <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-TENDINA-517x264-B01.jpg"
+                                alt="">
                         </div>
                         <div class="hexicon d-flex align-items-center">
-                            <img src="./assets/hexicon.svg" alt="">
+                            <img src="../assets/hexicon.svg" alt="">
                             <p>Find out more</p>
                         </div>
                     </div>
@@ -176,22 +266,20 @@
         <div class="dropdown-nav d-flex" id="special-editions-submenu">
             <div class="dropdown-column1" style="width: 25%;">
                 <ul>
-                    <li><a href="">DESCENTE X AUTOMOBILI LAMBORGHINI</a></li>
-                    <li><a href="">RHUDE X AUTOMOBILI LAMBORGHINI</a></li>
-                    <li><a href="">MASTER &amp; DYNAMIC  AUDIO DEVICES</a></li>
-                    <li><a href="">UPCYCLED LEATHER PROJECT</a></li>
-                    <li><a href="">LEGO</a></li>
-                    <li><a href="">OMP TRACKWEAR</a></li>
-                    <li><a href="">MR AND LOOKSMART MODEL CARS</a></li>
+                    <li><a href="../pages/bagsandluggages.html">BAGS & LUGGAGES</a></li>
+                    <li><a href="">SMALL LEATHER GOODS</a></li>
+                    <li><a href="">CAPS & HATS</a></li>
+                    <li><a href="">KEYHOLDERS</a></li>
+                    <li><a href="">SQUADRA CORSE</a></li>
                 </ul>
             </div>
         </div>
         <div class="dropdown-nav d-flex" id="collaborations-submenu">
             <div class="dropdown-column1" style="width: 25%;">
                 <ul>
-                    <li><a href="">DESCENTE X AUTOMOBILI LAMBORGHINI</a></li>
+                    <li><a href="../pages/skiwear.html">DESCENTE X AUTOMOBILI LAMBORGHINI</a></li>
                     <li><a href="">RHUDE X AUTOMOBILI LAMBORGHINI</a></li>
-                    <li><a href="">MASTER &amp; DYNAMIC  AUDIO DEVICES</a></li>
+                    <li><a href="">MASTER &amp; DYNAMIC AUDIO DEVICES</a></li>
                     <li><a href="">UPCYCLED LEATHER PROJECT</a></li>
                     <li><a href="">LEGO</a></li>
                     <li><a href="">OMP TRACKWEAR</a></li>
@@ -202,7 +290,7 @@
         <div class="dropdown-nav d-flex" id="lambo-world-submenu">
             <div class="dropdown-column1" style="width: 40%;">
                 <ul>
-                    <li><a href="./lamboworld.html">MODEL CARS</a></li>
+                    <li><a href="../pages/lamboworld.html">MODEL CARS</a></li>
                     <li><a href="">BOOKS</a></li>
                     <li><a href="">TOYS</a></li>
                     <li><a href="">HEADPHONES</a></li>
@@ -219,7 +307,7 @@
                             <img src="https://static.lamborghinistore.com/media/wysiwyg/345x264-5.jpg" alt="">
                         </div>
                         <div class="hexicon d-flex align-items-center">
-                           <img src="../assets/hexicon.svg" alt="">
+                            <img src="../assets/hexicon.svg" alt="">
                             <p>See now</p>
                         </div>
                     </div>
@@ -238,7 +326,7 @@
         <div class="dropdown-nav d-flex" id="promo-submenu">
             <div class="dropdown-column1" style="width: 40%;">
                 <ul>
-                    <li><a href="./promo.html">30% OFF</a></li>
+                    <li><a href="../pages/promo.html">30% OFF</a></li>
                     <li><a href="">40% OFF</a></li>
                 </ul>
             </div>
@@ -246,14 +334,15 @@
             <div class="dropdown-column3">
                 <div class="column3-container d-flex">
                     <div class="dropdown-img1">
-                    
+
                     </div>
                     <div class="dropdown-img2">
                         <div class="column3-img">
-                            <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1114-345x264-G01.jpg" alt="" style="width: 345px; height: 270px;">
+                            <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1114-345x264-G01.jpg"
+                                alt="" style="width: 345px; height: 270px;">
                         </div>
                         <div class="hexicon d-flex align-items-center" style="width: 300px;">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -919,5 +1008,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="../scripts/logincontroller.js"></script>
   </body>
 </html>

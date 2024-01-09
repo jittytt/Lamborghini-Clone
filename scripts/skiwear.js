@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 document.addEventListener('DOMContentLoaded', function () {
     let productsContainer = document.querySelector('.products');
-    let apiUrl = 'https://mocki.io/v1/fc7dccf8-8ddb-4545-bacc-6ae55c1e4c86';
+    let apiUrl = 'https://mocki.io/v1/2d301347-5de0-44b6-9dfa-b826fd70cf00';
     function fetchProducts(url) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     let productElement = document.createElement('div');
                     productElement.classList.add('product');
                     productElement.innerHTML = `
-                    <a href="product-details.html?productId=${response[index].product_id}&apiUrl=${url}" class="product-link">
+                    <a href="product-details.html?productId=${response[index].product_id}&apiUrl=${url}&category=skiwear" class="product-link">
                         <img src="${response[index].default_image_url}" alt="" class="product-default_image_url">
                         <center><h2 class="product-name">${response[index].name}</h2></center>
                     </a>
