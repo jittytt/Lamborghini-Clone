@@ -100,7 +100,7 @@ window.makepayment = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const amount = urlParams.get('amount');
      var options = {
-        "key": "rzp_test_YmH4Dk6I7ujP1G",
+        "key": razorid,
         "amount": amount*100, // Example: 2000 paise = INR 20
         "name": "LAMBORGHINI",
         "description": "description",
