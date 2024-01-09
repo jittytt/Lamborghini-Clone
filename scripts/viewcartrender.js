@@ -35,6 +35,7 @@ function renderCartItems() {
                 cartItems.forEach((item) => {
                   const cartItemDiv = document.createElement('div');
                   cartItemDiv.classList.add('cart-item-div');
+
                   cartItemDiv.innerHTML = `
         <div class="cart-item-div">
             <div class="cart-item">
@@ -44,7 +45,7 @@ function renderCartItems() {
                 <div class="product-info">
                     <h5 class="cart-product-name">${item.name}</h5>
                     <p class="cart-product-id">${item.product_id}</p>
-                    <p class="cart-product-size"> Size : <span class="size-value">${item.size.toUpperCase()}</span></p>
+                    <p class="cart-product-size" id="size-removal"> Size : <span class="size-value">${item.size}</span></p>
                 </div>
                 <div class="cart-product-quantity">
                 <svg class="minus-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" onclick="decrementProductQuantity('${item.product_id}', '${item.size}')"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"></path></svg>
@@ -71,7 +72,14 @@ function renderCartItems() {
             <hr class="cart-divider">
         </div>
     `;
+                  console.log(item);
+                  
                   cartItemList.appendChild(cartItemDiv);
+                  if(item.size === "null") {
+                    const sizeToBeRemoved = document.getElementById('size-removal');
+                    if(sizeToBeRemoved) 
+                      sizeToBeRemoved.remove();
+                  }
                 });
   
                 const emptyCartDiv = document.createElement('div');
