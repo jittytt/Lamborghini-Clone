@@ -38,6 +38,9 @@ async function addOrdersClearCart() {
       const cart = await userDoc.data().Cart || [];
       const orders = await userDoc.data().Orders;
       const amount = await userDoc.data().TotalCost;
+      const bill_email = userDoc.data().Email_ID;
+      console.log(bill_email);
+      const firstname = userDoc.data().First_Name;
       const date=new Date();
       const currentdate=(date.getDate()+"/"+date.getMonth() + 1+ "/"+date.getFullYear());
       const totalAmount=amount+28; //fixed shipping
@@ -60,7 +63,27 @@ async function addOrdersClearCart() {
       // Update the document and clear array
       await updateDoc(userDocRef, { Orders: updatedOrder, Cart: [] });
 
-            console.log("Map added successfully!");
+        console.log("Map added successfully!");
+        const userKey = "ALFl0fcSX2LmAUN0Z";
+  emailjs.init(userKey);
+  console.log("Hey I got inside emailjs function");
+console.log("here",bill_email)
+  const templateParams = {
+    to_email: bill_email,
+    to_name: firstname,
+    message: newOrderId,
+    to_payment:amount,
+    to_total:totalAmount
+  };
+
+  emailjs.send("service_40gbo68", "template_14pex7a", templateParams)
+    .then(response => {
+      console.log('Email sent successfully:', response);
+    })
+    .catch(error => {
+      console.error('Error sending email:', error);
+    });
+
 
       // // Clear the cart by updating the document
       // console.log("Clearing cart");
