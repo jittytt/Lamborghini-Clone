@@ -39,7 +39,6 @@ const firebaseConfig = {
                             console.log(totalAmount);
   
                             cartItems.forEach((item) => {
-                                console.log("HIIII" + item.image_url);
                                 const cartItemDiv = document.createElement('div');
                                 cartItemDiv.classList.add('cart-item-popup');
                                 cartItemDiv.innerHTML = `

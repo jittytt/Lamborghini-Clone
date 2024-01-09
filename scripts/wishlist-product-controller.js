@@ -22,14 +22,14 @@ function reloadPage() {
 async function incrementProductQuantityWishlist(productID, size) {
 
     try {
-        console.log("Hi");
+
         const activeUserDocRef = doc(db, 'ActiveUser', 'Email_ID');
         const activeUserDoc = await getDoc(activeUserDocRef);
         const email = activeUserDoc.data().Email;
-        console.log("Hi");
+
         const userDataDocRef = doc(db, 'UsersData', email);
         const userDataDoc = await getDoc(userDataDocRef);
-        console.log("Hi");
+
         if (userDataDoc.exists()) {
             const WishlistItems = userDataDoc.data().Wishlist;
             const updatedCart = WishlistItems.map(item => {
@@ -160,13 +160,13 @@ async function emptyCart(activeEmail) {
     try {
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
-        console.log("Hi");
+
         // Document found, fetch the Wishlist array
         const Wishlist = userDoc.data().Wishlist;
-        console.log("Hi");
+
         // Clear the Wishlist by updating the document
         await updateDoc(userDocRef, { Wishlist: [] });
-        console.log("Hi");
+
         console.log("Wishlist successfully cleared.");
       } else {
         console.error("Document not found for user email: ", email);

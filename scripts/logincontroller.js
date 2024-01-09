@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (userData && userData.First_Name) {
                     popUpNamePart.textContent = userData.First_Name;
                     popUp.style.display = 'block';
-                    console.log("hi");
                 } else {
                     window.location.href = './pages/login.html';
                 }
@@ -115,7 +114,6 @@ async function updateCountsAndVisibility() {
             wishlistCountDiv.style.display = 'block';
             wishlistCountDiv.querySelector('.wishlist-count-value').textContent = wishlistArray.length;
 
-            console.log("Hi4");
         }
     }
 }

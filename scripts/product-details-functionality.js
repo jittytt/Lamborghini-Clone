@@ -60,6 +60,9 @@ addCartBtn.addEventListener('click', () => {
             const myToast = new bootstrap.Toast(toastShow);
             myToast.show();
             updateCountsAndVisibility();
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
         })
         .catch(() => {
             console.log("product adding failed");
@@ -92,6 +95,9 @@ wishlistBtn.addEventListener('click', () => {
                 const myToast = new bootstrap.Toast(toastShow);
                 myToast.show();
             sessionStorage.setItem('Wishlist', JSON.stringify(Wishlist));
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
         })
         .catch(() => { console.log(` error in ${wishlistText === 'add' ? 'adding to' : 'removing from'} wishlist`); });
 });
