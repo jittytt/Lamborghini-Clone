@@ -1,16 +1,7 @@
 import { doc, getDoc, updateDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 
-// Your Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
-    authDomain: "lamborghini-store-19cb4.firebaseapp.com",
-    projectId: "lamborghini-store-19cb4",
-    storageBucket: "lamborghini-store-19cb4.appspot.com",
-    messagingSenderId: "123605469618",
-    appId: "1:123605469618:web:70da09f3d62d69b39abcab",
-    measurementId: "G-MEBX1PZLTS"
-  };
+import {firebaseConfig} from "./environment.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
