@@ -132,12 +132,21 @@ async function addMapToAddress(email, mapData) {
         const docSnapshot = await getDoc(userDocRef);
         if (docSnapshot.exists()) {
             const currentAddress = docSnapshot.data().Address || [];
+            const addresslength=currentAddress.length;
+            if(addresslength==1){
+               
+            // Update the document with the modified Address array
+            await updateDoc(userDocRef, { Address: [mapData] });
 
-            // Append the new mapData to the currentAddress array
+            }
+            else{
+                // Append the new mapData to the currentAddress array
             const updatedAddress = [...currentAddress, mapData];
 
             // Update the document with the modified Address array
             await updateDoc(userDocRef, { Address: updatedAddress });
+
+            }
 
             console.log("Map added successfully!");
             window.location.href = `../pages/checkout_shipping_method.html?amount=${amount}`;
