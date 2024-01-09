@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let productsContainer = document.querySelector('#clothing-tab-div-gen');
-    let apiUrl = 'https://mocki.io/v1/e422bb80-4d38-40f2-85e2-db878533c078';
+    let apiUrl = 'https://mocki.io/v1/1f78674c-64a0-411c-8c4d-82420ae04503';
 
     async function fetchProducts(url) {
         try {
