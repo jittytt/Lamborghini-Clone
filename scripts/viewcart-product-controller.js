@@ -1,17 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc, setDoc, collection, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 export {incrementProductQuantity, decrementProductQuantity, removeProduct, addToWishlist, emptyCart};
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDGO_Xor9wnAG6fZguRtNf-glJekc3u0qA",
-    authDomain: "lamborghini-store-19cb4.firebaseapp.com",
-    projectId: "lamborghini-store-19cb4",
-    storageBucket: "lamborghini-store-19cb4.appspot.com",
-    messagingSenderId: "123605469618",
-    appId: "1:123605469618:web:70da09f3d62d69b39abcab",
-    measurementId: "G-MEBX1PZLTS"
-  };
-
+import { updateCountsAndVisibility } from "./logincontroller.js";
+import {firebaseConfig} from "./environment.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -39,6 +30,7 @@ async function incrementProductQuantity(productID, size) {
             });
 
             await updateDoc(userDataDocRef, { Cart: updatedCart });
+            updateCountsAndVisibility();
         }
     } catch (error) {
         console.error("Error incrementing quantity:", error);
@@ -71,6 +63,7 @@ async function decrementProductQuantity(productID, size) {
             });
 
             await updateDoc(userDataDocRef, { Cart: updatedCart });
+            updateCountsAndVisibility();
         }
     } catch (error) {
         console.error("Error incrementing quantity:", error);
@@ -95,6 +88,7 @@ async function removeProduct(productID, size) {
             const updatedCart = cartItems.filter(item => !(item.product_id === productID && item.size === size));
 
             await updateDoc(userDataDocRef, { Cart: updatedCart });
+            updateCountsAndVisibility();
 
             console.log("Product removed successfully.");
         } else {
@@ -133,6 +127,7 @@ async function addToWishlist(productID, size) {
 
                 // Update the document with the modified Cart and Wishlist arrays
                 await updateDoc(userDataDocRef, { Cart: updatedCart, Wishlist: wishlistItems });
+                updateCountsAndVisibility();
 
                 console.log("Product moved to Wishlist successfully.");
             } else {
@@ -156,12 +151,12 @@ async function emptyCart(activeEmail) {
     // Reference to the Firestore collection
     const usersDataCollection = collection(db, "UsersData");
     const userDocRef = doc(usersDataCollection, email);
-    console.log("Hi");
     try {
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
         const cart = userDoc.data().Cart;
         await updateDoc(userDocRef, { Cart: [] });
+        updateCountsAndVisibility();
         console.log("Cart successfully cleared.");
       } else {
         console.error("Document not found for user email: ", email);

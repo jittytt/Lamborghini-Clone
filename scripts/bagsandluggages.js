@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.products');
-    let apiUrl = 'https://mocki.io/v1/1786269e-01e2-4e25-8ef3-9773e1811773'; // Default URL
+    let apiUrl = 'https://mocki.io/v1/f4ee5c99-c861-4fda-b078-0d1e94e581f1'; // Default URL
 
     async function fetchProducts(url) {
         try {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let productElement = document.createElement('div');
                 productElement.classList.add('product');
                 productElement.innerHTML = `
-                    <a href="product-details.html?productId=${response[index].product_id}&apiUrl=${url}&category=bags" class="product-link">
+                    <a href="product-details-other.html?productId=${response[index].product_id}&apiUrl=${url}&category=bags" class="product-link">
                         <img src="${response[index].default_image_url}" alt="" class="product-default_image_url">
                         <center><h2 class="product-name">${response[index].name}</h2></center>
                     </a>
