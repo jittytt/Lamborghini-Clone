@@ -37,6 +37,10 @@ async function addOrdersClearCart() {
       // Document found, fetch the cart array
       const cart = await userDoc.data().Cart || [];
       const orders = await userDoc.data().Orders;
+      const amount = await userDoc.data().TotalCost;
+      const date=new Date();
+      const currentdate=(date.getDate()+"/"+date.getMonth() + 1+ "/"+date.getFullYear());
+      const totalAmount=amount+28; //fixed shipping
       const cartProducts = [...cart];
       console.log(':cart fetched',cart);
       const newOrderId = generateUUID();
@@ -46,8 +50,8 @@ async function addOrdersClearCart() {
       console.log("Adding to my orders");
       const orderData = {
         order_id: newOrderId, // You can use any unique identifier here
-        delivery_date: "28/12/2024",
-        total_cost: 789.0,
+        order_date: currentdate,
+        total_cost: totalAmount,
         product_array: cartProducts 
       };
      

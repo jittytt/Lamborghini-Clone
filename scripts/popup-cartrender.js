@@ -14,7 +14,9 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
+
+  let address;
+  let totalAmount;
   function popup_cartrender() {
         const cartProductList = document.querySelector('.cart-product-list');
         const grandTotalValue = document.querySelector('.grand-total-value');
@@ -31,6 +33,10 @@ const firebaseConfig = {
                         .then((userDoc) => {
                         if (userDoc.exists()) {
                             const cartItems = userDoc.data().Cart;
+                            address = userDoc.data().Address; //to determine proceed to checkout page.
+                            const totalAmountt = userDoc.data().TotalCost;
+                            totalAmount=totalAmountt;
+                            console.log(totalAmount);
   
                             cartItems.forEach((item) => {
                                 console.log("HIIII" + item.image_url);
@@ -87,7 +93,7 @@ const firebaseConfig = {
                         
                             const proceedToCheckoutDiv = document.querySelector('.procced-to-checkout-button-div');
                             proceedToCheckoutDiv.innerHTML = `
-                                <button class="procced-to-checkout-button"><span>PROCEED TO CHECKOUT</span></button>
+                                <button class="procced-to-checkout-button" onclick='checkoutPage()'><span>PROCEED TO CHECKOUT</span></button>
                             `;
                         
                             // Update the existing view-cart-div
@@ -125,3 +131,18 @@ window.openViewCartPage = openViewCartPage;
 window.decrementProductQuantityPopupNav = decrementProductQuantityPopupNav;
 window.incrementProductQuantityPopupNav = incrementProductQuantityPopupNav;
 window.removeProductPopupNav = removeProductPopupNav;
+
+//determine page to load
+window.checkoutPage = () => {
+  let amount=Math.floor(totalAmount) +28;//includes shipping
+  const addresslength=address.length;
+  console.log(amount);
+  if (addresslength==0){
+    console.log("no address");
+    window.location.href='../pages/checkout_shipping.html'
+  }
+  else{
+    console.log("has address");
+    window.location.href=`../pages/checkout_shipping_method.html?amount=${amount}`
+  }
+};

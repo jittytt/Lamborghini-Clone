@@ -33,7 +33,8 @@ function renderCartItems() {
               if (userDoc.exists()) {
                 const cartItems = userDoc.data().Cart;
                 address = userDoc.data().Address; //to determine proceed to checkout page.
-                totalAmount = userDoc.data().TotalCost;
+                const totalAmountt = userDoc.data().TotalCost;
+                totalAmount=totalAmountt;
                console.log(totalAmount);
               
 
@@ -115,7 +116,7 @@ window.removeProduct = removeProduct;
 
 //determine page to load
 window.checkoutPage = () => {
-  const amount=Math.floor(totalAmount) +28;//includes shipping
+  let amount=Math.floor(totalAmount) +28;//includes shipping
   const addresslength=address.length;
   console.log(amount);
   if (addresslength==0){

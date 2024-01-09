@@ -44,6 +44,7 @@ async function  displayAddress() {
          document.getElementById('zip').innerHTML=(addresses[len-1].Zipcode+", "+addresses[len-1].City+"("+addresses[len-1].State+")");
          document.getElementById('country').innerHTML=(addresses[len-1].Country);
          document.getElementById('number').innerHTML=(addresses[len-1].Phone);
+         activateButton();
           }
           else{
             document.getElementById('single-address').style.display = 'none';
@@ -103,7 +104,8 @@ function activateButton() {
   nextButton.classList.add('active');
 }
 function handleClick(event, divid) {
-  
+  console.log('call btn')
+    activateButton();
   const clickedAddressCard = event.currentTarget;
   console.log("Clicked Address Card:", clickedAddressCard);
   let clickedId=clickedAddressCard.id;
@@ -111,7 +113,7 @@ function handleClick(event, divid) {
   clickedAddressCard.style.border = '1px solid #333'; // You can adjust the color and thickness
   clickedAddressCard.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)'; // Add a shadow
 
-  document.getElementById(clickedId)
+  //document.getElementById(clickedId)
   //not selected div
   const addressCards = document.querySelectorAll('.addresss');
   addressCards.forEach((addressCard) => {
@@ -156,8 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector('div');
     //const submitButton = document.getElementById('shipAddress');
     displayAddress();
-    console.log('call btn')
-    activateButton();
     // const button = document.getElementById('nextButton');
     // button.classList.add('active');
     // Get the URL parameters
