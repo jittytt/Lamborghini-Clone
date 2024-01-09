@@ -79,6 +79,9 @@ wishlistBtn.addEventListener('click', () => {
             wishlistBtn.innerText = wishlistText === 'add'
                 ? "REMOVE FROM WISHLIST"
                 : "ADD TO WISHLIST";
+                toastContent.innerText = `You added ${storedProduct.name} to your wishlist`;
+                const myToast = new bootstrap.Toast(toastShow);
+                myToast.show();
             sessionStorage.setItem('Wishlist', JSON.stringify(Wishlist));
         })
         .catch(() => { console.log(` error in ${wishlistText === 'add' ? 'adding to' : 'removing from'} wishlist`); });

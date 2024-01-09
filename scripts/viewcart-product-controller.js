@@ -151,7 +151,6 @@ async function emptyCart(activeEmail) {
     // Reference to the Firestore collection
     const usersDataCollection = collection(db, "UsersData");
     const userDocRef = doc(usersDataCollection, email);
-    console.log("Hi");
     try {
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
