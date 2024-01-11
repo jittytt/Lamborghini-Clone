@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script> -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="../scripts/import/razor-import.js"></script>
+
+  <link rel="stylesheet" href="../styles/checkoutPage.css">
+  <link rel="stylesheet" href="../styles/addressbook_footer.css">
+  <script src="../scripts/checkout_payment.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script type="module" src="../scripts/checkoutShowproduct.js"></script>
+  <script type="module" src="../scripts/razorpay.js" ></script>
+  <link rel="stylesheet" href="../styles/viewcart.css">
+    </head>
+    <body >
+        <section>
+
+      
+        <header class="">
+            <div class="navbar-container container-fluid  align-items-center" id="main-navbar" >
+
+                    <div class="row ">  
+                        <div class="col-3 pt-4 backToCart">
+                            <nav class="">
+                                   <a href="viewcart.html" onclick="window.location.href='./viewCart.html'"><i class="bi bi-chevron-left"></i> BACK TO CART</a>
+                            </nav>
+                        </div>
+                        <div class="logo-wrapper col-6 pt-1 align-items-center">
+                            <img src="../assets/lamborghini.png" alt="">
+                        </div>
+                        <div class="col-3 pt-4  pe-6 cartIcon">
+                            <nav class="pe-6">
+                            <a href="#"><i class="bi bi-bag" title="cart"></i></a>
+                            </nav>
+                        </div>
+                    </div>
+              
+            </div>
+
+        </header>
+<div class="checkoutHeader">
+    <h1>CHECKOUT</h1>
+</div>
+<div class="row checkoutBar">
+    <div class="col-1"><i class="bi bi-1-circle-fill"></i></div>
+    <div class="col-10"><hr></div>
+    <div class="col-1 ps-0 two" id="two2"><i class="bi bi-2-circle-fill"></i></div>
+
+</div>
+<div class="row checkoutBar2">
+    <div class="col-4 text-center"><p>Shipping</p></i></div>
+    <div class="col-2"></div>
+    <div class="col-6 ps-0 text-right "><p>Payment & Review</p></div>
+
+</div>
+
+<div class="row paymentrow">
+<div class="col">
+    <div class="shippIcon row" id="icon">
+        <div class="homeicon col-2"><div class="ic1"><i class="bi bi-credit-card"></i></div></div>
+        <div class="text ps-0 col-10">Payment method</div>
+        </div>
+        <div class="shipMethod">
+            <!-- Add this snippet inside the <div class="shipMethod"> -->
+<div class="payment-options">
+    <!-- <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Default radio
+  </label> -->
+    <input type="radio" name="paymentOption" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+    <p class="d-inline-flex gap-1" type="radio">
+        <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Credit card </a>
+      </p>
+      <div class="collapse" id="collapseExample" >
+        <div class="card card-body border-0">
+          <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber">
+        <div class="row">
+            <div class="col-4">
+                <label for="cardNumber">Expiry Date:</label>
+        <input type="text" id="cardNumber" name="cardNumber">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+                <label for="cardNumber">CVV/CVC</label>
+        <input type="text" id="cardNumber" name="cardNumber">
+            </div>
+            <div class="col-3"></div>
+        </div>
+       
+        </div>
+      </div><hr> 
+      <input type="radio" name="paymentOption"  onclick="razorpay()"  >
+    <p class="d-inline-flex gap-1" type="radio" onclick="razorpay()">Razor Pay</p>
+    <hr>
+
+    <input type="radio" name="paymentOption" data-bs-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample" onclick="otherPayments()">
+    <p class="d-inline-flex gap-1" type="radio">Google Pay</p>
+    <hr>
+
+    <input type="radio" name="paymentOption" data-bs-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample" onclick="otherPayments()">
+    <p class="d-inline-flex gap-1" type="radio">PayPal</p>
+    <hr>
+    
+</div>
+
+        </div>
+</div>
+<div class="col" >
+    <div class = "cart-item-checkout-part">
+        <div class = "summary-div">
+            <div class = "summary-caption">
+                <center><h5 class = summary-capt-part>Summary</h5></center>
+            </div>
+            <hr class = "cart-divider">
+            
+            <div class = "subtotal-secton">
+                <div class = "subtotal-caption">
+                    Subtotal
+                </div>
+                <div class = "subtotal-value">
+                    &#36;0.00
+                </div>
+            </div>
+            <hr class = "cart-divider">
+
+            <div class = "shipping-secton">
+                <div class = "shipping-caption">
+                    Shipping (incl. tax)
+                </div>
+                <div class = "shipping-value">
+                    Not calculated yet
+                </div>
+            </div>
+            <hr class = "cart-divider">
+
+            <div class = "tax-secton">
+                <div class = "tax-caption">
+                    Tax
+                </div>
+                <div class = "tax-value">
+                    &#36;0.00
+                </div>
+            </div>
+            <hr class = "cart-divider">
+            
+            <div class = "order-secton">
+                <div class = "order-caption">
+                    Order total
+                </div>
+                <div class = "order-value">
+                    &#36;0.00
+                </div>
+            </div>
+
+            <div class = "need-help-div">
+                <p class = "que">DO YOU NEED HELP?</p>
+                <span class = "ans">Call us for free on <span style = "font-weight: bold">+39 041-8380060</span>. We are at your disposal from Monday to Friday from 8:30 - 13:00 and from 14:30 - 18:00(CET)</span>
+                <br><br>
+                <p class = "que">SHIPPING IN 24-48H</p>
+                <span class = "ans">Make your purchase easily from home!<br>
+                    <span style = "font-weight: bold">Quick delivery within 24-48H </span>for all articles.</span>
+                <br><br>
+                <p class = "que">SECURE PURCHASE</p>
+                <span class = "ans">Choose your preferred method of payment.<br>
+                    The <span style = "font-weight: bold">highest security</span> for your online payment.</span>
+            </div>
+        </div>       
+    </div>
+   
+</div>
+</div>
+           
+            <br><br>
+        
+        <footer class="foot">
+            <div class="end-text">
+                <div class="end-left">
+                    <p>*Values refer to the European area. Contact your dealer for information on fuel consumption and emissions valid in your country.</p>
+                    <p> COPYRIGHT © 2023 - LAMBORGHINI STORE - Via Modena 12, Sant’Agata Bolognese (BO) Italia - p.iva 00591801204 | REA BO 259882</p>
+               
+                </div>
+                <div class="end-right">
+                    <br>
+                    <p>Powered by FiloBlu</p>
+                </div>
+            </div>
+            <br>
+            <br>
+        </footer>
+
+        <div class="fixed-bottom-section row pt-3">
+            <div class="col one">
+                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 100 131.3" part="acsb-trigger-icon-svg" style="display: inline-flex; width: 55%; height: 55%; fill:#f7f0f0;">
+                    <!-- Black-filled circle background -->
+                    <circle xmlns="http://www.w3.org/2000/svg" cx="50%" cy="50%" r="55%" style="fill: #000000; "></circle>
+                  
+                    <!-- Your existing SVG content without scaling -->
+                    <circle xmlns="http://www.w3.org/2000/svg" cx="50.3" cy="14.6" r="14.6" style="fill:#f7f1f1;"></circle>
+                    
+                    <path xmlns="http://www.w3.org/2000/svg" d="M71.6 131.3c1 0 2.1-.3 3.1-.8 3.9-1.8 5.5-6.2 3.6-10.1 0 0-14.3-32.7-16.9-44.7-1-4.2-1.6-15.3-1.8-20.5 0-1.8 1-3.4 2.6-3.9l32-9.6c3.9-1 6.2-5.5 5.2-9.4-1-3.9-5.5-6.2-9.4-5.2 0 0-29.6 9.6-40.3 9.6-10.4 0-39.8-9.4-39.8-9.4-3.9-1-8.3.8-9.6 4.7-1.3 4.2 1 8.6 5.2 9.6l32 9.6c1.6.5 2.9 2.1 2.6 3.9-.3 5.2-.8 16.4-1.8 20.5-2.6 12-16.9 44.7-16.9 44.7-1.8 3.9 0 8.3 3.6 10.1 1 .5 2.1.8 3.1.8 2.9 0 5.7-1.6 6.8-4.4l15.3-31.2L64.8 127c1.3 2.7 3.9 4.3 6.8 4.3z"></path>
+                  </svg>
+                  
+                  
+                  
+                  </div>
+           <div class="col two"> <h5 class="totalAmount" id="totalAmount" ></h5></div>
+           <div class="col three "><button  class="ps-4 pe-4 pt-2 pb-2" id="nextButton" onclick="makepayment()"><a >NEXT</a></button></div> 
+           <!-- Add your fixed content here -->
+          </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,164 @@
+.slider-container {
+    position: relative;
+    width: 100%;
+    background: url(https://cdn.lamborghinistore.com.filoblu.com/media/wysiwyg/hp_tecknomonster_bg_desktop.jpg);
+    overflow: hidden;
+    
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    
+}
+
+.slide {
+    min-width: 100%;
+    padding: 10%;
+    text-align: center;
+    position: relative;
+    
+}
+
+.slides {
+    min-width: 100%;
+    padding: 10%;
+    text-align: center;
+    position: relative;
+    margin-left: -25%;
+}
+.slider img { 
+    width: 80%;
+    height: 94%;
+    
+}
+
+.slides img {
+    width: 80%;
+    height: 94%;
+}
+
+.svgClass{
+   position: absolute;
+   top: 85%;
+   left: 48%;
+}
+.svgCirc{
+    fill: white;
+}
+.svgBord{
+    stroke:white;
+    stroke-width: 0.5;
+}
+.arrow1 {
+    position: absolute;
+    top: 88.5%;
+    left: 45%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+.arrow2 {
+    position: absolute;
+    top: 88.5%;
+    left: 53%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+.specialText{
+    position: absolute;
+    color: #fff;
+    top: 40%;
+    left: 21%;
+    text-align: left;
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+    transform: translateX(100%);
+    
+}
+@keyframes rollIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+.txt1{
+    letter-spacing: 1.5px;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.txt2{
+    font-size: 4.5rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+.specialText2{
+    position: absolute;
+    color: #fff;
+    top: 35%;
+    left: 22%;
+    text-align: left;
+    
+}
+.centSlide{
+    animation: slideIn 1s ease-in forwards;
+    animation-delay: 0.6s;
+    transform: translateX(100%);
+    
+}
+.txt3{
+    letter-spacing: 1.5px;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.txt4{
+    font-size: 4.5rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+.specialText3{
+    position: absolute;
+    color: #fff;
+    top: 40%;
+    left: 22%;
+    text-align: left;
+    transform: translateY(20px);
+    animation: slideIn 1s ease-out forwards;
+}
+.txt5{
+    letter-spacing: 1.5px;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.txt6{
+    font-size: 4.5rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

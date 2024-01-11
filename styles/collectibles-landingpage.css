@@ -1,0 +1,39 @@
+
+.collectibles-layer{
+    position: relative;
+}
+
+.bg-image{
+    width: 100vw;
+}
+
+.bg-image img{
+    z-index: -1; 
+    width: 100%; 
+    height: auto;
+}
+
+.collectibles-layer .collectible-container{
+    margin: 10%; width: 100%; position: absolute; top: -25%;
+}
+
+.collectibles-layer .collectible-container .text-side .collection-title{
+    font-size: 12vh;
+}
+
+.collectibles-layer .collectible-container .text-side .title-nav{
+    margin-left: -2.3vw;
+}
+
+.collectibles-layer .collectible-container .text-side hr{
+    border-color: grey; margin-top: -8.1vh; margin-left: -15vw;
+}
+
+.collectibles-layer .collectible-container .text-side .title-nav .flex-inline{
+    font-size: 2.5vh; 
+    letter-spacing: 1px; 
+    font-weight: 100;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+

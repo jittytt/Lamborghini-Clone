@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Travel trolley and backpacks by Lamborghini - Travel Collection</title>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href = "../styles/clothing.css"> 
+    <link rel="stylesheet" href="../styles/navbar_popup.css">
+    <script type = "module" src = "../scripts/popup-cartrender.js"></script>
+    <script src = "../scripts/rightsidenavanimation.js"></script>
+    <link rel="stylesheet" href="../styles/storepopup.css">
+    </head>
+    <body>
+        <div class = "clothing-page">
+            <header class="">
+                <div class="header-top">
+                    <div class="top-letter d-flex align-items-center">
+                        <div class="top-letter-content">
+                            <p>Sign up for the newsletter and get a 10% discount on your first order!</p>
+                        </div>
+                        <div class="top-letter-options d-flex justify-content-between align-items-center">
+                            <div class="locator">
+                                <a href="">Storelocator</a>
+                            </div>
+                            <div class="country">
+                                <select name="" id="">
+                                    <option value="us">US</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="navbar-container container-fluid d-flex align-items-center" id="main-navbar">
+                    <div class="navbar-wrapper d-flex">
+                        <div class="logo-nav d-flex">
+                            <div class="logo-wrapper d-flex align-items-center">
+                                <a href="../index.html">
+                                    <img src="../assets/lamborghini.png" alt="">
+                                </a>
+                            </div>
+                            <div class="navbar container">
+                                <nav class="">
+                                    <div class="navbuttons d-flex">
+                                        <div class="each-button">
+                                            <a href=""><strong>NEW IN</strong></a>
+                                        </div>
+                                        <div class="each-button" id="shop-the-look">
+                                            <a href="">CLOTHING</a>
+                                        </div>
+                                        <div class="each-button" id="special-editions">
+                                            <a href="">ACCESSORIES</a>
+                                        </div>
+                                        <div class="each-button" id="collaborations">
+                                            <a href="">COLLABORATIONS</a>
+                                        </div>
+                                        <div class="each-button" id="lambo-world">
+                                            <a href="">LAMBO WORLD</a>
+                                        </div>
+                                        <div class="each-button" id="promo">
+                                            <a href=""><strong>PROMO</strong></a>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+    
+                        <div class="nav-right d-flex justify-content-center align-items-center">
+                            <div class="nav-right-elements d-flex justify-content-between">
+                                <div class="nav-right-list">
+                                    <a href="">
+                                        <i class="each-list bi bi-search"></i>
+                                    </a>
+                                </div>
+                                <div class="nav-right-list">
+                                    <div class="person-icon">
+                                        <i id="showPopUp" class="bi bi-person"></i>
+                                    </div>
+                                    <div id="pop-up" class="pop-up">
+                                        <div class="pop-up-capt">
+                                            Welcome <span id="pop-up-name-part">Nigin N</span>
+                                        </div>
+                                        <hr class="pop-up-divider" style = "margin-top : 10px;">
+                                        <div class="pop-up-dashboard-capt">
+                                            <a class="pop-up-links" href="../pages/dashboard.html">
+                                                <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+                                                    </path>
+                                                </svg>
+                                                <span class="pop-up-div-content">Dashboard</span>
+                                            </a>
+                                        </div>
+                                        <div class="pop-up-addressbook-capt">
+                                            <a class="pop-up-links" href="../pages/addressbook.html">
+                                                <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                                    aria-hidden="true">
+                                                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+                                                </svg>
+                                                <span class="pop-up-div-content">Address Book</span>
+                                            </a>
+                                        </div>
+                                        <div class="pop-up-ordersandreturns-capt">
+                                            <a class="pop-up-links" href="../pages/orders.html">
+                                                <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z">
+                                                    </path>
+                                                </svg>
+                                                <span class="pop-up-div-content">Orders &amp; Returns</span>
+                                            </a>
+                                        </div>
+                                        <div class="pop-up-logout-capt">
+                                            <a class="pop-up-links" onclick="logout();">
+                                                <svg class="pop-up-icons" focusable="false" viewBox="0 0 24 24"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z">
+                                                    </path>
+                                                </svg>
+                                                <span class="pop-up-div-content">Logout</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class = "store-rightside-nav-container">
+                                    <div class = "store-rightside-nav-cont">
+                                        <div class = "store-rightside-nav-div">
+                                            <div class = "store-rightsize-close-icon">
+                                                <span id = "close-button" class="store-close-icon"><svg width="23" height="22" fill="gray" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root" focusable="false" viewBox="0 0 23 22" aria-hidden="true"><path d="M22.09 20.43l-9.87-9.86 9.07-9.07-.7-.71-9.07 9.07-9.1-9.1-.71.71 9.1 9.1-9.9 9.89.71.71 9.9-9.89 9.86 9.86.71-.71z"></path></svg></span>
+                                            </div>
+                                            <div class = "store-rightside-cart-item-div">
+                                                <div class = "store-rightside-cart-item-popups-capt">
+                                                    Cart Items
+                                                </div>
+                                            </div>
+                                            <div class = "cart-section">
+                                                <div class = "cart-product-list-popup">
+                                                </div>
+                                                <div class = "popup-store-divider">
+                                                    
+                                                </div>
+                                                <div class = "grand-total-div">
+                                                </div>
+                                                <div class = "procced-to-checkout-button-div">
+                                                </div>
+                                                <div class = "view-cart-div-popup">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class = "pipe-sym">&#124;</span>
+                                <div class="nav-right-list">
+                                    <a href="../pages/wishlist.html">
+                                        <div class = "star">
+                                            <i id="star-icon" class="bi bi-star"></i>
+                                            <div class = "store-num-div">
+                                                <div class = "wishlist-count-div">
+                                                    <center><span class = "wishlist-count-value"></span></center>
+                                                </div>
+                                            </div>
+                                        </div>                                    
+                                    </a>      
+                                </div>
+                                <div class="nav-right-list">
+                                    <a>
+                                        <div class = "bag">
+                                            <i class="bi bi-bag" id = "store-button"></i>
+                                            <div class = "cart-num-div">
+                                                <div class = "cart-count-div">
+                                                    <span class = "cart-count-value"></span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                <div class="dropdown-nav d-flex" id="shop-the-look-submenu">
+                    <div class="dropdown-column1">
+                        <ul>
+                            <li><a href="">MAN COLLECTION</a></li>
+                            <li><a href="">KIDS</a></li>
+                            <li><a href="../pages/skiwear.html">SKIWEAR</a></li>
+                            <li><a href="">SQUADRA CORSE</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column2">
+                        <ul>
+                            <li><a href="../pages/clothing.html">JACKETS</a></li>
+                            <li><a href="">SWEATSHIRTS</a></li>
+                            <li><a href="">POLOS & T-SHIRTS</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column3">
+                        <div class="column3-container d-flex">
+                            <div class="dropdown-img1">
+                                <div class="column3-img">
+                                    <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-345x264-A01.jpg"
+                                        alt="">
+                                </div>
+                                <div class="hexicon d-flex align-items-center">
+                                    <img src="../assets/hexicon.svg" alt="">
+                                    <p>See now</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-img2">
+                                <div class="column3-img">
+                                    <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1413-TENDINA-517x264-B01.jpg"
+                                        alt="">
+                                </div>
+                                <div class="hexicon d-flex align-items-center">
+                                    <img src="../assets/hexicon.svg" alt="">
+                                    <p>Find out more</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-nav d-flex" id="special-editions-submenu">
+                    <div class="dropdown-column1" style="width: 25%;">
+                        <ul>
+                            <li><a href="../pages/bagsandluggages.html">BAGS & LUGGAGES</a></li>
+                            <li><a href="">SMALL LEATHER GOODS</a></li>
+                            <li><a href="">CAPS & HATS</a></li>
+                            <li><a href="">KEYHOLDERS</a></li>
+                            <li><a href="">SQUADRA CORSE</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-nav d-flex" id="collaborations-submenu">
+                    <div class="dropdown-column1" style="width: 25%;">
+                        <ul>
+                            <li><a href="../pages/skiwear.html">DESCENTE X AUTOMOBILI LAMBORGHINI</a></li>
+                            <li><a href="">RHUDE X AUTOMOBILI LAMBORGHINI</a></li>
+                            <li><a href="">MASTER &amp; DYNAMIC AUDIO DEVICES</a></li>
+                            <li><a href="">UPCYCLED LEATHER PROJECT</a></li>
+                            <li><a href="">LEGO</a></li>
+                            <li><a href="">OMP TRACKWEAR</a></li>
+                            <li><a href="">MR AND LOOKSMART MODEL CARS</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-nav d-flex" id="lambo-world-submenu">
+                    <div class="dropdown-column1" style="width: 40%;">
+                        <ul>
+                            <li><a href="../pages/lamboworld.html">MODEL CARS</a></li>
+                            <li><a href="">BOOKS</a></li>
+                            <li><a href="">TOYS</a></li>
+                            <li><a href="">HEADPHONES</a></li>
+                            <li><a href="">CALENDARS AND POSTERS</a></li>
+                            <li><a href="">HOME & OFFICE</a></li>
+                            <li><a href="">COLLECTIBLES</a></li>
+                        </ul>
+                    </div>
+    
+                    <div class="dropdown-column3">
+                        <div class="column3-container d-flex">
+                            <div class="dropdown-img1">
+                                <div class="column3-img">
+                                    <img src="https://static.lamborghinistore.com/media/wysiwyg/345x264-5.jpg" alt="">
+                                </div>
+                                <div class="hexicon d-flex align-items-center">
+                                    <img src="../assets/hexicon.svg" alt="">
+                                    <p>See now</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-img2">
+                                <div class="column3-img">
+                                    <img src="https://static.lamborghinistore.com/media/wysiwyg/517x264-5.jpg" alt="">
+                                </div>
+                                <div class="hexicon d-flex align-items-center" style="width: 300px;">
+                                    <img src="../assets/hexicon.svg" alt="">
+                                    <p>Discover the Home & Office collection</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-nav d-flex" id="promo-submenu">
+                    <div class="dropdown-column1" style="width: 40%;">
+                        <ul>
+                            <li><a href="../pages/promo.html">30% OFF</a></li>
+                            <li><a href="">40% OFF</a></li>
+                        </ul>
+                    </div>
+    
+                    <div class="dropdown-column3">
+                        <div class="column3-container d-flex">
+                            <div class="dropdown-img1">
+    
+                            </div>
+                            <div class="dropdown-img2">
+                                <div class="column3-img">
+                                    <img src="https://static.lamborghinistore.com/media/wysiwyg/LMBGST-1114-345x264-G01.jpg"
+                                        alt="" style="width: 345px; height: 270px;">
+                                </div>
+                                <div class="hexicon d-flex align-items-center" style="width: 300px;">
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class = "data-part">
+                <div class="breadcrumb-bar">
+                    <nav aria-label="breadcrumb">
+                        <ul class="d-flex flex-wrap">
+                            <li><a href="../index.html">Home &nbsp </a></li>
+                            <li>/ &nbsp</li>
+                            <li><a href="./clothing.html">Travel &nbsp </a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class = "outerwear-caption">
+                    <h1 class = "capt">TRAVEL</h1>
+                </div>
+                <center>
+                    <div class = "topic-image">
+                        <img src = "https://static.lamborghinistore.com/media/catalog/category/1920x600.jpg">
+                    </div>
+                </center>
+                <div class = "container">
+                    <div class = "products">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <footer class="foot">
+                <br>
+                <hr>
+                <div class="footer">
+                    <div class="footer-section">
+                        <h3>CUSTOMER CARE</h3>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Return Policy</a></li>
+                            <li><a href="#">Payments</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section">
+                        <h3>LEGAL AREA</h3>
+                        <ul>
+                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section">
+                        <h3>STORE LOCATOR</h3>
+                        <ul>
+                            <li><a href="#">Find a store</a></li>
+                        </ul>
+                        <br>
+                        <h3>COUNTRY</h3>
+                        <ul>
+                            <li><a href="#">US</a></li>
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section-follow">
+                        <h3>FOLLOW US</h3>
+                        <ul class="social-media">
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Facebook.png" alt="Facebook"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Twitter.png" alt="Twitter"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Instagram.png" alt="Instagram"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/YouTube.png" alt="YouTube"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://www.lamborghini-storefront.it.stage.filoblutest.com/media/filoblu/admintheme/Pinterest.png" alt="Pinterest"></a></li>
+                            <li><a href="#" target="_blank"><img src="https://static.lamborghinistore.com/media/wysiwyg/TIKTOK.png" alt="TIKTOK"></a></li>
+                        
+                        </ul>
+                    </div>
+                
+                    <div class="footer-section-newsletter">
+                        <h3>SUBSCRIBE TO OUR <br> NEWSLETTER</h3>
+                        <p>Insert your email here</p>
+                        <br>
+                        <label for="">E-mail *</label>
+                        <input class="newsletter-input" type="email">
+                    </div>
+                </div>
+                <div class="end-text">
+                    <div class="end-left">
+                        <p>*Values refer to the European area. Contact your dealer for information on fuel consumption and emissions valid in your country.</p>
+                        <p> COPYRIGHT © 2023 - LAMBORGHINI STORE - Via Modena 12, Sant’Agata Bolognese (BO) Italia - p.iva 00591801204 | REA BO 259882</p>
+                   
+                    </div>
+                    <div class="end-right">
+                        <br>
+                        <p>Powered by FiloBlu</p>
+                    </div>
+                </div>
+            </footer>
+            
+        </div>
+        
+        <script src="../scripts/navbar-store.js"></script>
+        <script src ="../scripts/bagsandluggages.js"></script>
+        <script type="module" src="../scripts/logincontroller.js"></script>
+    </body>
+</html>

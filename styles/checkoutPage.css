@@ -1,0 +1,379 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+
+}
+/* Checkout headding */
+.checkoutHeader{
+    margin-top: 8%;
+    text-align: center;
+    letter-spacing: 0.2cap;
+
+}
+.checkoutBar{
+    margin-top: 2%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.checkoutBar2{
+    margin-top: 0%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.checkoutBar .two{
+    text-align: left;
+    color: #aca0a0;
+}
+.checkoutBar hr{
+    border: 1%;
+    border-color: black;
+}
+
+/* Checkout headding end */
+
+/* checkout shipping */
+
+.address-form {
+    background-color: #fff;
+    padding: 10px;
+    margin-right:15%;
+    margin-left: 18%;
+    margin-top: 5%;
+    
+
+}
+.address-form h4 {
+    font-size: 100%;
+    padding-bottom: 3%;
+}
+
+.form-row {
+    margin-bottom: 5%;
+}
+
+.form-row i{
+    margin-right: -5%;
+    padding-right: 0%;
+}
+.form-row a{
+    text-decoration: none;
+    color: rgba(10, 8, 8, 0.575);
+}
+
+.half {
+    width: 50%;
+    display: inline-block;
+}
+.form-row p{
+    font-weight: bold;
+    font-size: 78%;
+    color: rgba(36, 32, 32, 0.76);
+}
+.form-row label {
+    display: block;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 80%;
+    color: rgba(10, 1, 1, 0.301);
+}
+#labelphone{
+    font-size: 60%;
+}
+#phonePrefix{
+    margin-top: 16%;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #1f1d1d;
+    font-size: 80%;
+}
+
+.form-row input {
+    width:100%;
+    font-size: 80%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #1f1d1d;
+    height: 50%;
+    outline: none;
+}
+.addressButton{
+    margin-left: 74%;
+    margin-top: -2%;
+}
+.address-form button {
+    background-color: #0c020262;
+    color: #f7f7f7f6;
+    padding: 8px 16px;
+    border: 1px solid#0c020213;
+    border-radius: 1px;
+    cursor: default;
+    font-weight: 620;
+    font-family: Roboto;
+    pointer-events: none; /* Initially disable the button */
+    transition: background-color 0.3s ease; /* Add a smooth transition for better user experience */
+   
+}
+.address-form a{
+    text-decoration: none;
+    color: #dee2e6;
+}
+
+.address-form button.active {
+    pointer-events: auto; /* Enable the button when the form is valid */
+    background: linear-gradient(to left, #faf9f9fd 50%, #0e0d0dfa 50%);
+    background-size: 200% 100%; /* Larger size to cover the entire button */
+    color: #f7f1f1f6;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 1px;
+    cursor:pointer;
+    font-weight: 620;
+    font-family: Roboto;
+    border-width: 1%;
+    transition: background-position 0.3s ease; 
+    animation: scaleUp 0.3s ease-in-out;
+
+}
+.address-form button:hover {
+    
+    background-position: 100% 100%; 
+    background-color: #fcf9f9;
+    color: #0f0f0fee;
+    border: 1px solid black; /* Set border properties here */
+    transition: background-position 0.3s ease ; 
+   
+}
+.address-form button:hover a{
+    text-decoration: none;
+    color: #0c0d0e;
+}
+.address-form hr{
+    border: 1%;
+    border-color: black;
+}
+@keyframes scaleUp {
+    0% {
+     transform: scale(1);
+    }
+   
+    50% {
+     transform: scale(0.95);
+    }
+   
+    100% {
+     transform: scale(1);
+    }
+   }
+
+
+/* checkout shipping end */
+
+/* checkout nav */
+header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.navbar-container {
+    height: 82px;
+    background-color: black;
+}
+.navbar-container a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo-nav {
+    width: 100%;
+}
+
+.logo-wrapper {
+    width: 10%;
+    text-align: center;
+}
+.logo-wrapper img {
+    height: 70px;
+    width: 70px;
+}
+.cartIcon{
+    text-align: right;
+    padding-right: 5%;
+}
+.backToCart{
+    padding-left: 2%;
+    
+}
+
+/* checkout shipping address icon */
+.shippIcon{
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-bottom: -2%;
+}
+.homeicon{
+    text-align: right;
+    
+}
+.shippIcon i{
+    color: white;
+    font-size: 150%;
+    
+}
+.shippIcon .text{
+    font-size: 120%;
+}
+.shippIcon .ic{
+    margin-left: 81%;
+    padding-right: 3%;
+    background-color: #aca0a0;
+    border-radius: 50%;
+}
+/* checkout shipping address icon end */
+
+/* shipping method */
+#icon2{
+    margin-top: 0% !important;
+}
+.shipMethod{
+    margin-top: 5%;
+    margin-left: 22%;
+}
+.shipMethod1{
+    margin-top: 2%;
+    margin-left: 21%;
+}
+#editicon{
+    margin-left: 70%;
+    color: rgba(5, 5, 5, 0.671);
+    text-decoration: none;
+}
+/* shipping method end */
+
+/* Product price footer */
+.fixed-bottom-section {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    width:101.5%;
+    height: 15%;
+    background-color: #f8f9fa; /* Adjust background color as needed */
+    border-top: 1px solid #dee2e6; /* Optional: add a border at the top */
+    align-content: center;
+  }
+  .fixed-bottom-section .one {
+    align-items: center;
+    flex: 1;  
+    font-size: small;
+    
+}
+.fixed-bottom-section .two {
+    flex: 5;  
+    text-align: right;
+    }
+    .fixed-bottom-section .three{
+        flex: 6;
+        text-align: center;
+        margin-left: 10%;
+        align-items: center;
+    }
+    .fixed-bottom-section button{
+        border: none;
+        background-color: #aca0a0;
+        color: white;
+        font-weight:500;
+        pointer-events: none;
+        
+    }
+    .fixed-bottom-section a{
+        text-decoration: none;
+        color: white;
+    }
+    .fixed-bottom-section button .active{
+        border: none;
+        background-color: #050505;
+        color: white;
+        font-weight:500;
+        pointer-events: auto;
+        
+    }
+
+    /* payment page */
+    .paymentrow{
+        margin-top: 3%;
+        margin-left: 11%;
+        margin-right: 11%;
+
+    }
+    .shippIcon .ic1{
+        margin-left: 3%;
+        padding-right: 25%;
+        background-color: #aca0a0;
+        border-radius: 50%;
+    }
+    .payment-options label{
+        color: #050505;
+        font-size: 100%;
+    }
+    .payment-options hr{
+        margin-top: 0%;
+        border-color: #050505b7;
+    }
+    .payment-options p{
+        font-size: 90%;
+        cursor: pointer;
+        text-decoration: none;
+       
+    }
+    .payment-options a{
+        font-size: 90%;
+        cursor: pointer;
+        text-decoration: none;
+        color: #050505;
+       
+    }
+    
+    .shippingMethod2 {
+        margin-top : -4%;
+        
+    }
+    .shippingMethod1 {
+        margin-top : 4%;
+        margin-left: 22.5%;
+    }
+    .shippingMethod1 .name-part {
+        font-size : 15.5px;
+        font-family: 'Roboto', sans-serif;
+        font-weight : 400;
+        letter-spacing : 1px;
+    }
+    
+    .shippingMethod1 .info-part {
+        font-family: 'Roboto', sans-serif;
+        font-size : 12px;
+        letter-spacing : 1.5px;
+        padding-bottom : 5px;
+        font-weight : 500;
+    }
+    .addresss {
+        cursor: pointer;
+        padding: 10px;
+        margin-bottom: 5%;
+        display: inline-block;
+        margin-right: 35px;
+        width: 275px;
+        height: 280px;
+        border-bottom : 100px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Adjust values for your desired shadow */
+    }
+    .newbtn{
+        background-color: #050505;
+        color: white;
+        height: 70%;
+        margin-left: 18%;
+    }

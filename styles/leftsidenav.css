@@ -1,0 +1,155 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto&family=Urbanist&display=swap');
+
+.data-part {
+    display: flex;
+    padding-top: 118px;
+  }
+  
+  .leftrightmaincontainer {
+    display: flex;
+    flex: 1; /* Take up remaining space */
+  }
+  
+  
+  .arrow-icon {
+    cursor: pointer;
+  }
+  
+  .sidebar-options {
+    margin-top: 20px;
+  }
+  
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-list a {
+    text-decoration: none;
+  }
+  
+  .sidebar-list li {
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .content-container {
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+    margin-left : 70px;
+  }
+  
+  .breadcrumb-bar {
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 50%;
+    padding-top : 25px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    margin-left : 3px;
+  }
+  
+  .breadcrumb-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .breadcrumb-bar li {
+    display: inline;
+    margin-right: 5px;
+  }
+
+  .breadcrumb-bar a, li {
+    color:#6f6f6f;
+}
+  
+  .outerwear-caption {
+    margin-bottom: 20px;
+  }
+  
+
+  /* Sidebar Styles */
+.sidebar {
+    width: 80px; /* Set the width of the sidebar */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 119px;
+    left: -15px;  /* Initially hidden off-screen */
+    height: 100vh;
+    background-color:white;
+    transition: left 0.3s ease;
+    border-color: #181818;
+    font-size: 11px;
+    font-family: Roboto;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 1px;
+    z-index: 1;
+  }
+  
+  .arrow-icon {
+    color: #181818;
+    padding: 15px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .sidebar-options {
+    padding: 20px;
+  }
+  
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar-list li i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+  }
+  
+  /* Initially hide the labels */
+  .option-label {
+    display: none;
+    color: #181818;
+  }
+  
+  /* Expanded state */
+  .sidebar.expanded {
+    left: 0;
+    width: 250px;
+  }
+  
+  .sidebar.expanded .option-label {
+    display: inline-block;
+  }
+  
+  .data-part {
+    padding-top: 118px;
+}
+ @keyframes scaleUp {
+    0% {
+     transform: scale(1);
+    }
+   
+    50% {
+     transform: scale(0.95);
+    }
+   
+    100% {
+     transform: scale(1);
+    }
+   }
+   
